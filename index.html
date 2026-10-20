@@ -1,11 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ilm Aura Quran</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -13,19 +19,23 @@
       color: #183d32;
       line-height: 1.8;
     }
+
     header {
       background: #183d32;
       color: white;
       text-align: center;
       padding: 28px 15px;
     }
+
     header h1 { margin: 0; font-size: 30px; }
     header p { margin: 5px 0 0; }
+
     main {
       max-width: 760px;
       margin: 25px auto;
       padding: 16px;
     }
+
     .card {
       background: white;
       padding: 22px;
@@ -33,12 +43,14 @@
       margin-bottom: 18px;
       box-shadow: 0 3px 14px #0000000d;
     }
+
     .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin: 15px 0;
     }
+
     button {
       border: 0;
       border-radius: 8px;
@@ -48,20 +60,13 @@
       font-size: 16px;
       cursor: pointer;
     }
-    button:focus { outline: 2px solid #b18a45; }
+
+    button:focus {
+      outline: 2px solid #b18a45;
+    }
+
     button.secondary { background: #b18a45; }
-    .arabic {
-      font-size: 27px;
-      text-align: right;
-      direction: rtl;
-      line-height: 2;
-    }
-    .urdu {
-      direction: rtl;
-      text-align: right;
-      font-size: 19px;
-    }
-    .muted { color: #555; font-size: 14px; }
+
     input {
       width: 100%;
       padding: 13px;
@@ -69,59 +74,61 @@
       border-radius: 8px;
       font-size: 16px;
     }
+
+    .arabic {
+      font-family: 'Amiri', serif;
+      font-size: 30px;
+      font-weight: 700;
+      text-align: center;
+      direction: rtl;
+      line-height: 2.2;
+    }
+
+    .urdu {
+      font-family: 'Noto Naskh Arabic', serif;
+      direction: rtl;
+      text-align: right;
+      font-size: 19px;
+      line-height: 2;
+    }
+
+    .muted {
+      color: #555;
+      font-size: 14px;
+    }
+
+    .ayah-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #8b6b35;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      font-family: 'Amiri', serif;
+      font-size: 16px;
+      color: #8b6b35;
+      line-height: 1;
+      margin: 0 5px;
+      vertical-align: middle;
+    }
+
+    audio {
+      display: block;
+      width: 100%;
+      margin: 15px 0;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
       color: #555;
     }
+
     [hidden] { display: none !important; }
-    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap');
-
-#arabicText,
-#arabicContent,
-.arabic {
-  font-family: 'Amiri', serif;
-  font-weight: 700;
-  font-size: 30px;
-  line-height: 2;
-  direction: rtl;
-  text-align: center;
-}
-
-#urduContent,
-#urduContent p {
-  font-family: 'Noto Naskh Arabic', serif;
-  font-weight: 400;
-  line-height: 2;
-  direction: rtl;
-  text-align: right;
-}
-
-#englishContent,
-#englishContent p {
-  font-family: Arial, sans-serif;
-  font-weight: 400;
-  line-height: 1.8;
-}
- .ayah-number {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #8b6b35;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font-family: 'Amiri', serif;
-  font-size: 16px;
-  font-weight: 700;
-  color: #8b6b35;
-  line-height: 1;
-  margin: 0 5px;
-  vertical-align: middle;
-  direction: rtl;
-}
   </style>
 </head>
+
 <body>
   <header>
     <h1>Ilm Aura Quran</h1>
@@ -133,101 +140,136 @@
     <section class="card">
       <h2>Quran Tafseer | قرآن کی تفسیر</h2>
       <p>Surah ya ayat ka naam likh kar search karein.</p>
-      <input id="search" type="search"
-        placeholder="Misal: Surah Al-Fatiha">
+
+      <input
+        id="search"
+        type="search"
+        placeholder="Misal: Surah Al-Fatiha"
+        aria-label="Surah ya ayat search karein"
+      >
+
       <div class="buttons">
-        <button onclick="findTafseer()">Search</button>
+        <button type="button" onclick="findTafseer()">Search</button>
       </div>
+
       <p id="searchMessage" aria-live="polite"></p>
     </section>
 
-    <section class="card">
+    <section class="card" id="fatiha">
       <h2>Surah Al-Fatiha | سورۃ الفاتحہ</h2>
+
       <div class="buttons">
-        <button onclick="showLanguage('ur')">اردو</button>
-        <button onclick="showLanguage('en')">English</button>
+        <button type="button" onclick="showLanguage('ur')">اردو</button>
+        <button type="button" onclick="showLanguage('en')">English</button>
       </div>
 
       <h3>Arabic | عربی</h3>
-<div class="arabic" lang="ar">
-  بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-  <br>
-  الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
-  <span class="ayah-number">١</span>
-  <br>
-  الرَّحْمَٰنِ الرَّحِيمِ
-  <span class="ayah-number">٢</span>
-  <br>
-  مَالِكِ يَوْمِ الدِّينِ
-  <span class="ayah-number">٣</span>
-  <br>
-  إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
-  <span class="ayah-number">٤</span>
-  <br>
-  اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
-  <span class="ayah-number">٥</span>
-  <br>
-  صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ
-  <span class="ayah-number">٦</span>
-  <br>
-  غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
-  <span class="ayah-number">٧</span>
-</div>
-     <div id="urduTranslation">
-  <h3>سورۃ الفاتحہ — اردو ترجمہ</h3>
 
-  <p class="urdu">
-    شروع اللہ کا نام لے کر جو بڑا مہربان نہایت رحم والا ہے۔
-    سب طرح کی تعریف خدا ہی کو (سزاوار) ہے جو تمام مخلوقات کا پروردگار ہے۔
-    بڑا مہربان نہایت رحم والا۔
-    انصاف کے دن کا حاکم۔
-    (اے پروردگار) ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں۔
-    ہم کو سیدھے راستے چلا۔
-    ان لوگوں کے راستے جن پر تو اپنا فضل وکرم کرتا رہا نہ ان کے جن پر غصے ہوتا رہا اور نہ گمراہوں کے۔
-  </p>
+      <div class="arabic" lang="ar" dir="rtl">
+        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        <br>
+        الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+        <span class="ayah-number">١</span>
+        <br>
+        الرَّحْمَٰنِ الرَّحِيمِ
+        <span class="ayah-number">٢</span>
+        <br>
+        مَالِكِ يَوْمِ الدِّينِ
+        <span class="ayah-number">٣</span>
+        <br>
+        إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+        <span class="ayah-number">٤</span>
+        <br>
+        اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
+        <span class="ayah-number">٥</span>
+        <br>
+        صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ
+        <span class="ayah-number">٦</span>
+        <br>
+        غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
+        <span class="ayah-number">٧</span>
+      </div>
 
-  <p><small>ترجمہ: مولانا فتح محمد جالندھری</small></p>
-</div>
-  <div id="urduContent">
-  <h3>سورۃ الفاتحہ — تفسیر (آسان اردو)</h3>
+      <div id="urduTranslation">
+        <h3>سورۃ الفاتحہ — اردو ترجمہ</h3>
 
-  <p class="urdu">
-    سورۃ الفاتحہ قرآن مجید کی ایک عظیم سورت ہے۔ اس میں اللہ تعالیٰ کی حمد و ثنا،
-    اس کی رحمت اور روزِ جزا کی حاکمیت کا بیان ہے۔
-    یہ سورت بندے کو سکھاتی ہے کہ عبادت صرف اللہ تعالیٰ کی کی جائے
-    اور مدد بھی اسی سے مانگی جائے۔
-    اس میں ہم اللہ تعالیٰ سے سیدھے راستے کی ہدایت طلب کرتے ہیں،
-    یعنی ان لوگوں کا راستہ جن پر اس نے اپنا انعام فرمایا۔
-    ساتھ ہی ہم گمراہی اور اللہ تعالیٰ کے غضب کے راستے سے بچنے کی دعا کرتے ہیں۔
-  </p>
+        <p class="urdu">
+          شروع اللہ کا نام لے کر جو بڑا مہربان نہایت رحم والا ہے۔
+          سب طرح کی تعریف خدا ہی کو (سزاوار) ہے جو تمام مخلوقات کا پروردگار ہے۔
+          بڑا مہربان نہایت رحم والا۔
+          انصاف کے دن کا حاکم۔
+          (اے پروردگار) ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں۔
+          ہم کو سیدھے راستے چلا۔
+          ان لوگوں کے راستے جن پر تو اپنا فضل وکرم کرتا رہا نہ ان کے جن پر غصے ہوتا رہا اور نہ گمراہوں کے۔
+        </p>
 
-  <p><small>موضوع: سورۃ الفاتحہ کی آسان اردو میں خلاصہ تفسیر</small></p>
-</div>
+        <p><small>ترجمہ: مولانا فتح محمد جالندھری</small></p>
+      </div>
+
+      <div id="urduContent">
+        <h3>سورۃ الفاتحہ — تفسیر (آسان اردو)</h3>
+
+        <p class="urdu">
+          سورۃ الفاتحہ قرآن مجید کی ایک عظیم سورت ہے۔ اس میں اللہ تعالیٰ کی حمد و ثنا،
+          اس کی رحمت اور روزِ جزا کی حاکمیت کا بیان ہے۔
+          یہ سورت بندے کو سکھاتی ہے کہ عبادت صرف اللہ تعالیٰ کی کی جائے
+          اور مدد بھی اسی سے مانگی جائے۔
+          اس میں ہم اللہ تعالیٰ سے سیدھے راستے کی ہدایت طلب کرتے ہیں،
+          یعنی ان لوگوں کا راستہ جن پر اس نے اپنا انعام فرمایا۔
+          ساتھ ہی ہم گمراہی اور اللہ تعالیٰ کے غضب کے راستے سے بچنے کی دعا کرتے ہیں۔
+        </p>
+
+        <p><small>موضوع: سورۃ الفاتحہ کی آسان اردو میں خلاصہ تفسیر</small></p>
+      </div>
+
       <div id="englishContent" hidden>
-  <h3>Surah Al-Fatiha — Simple English Tafseer</h3>
-  <p>
-    Surah Al-Fatiha teaches us to praise Allah Ta'ala, the Lord
-    of all worlds. He is Most Merciful and Most Compassionate.
-    He alone has full authority over the Day of Judgement.
-    We worship only Allah Ta'ala and ask Him alone for help.
-    We also pray to Allah Jalla Jalaluhu to guide us to the
-    straight path and help us follow it. This is the path of
-    those whom Allah Ta'ala has blessed, not the path of those
-    who earned His anger or lost their way.
-  </p>
-</div>
+        <h3>Surah Al-Fatiha — Simple English Tafseer</h3>
+
+        <p>
+          Surah Al-Fatiha teaches us to praise Allah, the Lord of all worlds.
+          He is Most Merciful and Most Compassionate. He alone has full
+          authority over the Day of Judgement. We worship only Allah and ask
+          Him alone for help. We pray to Him to guide us to the straight path:
+          the path of those whom He has blessed, not the path of those who
+          earned His anger or lost their way.
+        </p>
+      </div>
+
+      <hr>
+
+      <h3>Surah Al-Fatiha Audio | تلاوت سنیں</h3>
+
+      <audio id="quranAudio" controls preload="metadata">
+        <source
+          src="https://ilmauraquran.github.io/ilmauraquran/surah-fatiha.mp3"
+          type="audio/mpeg"
+        >
+        Aapka browser audio play nahi kar sakta.
+      </audio>
+
+      <p id="audioMessage" class="muted" aria-live="polite">
+        Audio load hone ka intezar karein.
+      </p>
+
+      <hr>
+
+      <h3>Tafseer Voice | تفسیر سنیں</h3>
+
       <div class="buttons">
-  <audio controls preload="metadata" style="width: 100%;">
-    <source src="./surah-fatiha.mp3" type="audio/mpeg">
-    Aapka browser audio play nahi kar sakta.
-  </audio>
-  <button onclick="stopSpeech()">■ Stop Tafseer</button>
-</div>
-<p id="voiceMessage" class="muted" aria-live="polite"></p>
+        <button type="button" class="secondary" onclick="speakTafseer()">
+          🔊 Sunein / Listen
+        </button>
+
+        <button type="button" onclick="stopSpeech()">
+          ■ Stop
+        </button>
+      </div>
+
+      <p id="voiceMessage" class="muted" aria-live="polite"></p>
+
       <p class="muted">
-        Note: This is an introductory summary, not a direct quotation
-        from Dr. Israr Ahmed. Detailed tafseer with verified references
-        will be added as the library grows.
+        Note: Tafseer is a simple introductory explanation.
+        It is not presented as a direct quotation from a particular scholar.
       </p>
     </section>
   </main>
@@ -239,8 +281,16 @@
 
     function showLanguage(language) {
       currentLanguage = language;
-      document.getElementById("urduContent").hidden = language !== "ur";
-      document.getElementById("englishContent").hidden = language !== "en";
+
+      document.getElementById("urduTranslation").hidden =
+        language !== "ur";
+
+      document.getElementById("urduContent").hidden =
+        language !== "ur";
+
+      document.getElementById("englishContent").hidden =
+        language !== "en";
+
       stopSpeech();
     }
 
@@ -254,8 +304,10 @@
       }
 
       if (/fatiha|فاتحہ|فاتحه/i.test(query)) {
-        message.textContent = "Surah Al-Fatiha ki tafseer neeche mojood hai.";
-        document.querySelectorAll(".card")[1].scrollIntoView({
+        message.textContent =
+          "Surah Al-Fatiha ki tafseer neeche mojood hai.";
+
+        document.getElementById("fatiha").scrollIntoView({
           behavior: "smooth"
         });
       } else {
@@ -275,27 +327,38 @@
 
       window.speechSynthesis.cancel();
 
-      const text = currentLanguage === "ur"
-        ? document.querySelector("#urduContent p").innerText
-        : document.querySelector("#englishContent p").innerText;
+      const selector = currentLanguage === "ur"
+        ? "#urduContent p.urdu"
+        : "#englishContent p";
 
-      const utterance = new SpeechSynthesisUtterance(text);
+      const paragraph = document.querySelector(selector);
+
+      if (!paragraph) {
+        message.textContent = "Tafseer ka matn nahi mila.";
+        return;
+      }
+
+      const utterance = new SpeechSynthesisUtterance(
+        paragraph.innerText
+      );
+
       utterance.lang = currentLanguage === "ur" ? "ur-PK" : "en-US";
       utterance.rate = 0.9;
 
-      utterance.onerror = function(event) {
-        message.textContent =
-          "Voice nahi chal saki. Browser ki language ya voice settings check karein.";
-      };
-
-      message.textContent = "Voice tayyar ho rahi hai...";
       utterance.onstart = function() {
         message.textContent = "Tafseer sunayi ja rahi hai.";
       };
+
       utterance.onend = function() {
         message.textContent = "Tafseer mukammal ho gayi.";
       };
 
+      utterance.onerror = function() {
+        message.textContent =
+          "Voice nahi chal saki. Browser ki voice settings check karein.";
+      };
+
+      message.textContent = "Voice tayyar ho rahi hai...";
       window.speechSynthesis.speak(utterance);
     }
 
@@ -303,15 +366,29 @@
       if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
       }
-      const message = document.getElementById("voiceMessage");
-      if (message) message.textContent = "Voice rok di gayi.";
-    }
-  </script>
-  <h2>Surah Al-Fatiha — Urdu Tarjuma</h2>
 
-<audio controls preload="metadata" style="width: 100%;">
-  <source src="surah-fatiha.mp3" type="audio/mpeg">
-  Aapka browser audio play nahi kar sakta.
-</audio>
+      const message = document.getElementById("voiceMessage");
+
+      if (message) {
+        message.textContent = "Voice rok di gayi.";
+      }
+    }
+
+    const audio = document.getElementById("quranAudio");
+    const audioMessage = document.getElementById("audioMessage");
+
+    audio.addEventListener("loadedmetadata", function() {
+      audioMessage.textContent = "Audio tayyar hai. Play dabayein.";
+    });
+
+    audio.addEventListener("canplay", function() {
+      audioMessage.textContent = "Audio chalane ke liye tayyar hai.";
+    });
+
+    audio.addEventListener("error", function() {
+      audioMessage.textContent =
+        "Audio load nahi hui. GitHub par audio file ka naam aur location check karna zaroori hai.";
+    });
+  </script>
 </body>
 </html>
