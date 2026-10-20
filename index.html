@@ -211,7 +211,7 @@
       utterance.lang = currentLanguage === "ur" ? "ur-PK" : "en-US";
       utterance.rate = 0.9;
 
-      utterance.onerror = function() {
+      utterance.onerror = function(event) {
         message.textContent =
           "Voice nahi chal saki. Browser ki language ya voice settings check karein.";
       };
