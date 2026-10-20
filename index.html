@@ -5,11 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ilm Aura Quran</title>
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #f5f7f2;
       color: #183d32;
+      line-height: 1.8;
     }
     header {
       background: #183d32;
@@ -17,73 +19,220 @@
       text-align: center;
       padding: 28px 15px;
     }
-    header h1 { margin: 0 0 8px; }
+    header h1 { margin: 0; font-size: 30px; }
+    header p { margin: 5px 0 0; }
     main {
-      max-width: 650px;
-      margin: 35px auto;
-      padding: 20px;
+      max-width: 760px;
+      margin: 25px auto;
+      padding: 16px;
     }
-    .search-box {
+    .card {
       background: white;
       padding: 22px;
-      border-radius: 12px;
-      box-shadow: 0 3px 15px #00000010;
+      border-radius: 14px;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 14px #0000000d;
     }
-    input {
-      box-sizing: border-box;
-      width: 100%;
-      padding: 14px;
-      border: 1px solid #bbb;
-      border-radius: 8px;
-      font-size: 16px;
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 15px 0;
     }
     button {
-      width: 100%;
-      margin-top: 12px;
-      padding: 14px;
       border: 0;
       border-radius: 8px;
-      background: #b18a45;
+      padding: 11px 16px;
+      background: #183d32;
       color: white;
       font-size: 16px;
       cursor: pointer;
     }
-    #result { margin-top: 18px; line-height: 1.6; }
-    footer { text-align: center; padding: 20px; color: #555; }
+    button:focus { outline: 2px solid #b18a45; }
+    button.secondary { background: #b18a45; }
+    .arabic {
+      font-size: 27px;
+      text-align: right;
+      direction: rtl;
+      line-height: 2;
+    }
+    .urdu {
+      direction: rtl;
+      text-align: right;
+      font-size: 19px;
+    }
+    .muted { color: #555; font-size: 14px; }
+    input {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #bbb;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #555;
+    }
+    [hidden] { display: none !important; }
   </style>
 </head>
 <body>
   <header>
     <h1>Ilm Aura Quran</h1>
-    <p>Quran aur Islami taleem ki maloomat ka markaz</p>
+    <p>Quran ko samjhein, parhein aur sunein</p>
+    <p>Understand the Quran, read and listen</p>
   </header>
 
   <main>
-    <div class="search-box">
-      <h2>Apna sawal likhein</h2>
-      <p>Quran, tafseer ya Dr. Israr Ahmed ke dars ke bare mein poochhein.</p>
-      <input id="question" type="text"
-        placeholder="Misal: Surah Al-Fatiha ki tafseer">
-      <button onclick="searchQuestion()">Search</button>
-      <div id="result"></div>
-    </div>
+    <section class="card">
+      <h2>Quran Tafseer | قرآن کی تفسیر</h2>
+      <p>Surah ya ayat ka naam likh kar search karein.</p>
+      <input id="search" type="search"
+        placeholder="Misal: Surah Al-Fatiha">
+      <div class="buttons">
+        <button onclick="findTafseer()">Search</button>
+      </div>
+      <p id="searchMessage" aria-live="polite"></p>
+    </section>
+
+    <section class="card">
+      <h2>Surah Al-Fatiha | سورۃ الفاتحہ</h2>
+      <div class="buttons">
+        <button onclick="showLanguage('ur')">اردو</button>
+        <button onclick="showLanguage('en')">English</button>
+      </div>
+
+      <h3>Arabic | عربی</h3>
+      <div class="arabic" lang="ar">
+        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+        <br>
+        الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+        <br>
+        الرَّحْمَٰنِ الرَّحِيمِ
+        <br>
+        مَالِكِ يَوْمِ الدِّينِ
+        <br>
+        إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+        <br>
+        اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
+        <br>
+        صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ
+        غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
+      </div>
+
+      <div id="urduContent">
+        <h3>آسان اردو میں تفسیر</h3>
+        <p class="urdu">
+          سورۃ الفاتحہ اللہ تعالیٰ کی حمد و ثنا سے شروع ہوتی ہے۔
+          اس میں اللہ کی رحمت، روزِ جزا کی یاد، صرف اسی کی عبادت
+          اور اسی سے مدد مانگنے کا اقرار ہے۔ اس سورت میں ہم اللہ
+          سے سیدھے راستے کی ہدایت مانگتے ہیں؛ یعنی ان لوگوں کا
+          راستہ جن پر اس کا انعام ہوا، نہ کہ ان لوگوں کا راستہ
+          جو غضب کے مستحق ہوئے یا بھٹک گئے۔
+        </p>
+      </div>
+
+      <div id="englishContent" hidden>
+        <h3>Simple English Tafseer</h3>
+        <p>
+          Surah Al-Fatiha begins by praising Allah and recognizing
+          His mercy and His authority over the Day of Judgement.
+          We affirm that we worship Allah alone and ask Him alone
+          for help. We then pray for guidance to the straight path:
+          the path of those who received His favour, not the path
+          of those who incurred anger or went astray.
+        </p>
+      </div>
+
+      <div class="buttons">
+        <button class="secondary" onclick="speakTafseer()">
+          🔊 Sunein / Listen
+        </button>
+        <button onclick="stopSpeech()">■ Stop</button>
+      </div>
+      <p id="voiceMessage" class="muted" aria-live="polite"></p>
+      <p class="muted">
+        Note: This is an introductory summary, not a direct quotation
+        from Dr. Israr Ahmed. Detailed tafseer with verified references
+        will be added as the library grows.
+      </p>
+    </section>
   </main>
 
-  <footer>Ilm Aura Quran · Taleem aur maloomat ke liye</footer>
+  <footer>Ilm Aura Quran · Learn with understanding</footer>
 
   <script>
-    function searchQuestion() {
-      const q = document.getElementById("question").value.trim();
-      const result = document.getElementById("result");
+    let currentLanguage = "ur";
 
-      if (!q) {
-        result.textContent = "Pehle apna sawal likhein.";
+    function showLanguage(language) {
+      currentLanguage = language;
+      document.getElementById("urduContent").hidden = language !== "ur";
+      document.getElementById("englishContent").hidden = language !== "en";
+      stopSpeech();
+    }
+
+    function findTafseer() {
+      const query = document.getElementById("search").value.trim();
+      const message = document.getElementById("searchMessage");
+
+      if (!query) {
+        message.textContent = "Pehle Surah ya ayat ka naam likhein.";
         return;
       }
 
-      result.textContent =
-        "Aapka sawal: " + q +
-        ". Lecture library abhi tayyar ki ja rahi hai.";
+      if (/fatiha|فاتحہ|فاتحه/i.test(query)) {
+        message.textContent = "Surah Al-Fatiha ki tafseer neeche mojood hai.";
+        document.querySelectorAll(".card")[1].scrollIntoView({
+          behavior: "smooth"
+        });
+      } else {
+        message.textContent =
+          "Is Surah ki tafseer abhi library mein shamil nahi. Filhal Surah Al-Fatiha ka sample mojood hai.";
+      }
+    }
+
+    function speakTafseer() {
+      const message = document.getElementById("voiceMessage");
+
+      if (!("speechSynthesis" in window)) {
+        message.textContent =
+          "Is browser mein voice feature support nahi karta.";
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+
+      const text = currentLanguage === "ur"
+        ? document.querySelector("#urduContent p").innerText
+        : document.querySelector("#englishContent p").innerText;
+
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = currentLanguage === "ur" ? "ur-PK" : "en-US";
+      utterance.rate = 0.9;
+
+      utterance.onerror = function() {
+        message.textContent =
+          "Voice nahi chal saki. Browser ki language ya voice settings check karein.";
+      };
+
+      message.textContent = "Voice tayyar ho rahi hai...";
+      utterance.onstart = function() {
+        message.textContent = "Tafseer sunayi ja rahi hai.";
+      };
+      utterance.onend = function() {
+        message.textContent = "Tafseer mukammal ho gayi.";
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    function stopSpeech() {
+      if ("speechSynthesis" in window) {
+        window.speechSynthesis.cancel();
+      }
+      const message = document.getElementById("voiceMessage");
+      if (message) message.textContent = "Voice rok di gayi.";
     }
   </script>
 </body>
