@@ -75,6 +75,34 @@
       color: #555;
     }
     [hidden] { display: none !important; }
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap');
+
+#arabicText,
+#arabicContent,
+.arabic {
+  font-family: 'Amiri', serif;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 2;
+  direction: rtl;
+  text-align: center;
+}
+
+#urduContent,
+#urduContent p {
+  font-family: 'Noto Naskh Arabic', serif;
+  font-weight: 400;
+  line-height: 2;
+  direction: rtl;
+  text-align: right;
+}
+
+#englishContent,
+#englishContent p {
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.8;
+}
   </style>
 </head>
 <body>
@@ -235,5 +263,16 @@
       if (message) message.textContent = "Voice rok di gayi.";
     }
   </script>
+  <h2>Surah Al-Fatiha — Urdu Tarjuma</h2>
+
+<iframe
+  width="100%"
+  height="150"
+  src="https://www.youtube.com/embed/q57cQGw1WcQ"
+  title="Surah Al-Fatiha Urdu Tarjuma"
+  frameborder="0"
+  allow="autoplay; encrypted-media"
+  allowfullscreen>
+</iframe>
 </body>
 </html>
