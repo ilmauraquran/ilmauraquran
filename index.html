@@ -232,16 +232,43 @@
       line-height: 1.8;
     }
 
-    .arabic {
-      font-family: "Amiri", serif;
-      font-size: clamp(30px, 5vw, 46px);
-      line-height: 2.15;
-      text-align: right;
-      direction: rtl;
-      color: var(--green);
-      overflow-wrap: break-word;
-    }
+   .arabic {
+  font-family: "Amiri", serif;
+  font-size: clamp(30px, 5vw, 46px);
+  font-weight: 700;
+  line-height: 1.8;
+  text-align: center;
+  direction: rtl;
+  color: var(--green);
+  overflow-wrap: break-word;
+}
 
+.ayah-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px auto;
+  text-align: center;
+}
+
+.ayah-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border: 2px solid #c9a227;
+  border-radius: 50%;
+  background: #c9a227;
+  color: #173f35;
+  font-family: serif;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1;
+}
     input,
     button {
       font: inherit;
@@ -425,22 +452,38 @@
       <p class="muted">The Opening Chapter of the Quran</p>
 
       <div class="arabic" lang="ar" dir="rtl">
-        بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-        <br>
-        الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
-        <br>
-        الرَّحْمَٰنِ الرَّحِيمِ
-        <br>
-        مَالِكِ يَوْمِ الدِّينِ
-        <br>
-        إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
-        <br>
-        اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
-        <br>
-        صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ
-        <br>
-        غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
-      </div>
+  <div class="ayah-line">
+    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+  </div>
+  <div class="ayah-line">
+    الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
+    <span class="ayah-number">١</span>
+  </div>
+  <div class="ayah-line">
+    الرَّحْمَٰنِ الرَّحِيمِ
+    <span class="ayah-number">٢</span>
+  </div>
+  <div class="ayah-line">
+    مَالِكِ يَوْمِ الدِّينِ
+    <span class="ayah-number">٣</span>
+  </div>
+  <div class="ayah-line">
+    إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
+    <span class="ayah-number">٤</span>
+  </div>
+  <div class="ayah-line">
+    اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
+    <span class="ayah-number">٥</span>
+  </div>
+  <div class="ayah-line">
+    صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ
+    <span class="ayah-number">٦</span>
+  </div>
+  <div class="ayah-line">
+    غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
+    <span class="ayah-number">٧</span>
+  </div>
+</div>
     </section>
 
     <section class="card" id="translation">
