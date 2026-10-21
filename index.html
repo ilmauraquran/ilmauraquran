@@ -68,7 +68,6 @@
       border-bottom: 4px solid var(--gold);
     }
 
-    /* Logo ki jagah */
     .logo-area {
       display: flex;
       justify-content: center;
@@ -77,13 +76,14 @@
     }
 
     .brand-logo {
-  display: block;
-  width: min(220px, 45vw);
-  max-height: 220px;
-  height: auto;
-  object-fit: contain;
-  image-rendering: auto;
-}
+      display: block;
+      width: min(220px, 45vw);
+      max-height: 220px;
+      height: auto;
+      object-fit: contain;
+      image-rendering: auto;
+    }
+
     .tagline-urdu,
     .intro-urdu,
     .urdu,
@@ -232,7 +232,50 @@
       line-height: 1.8;
     }
 
-   <link href="https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap" rel="stylesheet">
+    /* Surah Al-Fatiha: bara, bold aur markazi Arabic matn */
+    .arabic {
+      width: 100%;
+      padding: 18px 6px;
+      font-family: "Amiri", "Noto Naskh Arabic", serif;
+      font-size: clamp(34px, 5.8vw, 50px);
+      font-weight: 700;
+      line-height: 2.15;
+      text-align: center;
+      direction: rtl;
+      color: var(--green);
+      overflow-wrap: break-word;
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* Ayat ek hi paragraph mein flow karengi */
+    .ayah-line {
+      display: inline;
+      margin: 0;
+      text-align: center;
+    }
+
+    /* Golden border wala gol ayat number */
+    .ayah-number {
+      display: inline-flex;
+      vertical-align: middle;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      width: 38px;
+      height: 38px;
+      margin: 0 5px;
+      border: 2px solid #c9a227;
+      border-radius: 50%;
+      background: #fffaf0;
+      color: #173f35;
+      font-family: "Amiri", serif;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
     input,
     button {
       font: inherit;
@@ -303,6 +346,17 @@
       header {
         padding: 20px 12px 24px;
       }
+
+      .arabic {
+        font-size: clamp(32px, 6vw, 44px);
+        line-height: 2.2;
+      }
+
+      .ayah-number {
+        width: 34px;
+        height: 34px;
+        font-size: 18px;
+      }
     }
 
     @media (max-width: 380px) {
@@ -317,6 +371,18 @@
 
       .card {
         padding: 16px;
+      }
+
+      .arabic {
+        font-size: 32px;
+        line-height: 2.25;
+      }
+
+      .ayah-number {
+        width: 31px;
+        height: 31px;
+        margin: 0 3px;
+        font-size: 17px;
       }
     }
 
@@ -340,7 +406,6 @@
 
   <header>
     <div class="logo-area">
-      <!-- Apne asal mehrab wale logo ki file ka naam yahan lagayein -->
       <img
         class="brand-logo"
         src="ilmauraquran%20LOGO.png"
@@ -365,7 +430,6 @@
     </p>
 
     <nav class="options" aria-label="Quran website sections">
-
       <a class="option" href="#quran">
         <h2>Quran Journey</h2>
         <p lang="ur" dir="rtl">قرآنِ پاک پڑھیں</p>
@@ -385,7 +449,6 @@
         <h2>Noor-e-Tilawat</h2>
         <p lang="ur" dir="rtl">نور بھری تلاوت سنیں</p>
       </a>
-
     </nav>
   </header>
 
@@ -416,38 +479,14 @@
       <p class="muted">The Opening Chapter of the Quran</p>
 
       <div class="arabic" lang="ar" dir="rtl">
-  <div class="ayah-line">
-    بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-  </div>
-  <div class="ayah-line">
-    الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
-    <span class="ayah-number">١</span>
-  </div>
-  <div class="ayah-line">
-    الرَّحْمَٰنِ الرَّحِيمِ
-    <span class="ayah-number">٢</span>
-  </div>
-  <div class="ayah-line">
-    مَالِكِ يَوْمِ الدِّينِ
-    <span class="ayah-number">٣</span>
-  </div>
-  <div class="ayah-line">
-    إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
-    <span class="ayah-number">٤</span>
-  </div>
-  <div class="ayah-line">
-    اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
-    <span class="ayah-number">٥</span>
-  </div>
-  <div class="ayah-line">
-    صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ
-    <span class="ayah-number">٦</span>
-  </div>
-  <div class="ayah-line">
-    غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
-    <span class="ayah-number">٧</span>
-  </div>
-</div>
+        <span class="ayah-line">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span><span class="ayah-number">١</span>
+        <span class="ayah-line">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ الرَّحْمَٰنِ الرَّحِيمِ</span><span class="ayah-number">٢</span>
+        <span class="ayah-line">مَالِكِ يَوْمِ الدِّينِ</span><span class="ayah-number">٣</span>
+        <span class="ayah-line">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</span><span class="ayah-number">٤</span>
+        <span class="ayah-line">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</span><span class="ayah-number">٥</span>
+        <span class="ayah-line">صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ</span><span class="ayah-number">٦</span>
+        <span class="ayah-line">غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</span><span class="ayah-number">٧</span>
+      </div>
     </section>
 
     <section class="card" id="translation">
