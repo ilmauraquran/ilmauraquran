@@ -3,32 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Ilm Aura Quran</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
+      background: #f5f7f4;
+      color: #18231f;
       font-family: Arial, sans-serif;
-      background: #f5f7f2;
-      color: #183d32;
       line-height: 1.8;
     }
 
-    .home-banner {
+    .banner {
       width: 100%;
-      text-align: center;
       background: #07152e;
+      text-align: center;
     }
 
-    .home-banner img {
+    .banner img {
       display: block;
       width: 100%;
       max-width: 1920px;
@@ -40,388 +43,405 @@
       background: #183d32;
       color: white;
       text-align: center;
-      padding: 22px 16px 25px;
-      width: 100%;
+      padding: 24px 16px 28px;
+      border-bottom: 4px solid #c9a44c;
     }
 
     header h1 {
       margin: 0;
-      font-size: clamp(24px, 4vw, 34px);
+      font-size: clamp(27px, 4vw, 42px);
       line-height: 1.4;
     }
 
-    header p {
-      margin: 5px 0 0;
+    .brand-urdu {
+      margin: 3px 0 8px;
+      color: #f1d17a;
+      font-family: "Noto Naskh Arabic", serif;
+      font-weight: 700;
+      font-size: clamp(25px, 4vw, 36px);
+      direction: rtl;
     }
 
-    .signature {
-      color: #e4c782;
-      font-family: Georgia, serif;
-      font-size: clamp(20px, 3vw, 28px);
-      font-weight: bold;
-      margin-top: 16px;
+    .tagline-urdu {
+      margin: 5px 0;
+      color: #ffffff;
+      font-family: "Noto Naskh Arabic", serif;
+      font-weight: 700;
+      font-size: clamp(19px, 2.5vw, 25px);
+      direction: rtl;
     }
 
-    .intro {
-      margin: 5px auto 20px;
-      max-width: 600px;
-      color: #f0eee5;
+    .tagline-english {
+      margin: 3px 0 12px;
+      font-size: clamp(14px, 2vw, 17px);
     }
 
-    .feature-grid {
+    .slogan {
+      margin: 10px 0 4px;
+      color: #f1d17a;
+      font-size: clamp(17px, 2.5vw, 23px);
+      font-weight: 700;
+    }
+
+    .intro-urdu {
+      margin: 4px 0 20px;
+      color: white;
+      font-family: "Noto Naskh Arabic", serif;
+      font-size: clamp(17px, 2.4vw, 21px);
+      font-weight: 700;
+      direction: rtl;
+    }
+
+    .options {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
       width: 100%;
-      max-width: 1150px;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    .feature-link {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .option {
+      display: block;
       min-width: 0;
-      min-height: 94px;
-      padding: 12px 8px;
-      background: #f7f8f1;
-      border: 1px solid #c5aa68;
+      padding: 14px 10px;
+      border: 1px solid #d6c17d;
       border-radius: 12px;
+      background: #ffffff;
       color: #183d32;
       text-decoration: none;
-      overflow-wrap: anywhere;
       transition: background 0.2s, transform 0.2s;
     }
 
-    .feature-link strong {
-      font-family: Georgia, serif;
-      font-size: clamp(14px, 1.7vw, 19px);
-      line-height: 1.5;
-    }
-
-    .feature-link span {
-      font-size: clamp(12px, 1.4vw, 15px);
-      margin-top: 4px;
-      line-height: 1.5;
-    }
-
-    .feature-link:hover {
-      background: #e8dfc6;
+    .option:hover {
+      background: #fff5d8;
       transform: translateY(-2px);
     }
 
+    .option h2 {
+      margin: 0 0 5px;
+      font-size: clamp(15px, 1.8vw, 19px);
+      line-height: 1.4;
+    }
+
+    .option p {
+      margin: 0;
+      font-family: "Noto Naskh Arabic", serif;
+      font-size: clamp(14px, 1.7vw, 17px);
+      font-weight: 700;
+      line-height: 1.7;
+      direction: rtl;
+    }
+
     main {
-      max-width: 900px;
       width: 100%;
+      max-width: 900px;
       margin: 25px auto;
-      padding: 16px;
+      padding: 0 16px;
     }
 
     .card {
+      margin-bottom: 20px;
+      padding: clamp(16px, 3vw, 26px);
       background: white;
-      padding: 22px;
+      border: 1px solid #e0e6df;
       border-radius: 14px;
-      margin-bottom: 18px;
-      box-shadow: 0 3px 14px #0000000d;
-      scroll-margin-top: 15px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+      scroll-margin-top: 18px;
     }
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 15px 0;
+    .card h2 {
+      margin-top: 0;
+      color: #183d32;
+      font-size: clamp(21px, 3vw, 28px);
+    }
+
+    .card h3 {
+      color: #183d32;
+    }
+
+    input,
+    button {
+      font: inherit;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #aab8ad;
+      border-radius: 8px;
+      margin-bottom: 10px;
     }
 
     button {
+      padding: 10px 17px;
+      margin: 4px 4px 4px 0;
       border: 0;
       border-radius: 8px;
-      padding: 11px 16px;
       background: #183d32;
       color: white;
-      font-size: 16px;
       cursor: pointer;
     }
 
-    button:focus {
-      outline: 2px solid #b18a45;
-    }
-
-    button.secondary { background: #b18a45; }
-
-    input {
-      width: 100%;
-      padding: 13px;
-      border: 1px solid #bbb;
-      border-radius: 8px;
-      font-size: 16px;
+    button:hover {
+      background: #285b49;
     }
 
     .arabic {
-      font-family: 'Amiri', serif;
-      font-size: clamp(25px, 4vw, 32px);
-      font-weight: 700;
-      text-align: center;
+      font-family: "Amiri", serif;
+      font-size: clamp(30px, 5vw, 42px);
+      line-height: 2;
+      text-align: right;
       direction: rtl;
-      line-height: 2.2;
+      color: #183d32;
     }
 
     .urdu {
-      font-family: 'Noto Naskh Arabic', serif;
-      direction: rtl;
-      text-align: right;
-      font-size: 19px;
+      font-family: "Noto Naskh Arabic", serif;
+      font-size: clamp(18px, 2.5vw, 22px);
       line-height: 2;
+      text-align: right;
+      direction: rtl;
     }
 
     .muted {
-      color: #555;
+      color: #52635a;
       font-size: 14px;
     }
 
-    .ayah-number {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid #8b6b35;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      font-family: 'Amiri', serif;
-      font-size: 16px;
-      color: #8b6b35;
-      line-height: 1;
-      margin: 0 5px;
-      vertical-align: middle;
+    .section-heading {
+      padding-bottom: 7px;
+      border-bottom: 2px solid #e5d59d;
     }
 
     audio {
       display: block;
       width: 100%;
-      margin: 15px 0;
+      margin: 14px 0;
     }
 
     footer {
+      padding: 20px 12px;
+      background: #183d32;
+      color: white;
       text-align: center;
-      padding: 20px;
-      color: #555;
     }
 
-    [hidden] { display: none !important; }
+    [hidden] {
+      display: none !important;
+    }
 
-    @media (max-width: 700px) {
-      header { padding: 18px 12px 20px; }
-
-      .feature-grid {
+    @media (max-width: 760px) {
+      .options {
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 9px;
       }
 
-      .feature-link {
-        min-height: 85px;
-        padding: 10px 6px;
+      header {
+        padding: 20px 12px;
       }
-
-      main {
-        margin: 15px auto;
-        padding: 10px;
-      }
-
-      .card { padding: 16px; }
     }
 
-    @media (max-width: 350px) {
-      .feature-grid { grid-template-columns: 1fr; }
-      .feature-link { min-height: 70px; }
+    @media (max-width: 360px) {
+      .options {
+        grid-template-columns: 1fr;
+      }
+
+      .option {
+        padding: 12px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="home-banner">
-    <img src="hame-banner.jpg"
-         alt="Ilm Aura Quran">
+  <div class="banner">
+    <img src="hame-banner.jpg" alt="Ilm Aura Quran">
   </div>
 
   <header>
     <h1>Ilm Aura Quran</h1>
-    <p>Quran ko samjhein, parhein aur sunein</p>
-    <p>Understand the Quran, read and listen</p>
 
-    <div class="signature">Quran Se Noor — Ilm Se Shaoor</div>
+    <p class="brand-urdu" lang="ur" dir="rtl">علم اورا قرآن</p>
 
-    <p class="intro">
-      Quran ko parhein, samjhein aur apni zindagi mein roshni laayein.
+    <p class="tagline-urdu" lang="ur" dir="rtl">
+      قرآن کو سمجھیں، پڑھیں اور سنیں
     </p>
 
-    <nav class="feature-grid" aria-label="Quran learning sections">
+    <p class="tagline-english">
+      Understand the Quran, read and listen
+    </p>
 
-      <a class="feature-link" href="#quran">
-        <strong>Quran Ka Safar</strong>
-        <span>Quran-e-Pak parhein</span>
+    <p class="slogan">Quran Se Noor — Ilm Se Shaoor</p>
+
+    <p class="intro-urdu" lang="ur" dir="rtl">
+      قرآن پڑھیں، سمجھیں اور اپنی زندگی میں روشنی لائیں
+    </p>
+
+    <nav class="options" aria-label="Quran website sections">
+
+      <a class="option" href="#quran">
+        <h2>Quran Journey</h2>
+        <p lang="ur" dir="rtl">قرآنِ پاک پڑھیں</p>
       </a>
 
-      <a class="feature-link" href="#translation">
-        <strong>Ma'ani Ki Roshni</strong>
-        <span>Urdu tarjuma</span>
+      <a class="option" href="#translation">
+        <h2>Easy Translation</h2>
+        <p lang="ur" dir="rtl">قرآن کا آسان اردو ترجمہ</p>
       </a>
 
-      <a class="feature-link" href="#tafseer">
-        <strong>Fahm-e-Quran</strong>
-        <span>Aasan Urdu tafseer</span>
+      <a class="option" href="#tafseer">
+        <h2>Simple Tafseer</h2>
+        <p lang="ur" dir="rtl">قرآن کی آسان اردو تفسیر</p>
       </a>
 
-      <a class="feature-link" href="#audio">
-        <strong>Sada-e-Quran</strong>
-        <span>Tilawat sunein</span>
+      <a class="option" href="#audio">
+        <h2>Noor-e-Tilawat</h2>
+        <p lang="ur" dir="rtl">نور بھری تلاوت سنیں</p>
       </a>
 
     </nav>
   </header>
 
   <main>
-    <section class="card">
-      <h2>Quran Tafseer | قرآن کی تفسیر</h2>
-      <p>Surah ya ayat ka naam likh kar search karein.</p>
+
+    <section class="card" id="search">
+      <h2 class="section-heading">Quran Tafseer Search</h2>
+
+      <p class="urdu" lang="ur" dir="rtl">
+        سورت یا آیت تلاش کریں اور قرآن کو سمجھنے کا سفر شروع کریں۔
+      </p>
 
       <input
-        id="search"
-        type="search"
-        placeholder="Misal: Surah Al-Fatiha"
-        aria-label="Surah ya ayat search karein"
+        type="text"
+        id="searchInput"
+        placeholder="Surah ka naam likhein, e.g. Al-Fatiha"
+        aria-label="Search Surah"
       >
 
-      <div class="buttons">
-        <button type="button" onclick="findTafseer()">Search</button>
-      </div>
+      <button type="button" onclick="findTafseer()">Search</button>
 
-      <p id="searchMessage" aria-live="polite"></p>
+      <p id="searchMessage" class="muted" aria-live="polite"></p>
     </section>
 
     <section class="card" id="quran">
-      <h2>Surah Al-Fatiha | سورۃ الفاتحہ</h2>
+      <h2 class="section-heading">Surah Al-Fatiha</h2>
 
-      <div class="buttons">
-        <button type="button" onclick="showLanguage('ur')">اردو</button>
-        <button type="button" onclick="showLanguage('en')">English</button>
-      </div>
-
-      <h3>Arabic | عربی</h3>
+      <p class="muted">The Opening Chapter of the Quran</p>
 
       <div class="arabic" lang="ar" dir="rtl">
         بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
         <br>
         الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ
-        <span class="ayah-number">١</span>
         <br>
         الرَّحْمَٰنِ الرَّحِيمِ
-        <span class="ayah-number">٢</span>
         <br>
         مَالِكِ يَوْمِ الدِّينِ
-        <span class="ayah-number">٣</span>
         <br>
         إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ
-        <span class="ayah-number">٤</span>
         <br>
         اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ
-        <span class="ayah-number">٥</span>
         <br>
         صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ
-        <span class="ayah-number">٦</span>
         <br>
         غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ
-        <span class="ayah-number">٧</span>
       </div>
+    </section>
 
-      <div id="translation">
-        <div id="urduTranslation">
-          <h3>سورۃ الفاتحہ — اردو ترجمہ</h3>
+    <section class="card" id="translation">
+      <h2 class="section-heading">Easy Translation</h2>
 
-          <p class="urdu">
-            شروع اللہ کا نام لے کر جو بڑا مہربان نہایت رحم والا ہے۔
-            سب طرح کی تعریف خدا ہی کو (سزاوار) ہے جو تمام مخلوقات کا پروردگار ہے۔
-            بڑا مہربان نہایت رحم والا۔
-            انصاف کے دن کا حاکم۔
-            (اے پروردگار) ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں۔
-            ہم کو سیدھے راستے چلا۔
-            ان لوگوں کے راستے جن پر تو اپنا فضل وکرم کرتا رہا نہ ان کے جن پر غصے ہوتا رہا اور نہ گمراہوں کے۔
-          </p>
+      <p class="muted">
+        Urdu Translation — Maulana Fateh Muhammad Jalandhari
+      </p>
 
-          <p><small>ترجمہ: مولانا فتح محمد جالندھری</small></p>
-        </div>
+      <div class="urdu" lang="ur" dir="rtl" id="urduTranslation">
+        سب طرح کی تعریف خدا ہی کو (سزاوار) ہے جو تمام مخلوقات کا پروردگار ہے۔
+        بڑا مہربان نہایت رحم والا۔ انصاف کے دن کا حاکم۔
+        (اے پروردگار) ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں۔
+        ہم کو سیدھے راستے چلا۔ ان لوگوں کے راستے جن پر تو اپنا فضل و کرم کرتا رہا،
+        نہ ان کے جن پر غصے ہوتا رہا اور نہ گمراہوں کے۔
       </div>
+    </section>
 
-      <div id="tafseer">
-        <div id="urduContent">
-          <h3>سورۃ الفاتحہ — تفسیر (آسان اردو)</h3>
+    <section class="card" id="tafseer">
+      <h2 class="section-heading">Simple Tafseer</h2>
 
-          <p class="urdu">
-            سورۃ الفاتحہ قرآن مجید کی ایک عظیم سورت ہے۔ اس میں اللہ تعالیٰ کی حمد و ثنا،
-            اس کی رحمت اور روزِ جزا کی حاکمیت کا بیان ہے۔
-            یہ سورت بندے کو سکھاتی ہے کہ عبادت صرف اللہ تعالیٰ کی کی جائے
-            اور مدد بھی اسی سے مانگی جائے۔
-            اس میں ہم اللہ تعالیٰ سے سیدھے راستے کی ہدایت طلب کرتے ہیں،
-            یعنی ان لوگوں کا راستہ جن پر اس نے اپنا انعام فرمایا۔
-            ساتھ ہی ہم گمراہی اور اللہ تعالیٰ کے غضب کے راستے سے بچنے کی دعا کرتے ہیں۔
-          </p>
+      <div id="urduContent" class="urdu" lang="ur" dir="rtl">
+        <p><strong>سورۃ الفاتحہ کا آسان مفہوم</strong></p>
 
-          <p><small>موضوع: سورۃ الفاتحہ کی آسان اردو میں خلاصہ تفسیر</small></p>
-        </div>
+        <p>
+          سورۃ الفاتحہ قرآنِ مجید کی پہلی سورت ہے۔ اس میں ہم اللہ تعالیٰ کی
+          حمد و ثنا بیان کرتے ہیں، اس کی رحمت کو یاد کرتے ہیں اور مانتے ہیں
+          کہ روزِ جزا کا اختیار اسی کے پاس ہے۔
+        </p>
+
+        <p>
+          اس سورت میں ہم اقرار کرتے ہیں کہ عبادت صرف اللہ تعالیٰ کی کرتے ہیں
+          اور مدد بھی اسی سے مانگتے ہیں۔ پھر دعا کرتے ہیں کہ اللہ ہمیں سیدھے
+          راستے پر چلائے، یعنی ان لوگوں کے راستے پر جن پر اس کا فضل ہوا۔
+        </p>
       </div>
 
       <div id="englishContent" hidden>
-        <h3>Surah Al-Fatiha — Simple English Tafseer</h3>
+        <h3>Simple English Explanation</h3>
 
         <p>
-          Surah Al-Fatiha teaches us to praise Allah, the Lord of all worlds.
-          He is Most Merciful and Most Compassionate. He alone has full
-          authority over the Day of Judgement. We worship only Allah and ask
-          Him alone for help. We pray to Him to guide us to the straight path:
-          the path of those whom He has blessed, not the path of those who
-          earned His anger or lost their way.
+          Surah Al-Fatiha praises Allah, the Lord of all worlds, and reminds
+          us of His mercy and authority on the Day of Judgment.
+        </p>
+
+        <p>
+          It teaches us to worship Allah alone, seek help from Him, and ask
+          for guidance to the straight path.
         </p>
       </div>
 
-      <hr>
+      <div>
+        <button type="button" onclick="showLanguage('ur')">
+          اردو تفسیر
+        </button>
 
-      <div id="audio">
-        <h3>Surah Al-Fatiha Audio | تلاوت سنیں</h3>
+        <button type="button" onclick="showLanguage('en')">
+          English Tafseer
+        </button>
 
-        <audio id="quranAudio" controls preload="metadata">
-          <source src="https://ilmauraquran.github.io/ilmauraquran/Surah-Fatiha.mp3" type="audio/mpeg">
-          Aapka browser audio play nahi kar sakta.
-        </audio>
-
-        <p id="audioMessage" class="muted" aria-live="polite">
-          Audio load hone ka intezar karein.
-        </p>
-      </div>
-
-      <hr>
-
-      <h3>Tafseer Voice | تفسیر سنیں</h3>
-
-      <div class="buttons">
-        <button type="button" class="secondary" onclick="speakTafseer()">
-          🔊 Sunein / Listen
+        <button type="button" onclick="speakTafseer()">
+          Read Tafseer Aloud
         </button>
 
         <button type="button" onclick="stopSpeech()">
-          ■ Stop
+          Stop
         </button>
       </div>
+    </section>
 
-      <p id="voiceMessage" class="muted" aria-live="polite"></p>
+    <section class="card" id="audio">
+      <h2 class="section-heading">Noor-e-Tilawat</h2>
+
+      <p class="urdu" lang="ur" dir="rtl">
+        سورۃ الفاتحہ کی تلاوت سنیں۔
+      </p>
+
+      <audio id="quranAudio" controls preload="metadata">
+        <source
+          src="https://ilmauraquran.github.io/ilmauraquran/Surah-Fatiha.mp3"
+          type="audio/mpeg"
+        >
+        Aapka browser audio play nahi kar sakta.
+      </audio>
 
       <p class="muted">
-        Note: Tafseer is a simple introductory explanation.
-        It is not presented as a direct quotation from a particular scholar.
+        Agar audio play na ho to internet connection aur audio link check karein.
       </p>
     </section>
+
   </main>
 
-  <footer>Ilm Aura Quran · Learn with understanding</footer>
+  <footer>
+    Ilm Aura Quran · Learn with understanding
+  </footer>
 
   <script>
     let currentLanguage = "ur";
@@ -429,113 +449,62 @@
     function showLanguage(language) {
       currentLanguage = language;
 
-      document.getElementById("urduTranslation").hidden =
-        language !== "ur";
-
-      document.getElementById("urduContent").hidden =
-        language !== "ur";
-
-      document.getElementById("englishContent").hidden =
-        language !== "en";
-
-      stopSpeech();
+      document.getElementById("urduContent").hidden = language !== "ur";
+      document.getElementById("englishContent").hidden = language !== "en";
     }
 
     function findTafseer() {
-      const query = document.getElementById("search").value.trim();
+      const input = document
+        .getElementById("searchInput")
+        .value
+        .trim()
+        .toLowerCase();
+
       const message = document.getElementById("searchMessage");
 
-      if (!query) {
-        message.textContent = "Pehle Surah ya ayat ka naam likhein.";
-        return;
-      }
-
-      if (/fatiha|فاتحہ|فاتحه/i.test(query)) {
-        message.textContent =
-          "Surah Al-Fatiha ki tafseer neeche mojood hai.";
-
+      if (
+        input === "" ||
+        input.includes("fatiha") ||
+        input.includes("fatihah") ||
+        input.includes("فاتحہ") ||
+        input.includes("al-fatiha")
+      ) {
+        message.textContent = "Surah Al-Fatiha found.";
         document.getElementById("quran").scrollIntoView({
           behavior: "smooth"
         });
       } else {
         message.textContent =
-          "Is Surah ki tafseer abhi library mein shamil nahi. Filhal Surah Al-Fatiha ka sample mojood hai.";
+          "Abhi is website par Surah Al-Fatiha ka content available hai.";
       }
     }
 
     function speakTafseer() {
-      const message = document.getElementById("voiceMessage");
-
       if (!("speechSynthesis" in window)) {
-        message.textContent =
-          "Is browser mein voice feature support nahi karta.";
+        alert("Your browser does not support speech playback.");
         return;
       }
 
       window.speechSynthesis.cancel();
 
-      const selector = currentLanguage === "ur"
-        ? "#urduContent p.urdu"
-        : "#englishContent p";
+      const textToRead =
+        currentLanguage === "ur"
+          ? document.getElementById("urduContent").innerText
+          : document.getElementById("englishContent").innerText;
 
-      const paragraph = document.querySelector(selector);
+      const speech = new SpeechSynthesisUtterance(textToRead);
 
-      if (!paragraph) {
-        message.textContent = "Tafseer ka matn nahi mila.";
-        return;
-      }
+      speech.lang = currentLanguage === "ur" ? "ur-PK" : "en-US";
+      speech.rate = 0.85;
 
-      const utterance = new SpeechSynthesisUtterance(
-        paragraph.innerText
-      );
-
-      utterance.lang = currentLanguage === "ur" ? "ur-PK" : "en-US";
-      utterance.rate = 0.9;
-
-      utterance.onstart = function() {
-        message.textContent = "Tafseer sunayi ja rahi hai.";
-      };
-
-      utterance.onend = function() {
-        message.textContent = "Tafseer mukammal ho gayi.";
-      };
-
-      utterance.onerror = function() {
-        message.textContent =
-          "Voice nahi chal saki. Browser ki voice settings check karein.";
-      };
-
-      message.textContent = "Voice tayyar ho rahi hai...";
-      window.speechSynthesis.speak(utterance);
+      window.speechSynthesis.speak(speech);
     }
 
     function stopSpeech() {
       if ("speechSynthesis" in window) {
         window.speechSynthesis.cancel();
       }
-
-      const message = document.getElementById("voiceMessage");
-
-      if (message) {
-        message.textContent = "Voice rok di gayi.";
-      }
     }
-
-    const audio = document.getElementById("quranAudio");
-    const audioMessage = document.getElementById("audioMessage");
-
-    audio.addEventListener("loadedmetadata", function() {
-      audioMessage.textContent = "Audio tayyar hai. Play dabayein.";
-    });
-
-    audio.addEventListener("canplay", function() {
-      audioMessage.textContent = "Audio chalane ke liye tayyar hai.";
-    });
-
-    audio.addEventListener("error", function() {
-      audioMessage.textContent =
-        "Audio load nahi hui. GitHub par audio file ka naam aur location check karna zaroori hai.";
-    });
   </script>
 
 </body>
