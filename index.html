@@ -12,6 +12,8 @@
   <style>
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -20,18 +22,97 @@
       line-height: 1.8;
     }
 
+    .home-banner {
+      width: 100%;
+      text-align: center;
+      background: #07152e;
+    }
+
+    .home-banner img {
+      display: block;
+      width: 100%;
+      max-width: 1920px;
+      height: auto;
+      margin: 0 auto;
+    }
+
     header {
       background: #183d32;
       color: white;
       text-align: center;
-      padding: 28px 15px;
+      padding: 22px 16px 25px;
+      width: 100%;
     }
 
-    header h1 { margin: 0; font-size: 30px; }
-    header p { margin: 5px 0 0; }
+    header h1 {
+      margin: 0;
+      font-size: clamp(24px, 4vw, 34px);
+      line-height: 1.4;
+    }
+
+    header p {
+      margin: 5px 0 0;
+    }
+
+    .signature {
+      color: #e4c782;
+      font-family: Georgia, serif;
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: bold;
+      margin-top: 16px;
+    }
+
+    .intro {
+      margin: 5px auto 20px;
+      max-width: 600px;
+      color: #f0eee5;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      width: 100%;
+      max-width: 1150px;
+      margin: 0 auto;
+    }
+
+    .feature-link {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+      min-height: 94px;
+      padding: 12px 8px;
+      background: #f7f8f1;
+      border: 1px solid #c5aa68;
+      border-radius: 12px;
+      color: #183d32;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .feature-link strong {
+      font-family: Georgia, serif;
+      font-size: clamp(14px, 1.7vw, 19px);
+      line-height: 1.5;
+    }
+
+    .feature-link span {
+      font-size: clamp(12px, 1.4vw, 15px);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    .feature-link:hover {
+      background: #e8dfc6;
+      transform: translateY(-2px);
+    }
 
     main {
-      max-width: 760px;
+      max-width: 900px;
+      width: 100%;
       margin: 25px auto;
       padding: 16px;
     }
@@ -42,6 +123,7 @@
       border-radius: 14px;
       margin-bottom: 18px;
       box-shadow: 0 3px 14px #0000000d;
+      scroll-margin-top: 15px;
     }
 
     .buttons {
@@ -77,7 +159,7 @@
 
     .arabic {
       font-family: 'Amiri', serif;
-      font-size: 30px;
+      font-size: clamp(25px, 4vw, 32px);
       font-weight: 700;
       text-align: center;
       direction: rtl;
@@ -126,19 +208,76 @@
     }
 
     [hidden] { display: none !important; }
+
+    @media (max-width: 700px) {
+      header { padding: 18px 12px 20px; }
+
+      .feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+      }
+
+      .feature-link {
+        min-height: 85px;
+        padding: 10px 6px;
+      }
+
+      main {
+        margin: 15px auto;
+        padding: 10px;
+      }
+
+      .card { padding: 16px; }
+    }
+
+    @media (max-width: 350px) {
+      .feature-grid { grid-template-columns: 1fr; }
+      .feature-link { min-height: 70px; }
+    }
   </style>
 </head>
 
 <body>
-  <div style="width:100%; text-align:center; background:#07152e;">
-  <img src="hame-banner.jpg"
-       alt="Ilm Aura Quran"
-       style="display:block; width:100%; max-width:1920px; height:auto; margin:0 auto;">
-</div>
+
+  <div class="home-banner">
+    <img src="hame-banner.jpg"
+         alt="Ilm Aura Quran">
+  </div>
+
   <header>
     <h1>Ilm Aura Quran</h1>
     <p>Quran ko samjhein, parhein aur sunein</p>
     <p>Understand the Quran, read and listen</p>
+
+    <div class="signature">Quran Se Noor — Ilm Se Shaoor</div>
+
+    <p class="intro">
+      Quran ko parhein, samjhein aur apni zindagi mein roshni laayein.
+    </p>
+
+    <nav class="feature-grid" aria-label="Quran learning sections">
+
+      <a class="feature-link" href="#quran">
+        <strong>Quran Ka Safar</strong>
+        <span>Quran-e-Pak parhein</span>
+      </a>
+
+      <a class="feature-link" href="#translation">
+        <strong>Ma'ani Ki Roshni</strong>
+        <span>Urdu tarjuma</span>
+      </a>
+
+      <a class="feature-link" href="#tafseer">
+        <strong>Fahm-e-Quran</strong>
+        <span>Aasan Urdu tafseer</span>
+      </a>
+
+      <a class="feature-link" href="#audio">
+        <strong>Sada-e-Quran</strong>
+        <span>Tilawat sunein</span>
+      </a>
+
+    </nav>
   </header>
 
   <main>
@@ -160,7 +299,7 @@
       <p id="searchMessage" aria-live="polite"></p>
     </section>
 
-    <section class="card" id="fatiha">
+    <section class="card" id="quran">
       <h2>Surah Al-Fatiha | سورۃ الفاتحہ</h2>
 
       <div class="buttons">
@@ -195,36 +334,40 @@
         <span class="ayah-number">٧</span>
       </div>
 
-      <div id="urduTranslation">
-        <h3>سورۃ الفاتحہ — اردو ترجمہ</h3>
+      <div id="translation">
+        <div id="urduTranslation">
+          <h3>سورۃ الفاتحہ — اردو ترجمہ</h3>
 
-        <p class="urdu">
-          شروع اللہ کا نام لے کر جو بڑا مہربان نہایت رحم والا ہے۔
-          سب طرح کی تعریف خدا ہی کو (سزاوار) ہے جو تمام مخلوقات کا پروردگار ہے۔
-          بڑا مہربان نہایت رحم والا۔
-          انصاف کے دن کا حاکم۔
-          (اے پروردگار) ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں۔
-          ہم کو سیدھے راستے چلا۔
-          ان لوگوں کے راستے جن پر تو اپنا فضل وکرم کرتا رہا نہ ان کے جن پر غصے ہوتا رہا اور نہ گمراہوں کے۔
-        </p>
+          <p class="urdu">
+            شروع اللہ کا نام لے کر جو بڑا مہربان نہایت رحم والا ہے۔
+            سب طرح کی تعریف خدا ہی کو (سزاوار) ہے جو تمام مخلوقات کا پروردگار ہے۔
+            بڑا مہربان نہایت رحم والا۔
+            انصاف کے دن کا حاکم۔
+            (اے پروردگار) ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں۔
+            ہم کو سیدھے راستے چلا۔
+            ان لوگوں کے راستے جن پر تو اپنا فضل وکرم کرتا رہا نہ ان کے جن پر غصے ہوتا رہا اور نہ گمراہوں کے۔
+          </p>
 
-        <p><small>ترجمہ: مولانا فتح محمد جالندھری</small></p>
+          <p><small>ترجمہ: مولانا فتح محمد جالندھری</small></p>
+        </div>
       </div>
 
-      <div id="urduContent">
-        <h3>سورۃ الفاتحہ — تفسیر (آسان اردو)</h3>
+      <div id="tafseer">
+        <div id="urduContent">
+          <h3>سورۃ الفاتحہ — تفسیر (آسان اردو)</h3>
 
-        <p class="urdu">
-          سورۃ الفاتحہ قرآن مجید کی ایک عظیم سورت ہے۔ اس میں اللہ تعالیٰ کی حمد و ثنا،
-          اس کی رحمت اور روزِ جزا کی حاکمیت کا بیان ہے۔
-          یہ سورت بندے کو سکھاتی ہے کہ عبادت صرف اللہ تعالیٰ کی کی جائے
-          اور مدد بھی اسی سے مانگی جائے۔
-          اس میں ہم اللہ تعالیٰ سے سیدھے راستے کی ہدایت طلب کرتے ہیں،
-          یعنی ان لوگوں کا راستہ جن پر اس نے اپنا انعام فرمایا۔
-          ساتھ ہی ہم گمراہی اور اللہ تعالیٰ کے غضب کے راستے سے بچنے کی دعا کرتے ہیں۔
-        </p>
+          <p class="urdu">
+            سورۃ الفاتحہ قرآن مجید کی ایک عظیم سورت ہے۔ اس میں اللہ تعالیٰ کی حمد و ثنا،
+            اس کی رحمت اور روزِ جزا کی حاکمیت کا بیان ہے۔
+            یہ سورت بندے کو سکھاتی ہے کہ عبادت صرف اللہ تعالیٰ کی کی جائے
+            اور مدد بھی اسی سے مانگی جائے۔
+            اس میں ہم اللہ تعالیٰ سے سیدھے راستے کی ہدایت طلب کرتے ہیں،
+            یعنی ان لوگوں کا راستہ جن پر اس نے اپنا انعام فرمایا۔
+            ساتھ ہی ہم گمراہی اور اللہ تعالیٰ کے غضب کے راستے سے بچنے کی دعا کرتے ہیں۔
+          </p>
 
-        <p><small>موضوع: سورۃ الفاتحہ کی آسان اردو میں خلاصہ تفسیر</small></p>
+          <p><small>موضوع: سورۃ الفاتحہ کی آسان اردو میں خلاصہ تفسیر</small></p>
+        </div>
       </div>
 
       <div id="englishContent" hidden>
@@ -242,17 +385,18 @@
 
       <hr>
 
-      <h3>Surah Al-Fatiha Audio | تلاوت سنیں</h3>
+      <div id="audio">
+        <h3>Surah Al-Fatiha Audio | تلاوت سنیں</h3>
 
-      <audio id="quranAudio" controls preload="metadata">
-     <source src="https://ilmauraquran.github.io/ilmauraquran/Surah-Fatiha.mp3" type="audio/mpeg">
-        >
-        Aapka browser audio play nahi kar sakta.
-      </audio>
+        <audio id="quranAudio" controls preload="metadata">
+          <source src="https://ilmauraquran.github.io/ilmauraquran/Surah-Fatiha.mp3" type="audio/mpeg">
+          Aapka browser audio play nahi kar sakta.
+        </audio>
 
-      <p id="audioMessage" class="muted" aria-live="polite">
-        Audio load hone ka intezar karein.
-      </p>
+        <p id="audioMessage" class="muted" aria-live="polite">
+          Audio load hone ka intezar karein.
+        </p>
+      </div>
 
       <hr>
 
@@ -310,7 +454,7 @@
         message.textContent =
           "Surah Al-Fatiha ki tafseer neeche mojood hai.";
 
-        document.getElementById("fatiha").scrollIntoView({
+        document.getElementById("quran").scrollIntoView({
           behavior: "smooth"
         });
       } else {
@@ -393,37 +537,6 @@
         "Audio load nahi hui. GitHub par audio file ka naam aur location check karna zaroori hai.";
     });
   </script>
-  <section style="max-width:900px;margin:35px auto;padding:25px 15px;text-align:center;font-family:Georgia,serif;background:#f7f8f1;border-radius:18px;">
-  <h2 style="color:#174c3c;font-size:30px;margin-bottom:10px;">
-    Quran Se Noor — Ilm Se Shaoor
-  </h2>
-  <p style="color:#78643b;font-size:17px;margin-bottom:25px;">
-    Quran ko parhein, samjhein aur apni zindagi mein roshni laayein.
-  </p>
 
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;">
-
-    <a href="#quran" style="display:block;padding:20px;background:#174c3c;color:white;text-decoration:none;border-radius:12px;">
-      <strong>Quran Ka Safar</strong>
-      <p style="margin-bottom:0;">Quran-e-Pak parhein</p>
-    </a>
-
-    <a href="#translation" style="display:block;padding:20px;background:#fff;border:1px solid #c5aa68;color:#174c3c;text-decoration:none;border-radius:12px;">
-      <strong>Ma'ani Ki Roshni</strong>
-      <p style="margin-bottom:0;">Asal Urdu tarjuma</p>
-    </a>
-
-    <a href="#tafseer" style="display:block;padding:20px;background:#fff;border:1px solid #c5aa68;color:#174c3c;text-decoration:none;border-radius:12px;">
-      <strong>Fahm-e-Quran</strong>
-      <p style="margin-bottom:0;">Aasan Urdu tafseer</p>
-    </a>
-
-    <a href="#audio" style="display:block;padding:20px;background:#fff;border:1px solid #c5aa68;color:#174c3c;text-decoration:none;border-radius:12px;">
-      <strong>Sada-e-Quran</strong>
-      <p style="margin-bottom:0;">Tilawat sunein</p>
-    </a>
-
-  </div>
-</section>
 </body>
 </html>
