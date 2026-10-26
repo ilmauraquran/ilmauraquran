@@ -1,695 +1,447 @@
 <!DOCTYPE html>
 <html lang="ur">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#183d32">
-  <title>Ilm Aura Quran | Surah Al-Fatiha & Al-Baqarah</title>
-  <meta name="description" content="Quran parhein, Urdu tarjuma aur Bayan-ul-Quran ke dars se samajhne ka safar shuru karein.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#183d32">
+<title>Ilm Aura Quran | قرآن فہمی</title>
+<meta name="description" content="Quran parhein, Urdu tarjuma aur Bayan-ul-Quran ke dars se samajhne ka safar shuru karein.">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --green: #183d32;
-      --deep-green: #102d25;
-      --gold: #d7b65e;
-      --light-gold: #f5e4ac;
-      --page: #f5f7f4;
-      --text: #202b25;
-      --border: #e2e7df;
-    }
-
-    * { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 18px;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
-    }
-
-    body {
-      margin: 0;
-      background: var(--page);
-      color: var(--text);
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      line-height: 1.8;
-      text-rendering: optimizeLegibility;
-    }
-
-    .banner {
-      width: 100%;
-      overflow: hidden;
-      background: #07152e;
-      text-align: center;
-    }
-
-    .banner img {
-      display: block;
-      width: 100%;
-      max-width: 1920px;
-      height: auto;
-      margin: 0 auto;
-    }
-
-    header {
-      padding: 24px 18px 28px;
-      background: linear-gradient(145deg, var(--green), var(--deep-green));
-      color: #fff;
-      text-align: center;
-      border-bottom: 4px solid var(--gold);
-    }
-
-    .logo-area {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0 auto 4px;
-    }
-
-    .brand-logo {
-      display: block;
-      width: min(220px, 45vw);
-      max-height: 220px;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .tagline-urdu, .intro-urdu, .urdu, .option p {
-      font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
-      font-weight: 500;
-      direction: rtl;
-      text-align: right;
-      text-rendering: optimizeLegibility;
-    }
-
-    .tagline-urdu {
-      margin: 8px 0;
-      color: #fff;
-      text-align: center;
-      font-size: clamp(21px, 3vw, 30px);
-      line-height: 2.2;
-      font-weight: 600;
-    }
-
-    .tagline-english {
-      margin: 5px 0 14px;
-      color: #f5f5f5;
-      font-size: clamp(14px, 2vw, 17px);
-    }
-
-    .slogan {
-      margin: 12px 0 6px;
-      color: var(--light-gold);
-      font-size: clamp(17px, 2.5vw, 23px);
-      font-weight: 700;
-    }
-
-    .intro-urdu {
-      margin: 8px auto 24px;
-      max-width: 850px;
-      color: #fff;
-      text-align: center;
-      font-size: clamp(18px, 2.5vw, 24px);
-      line-height: 2.3;
-      font-weight: 600;
-    }
-
-    .options {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 14px;
-      width: 100%;
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-
-    .option {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-width: 0;
-      min-height: 112px;
-      padding: 15px 12px;
-      border: 1px solid #e5d39a;
-      border-radius: 13px;
-      background: #fff;
-      color: var(--green);
-      text-decoration: none;
-      box-shadow: 0 3px 12px rgba(0,0,0,.10);
-    }
-
-    .option h2 {
-      margin: 0 0 7px;
-      font-size: clamp(14px, 1.7vw, 19px);
-      line-height: 1.45;
-    }
-
-    .option p {
-      margin: 0;
-      color: #253d31;
-      text-align: center;
-      font-size: clamp(14px, 1.5vw, 17px);
-      line-height: 2.4;
-    }
-
-    main {
-      width: 100%;
-      max-width: 1000px;
-      margin: 30px auto;
-      padding: 0 20px;
-    }
-
-    .card {
-      margin-bottom: 24px;
-      padding: clamp(18px, 3vw, 32px);
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      box-shadow: 0 5px 20px rgba(18,47,34,.06);
-      scroll-margin-top: 18px;
-    }
-
-    .card h2 {
-      margin: 0 0 18px;
-      color: var(--green);
-      font-size: clamp(21px, 3vw, 29px);
-      line-height: 1.6;
-    }
-
-    .section-heading {
-      padding-bottom: 10px;
-      border-bottom: 2px solid #e7d8a8;
-    }
-
-    .card h3 { color: var(--green); }
-
-    .urdu {
-      font-size: clamp(19px, 2.4vw, 25px);
-      line-height: 2.7;
-      overflow-wrap: break-word;
-    }
-
-    .urdu p { margin: 0 0 20px; }
-
-    .muted {
-      color: #53645a;
-      font-size: 14px;
-      line-height: 1.8;
-    }
-
-    .surah-block {
-      margin: 0 0 30px;
-      padding: 14px 0 20px;
-      border-bottom: 1px solid #e8dfc5;
-    }
-
-    .surah-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  padding: 13px 16px;
-  margin: 0 0 14px;
-  border: 1px solid var(--gold);
-  border-radius: 10px;
-  background: linear-gradient(135deg, #fffaf0, #f5e7bd);
-  color: var(--green);
-  font-family: "Noto Naskh Arabic", serif;
-  font-weight: 700;
-  font-size: clamp(17px, 2.5vw, 22px);
+<style>
+:root {
+  --green:#183d32;
+  --deep-green:#102d25;
+  --gold:#d7b65e;
+  --light-gold:#f5e4ac;
+  --page:#f5f7f4;
+  --text:#202b25;
+  --border:#e2e7df;
 }
-
+* {box-sizing:border-box}
+html {scroll-behavior:smooth;scroll-padding-top:18px}
+body {
+  margin:0;background:var(--page);color:var(--text);
+  font-family:Arial,sans-serif;font-size:16px;line-height:1.8;
+}
+.banner {width:100%;overflow:hidden;background:#07152e;text-align:center}
+.banner img {display:block;width:100%;max-width:1920px;height:auto;margin:auto}
+header {
+  padding:24px 18px 28px;
+  background:linear-gradient(145deg,var(--green),var(--deep-green));
+  color:#fff;text-align:center;border-bottom:4px solid var(--gold);
+}
+.logo-area {display:flex;justify-content:center;align-items:center;margin-bottom:4px}
+.brand-logo {width:min(220px,45vw);max-height:220px;height:auto;object-fit:contain}
+.tagline-urdu,.intro-urdu,.urdu,.option p {
+  font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic",serif;
+  font-weight:500;direction:rtl;text-align:right;
+}
+.tagline-urdu {margin:8px 0;text-align:center;font-size:clamp(21px,3vw,30px);line-height:2.2;font-weight:600}
+.tagline-english {margin:5px 0 14px}
+.slogan {margin:12px 0 6px;color:var(--light-gold);font-size:clamp(17px,2.5vw,23px);font-weight:700}
+.intro-urdu {margin:8px auto 24px;max-width:850px;text-align:center;font-size:clamp(18px,2.5vw,24px);line-height:2.3;font-weight:600}
+.options {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;width:100%;max-width:1120px;margin:auto}
+.option {
+  display:flex;flex-direction:column;justify-content:center;min-width:0;min-height:112px;
+  padding:15px 12px;border:1px solid #e5d39a;border-radius:13px;
+  background:#fff;color:var(--green);text-decoration:none;box-shadow:0 3px 12px #00000019;
+}
+.option h2 {margin:0 0 7px;font-size:clamp(14px,1.7vw,19px);line-height:1.45}
+.option p {margin:0;text-align:center;font-size:clamp(14px,1.5vw,17px);line-height:2.4}
+main {width:100%;max-width:1000px;margin:30px auto;padding:0 20px}
+.card {
+  margin-bottom:24px;padding:clamp(18px,3vw,32px);background:#fff;
+  border:1px solid var(--border);border-radius:16px;
+  box-shadow:0 5px 20px #122f220f;scroll-margin-top:18px;
+}
+.card h2 {margin:0 0 18px;color:var(--green);font-size:clamp(21px,3vw,29px);line-height:1.6}
+.section-heading {padding-bottom:10px;border-bottom:2px solid #e7d8a8}
+.card h3 {color:var(--green)}
+.urdu {
+  font-size:clamp(19px,2.4vw,25px);line-height:2.7;overflow-wrap:break-word;
+}
+.urdu p {margin:0 0 20px}
+.muted {color:#53645a;font-size:14px;line-height:1.8}
+.surah-block {margin:0 0 30px;padding:14px 0 20px;border-bottom:1px solid #e8dfc5}
+.surah-block:last-child {border-bottom:0;margin-bottom:0}
+.surah-meta {
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  flex-wrap:wrap;padding:13px 16px;margin:0 0 14px;
+  border:1px solid var(--gold);border-radius:10px;
+  background:linear-gradient(135deg,#fffaf0,#f5e7bd);
+  color:var(--green);font-family:"Noto Naskh Arabic",serif;
+  font-weight:700;font-size:clamp(17px,2.5vw,22px);
+}
 .surah-meta span:nth-child(2) {
-  font-size: clamp(22px, 3.5vw, 29px);
-  color: #102d25;
-  font-weight: 700;
+  font-size:clamp(22px,3.5vw,29px);color:#102d25;font-weight:700;
 }
-    .bismillah {
-  position: relative;
-  margin: 16px 0 22px;
-  padding: 20px 42px;
-  color: #183d32;
-  text-align: center;
-  direction: rtl;
-  white-space: nowrap;
-  font-family: "Amiri", "Noto Naskh Arabic", serif;
-  font-size: clamp(32px, 5.5vw, 46px);
-  line-height: 1.9;
-  font-weight: 700;
-  border-top: 2px solid #d7b65e;
-  border-bottom: 2px solid #d7b65e;
-  background: linear-gradient(90deg, #fffaf0, #ffffff, #fffaf0);
-  overflow-x: auto;
+.bismillah {
+  position:relative;margin:16px 0 22px;padding:18px 42px;
+  color:#183d32;text-align:center;direction:rtl;
+  font-family:"Amiri","Noto Naskh Arabic",serif;
+  font-size:clamp(32px,5.5vw,46px);line-height:1.9;font-weight:700;
+  border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);
+  background:linear-gradient(90deg,#fffaf0,#fff,#fffaf0);
 }
-
-.bismillah::before,
-.bismillah::after {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #b8942e;
-  font-size: 29px;
-  line-height: 1;
+.bismillah::before,.bismillah::after {
+  position:absolute;top:50%;transform:translateY(-50%);
+  color:#b8942e;font-size:29px;line-height:1;
 }
-
-.bismillah::before {
-  content: "❧";
-  left: 8px;
+.bismillah::before {content:"❧";left:8px}
+.bismillah::after {content:"❧";right:8px}
+.arabic {
+  width:100%;padding:18px 6px;font-family:"Amiri","Noto Naskh Arabic",serif;
+  font-size:clamp(34px,5.8vw,50px);font-weight:700;line-height:2.25;
+  text-align:justify;text-align-last:center;direction:rtl;color:var(--green);
+  word-break:normal;overflow-wrap:normal;
 }
-
-.bismillah::after {
-  content: "❧";
-  right: 8px;
+.ayah-item {display:inline;scroll-margin-top:18px}
+.ayah {display:inline;white-space:normal}
+.ayah-number {
+  display:inline-flex;vertical-align:middle;align-items:center;justify-content:center;
+  width:38px;height:38px;margin:0 3px;border:2px solid #c9a227;border-radius:50%;
+  background:#fffaf0;color:#173f35;font-family:"Amiri",serif;font-size:20px;
+  font-weight:700;line-height:1;white-space:nowrap;
 }
-
-@media (max-width: 380px) {
-  .bismillah {
-    padding: 16px 30px;
-    font-size: 27px;
-  }
-
-  .bismillah::before,
-  .bismillah::after {
-    font-size: 21px;
-  }
+.translation-title {
+  margin:10px 0;padding-bottom:8px;border-bottom:1px solid #e7d8a8;
+  font-family:"Noto Nastaliq Urdu",serif;font-size:25px;
 }
-    .arabic {
-      width: 100%;
-      padding: 18px 6px;
-      font-family: "Amiri", "Noto Naskh Arabic", serif;
-      font-size: clamp(34px, 5.8vw, 50px);
-      font-weight: 700;
-      line-height: 2.25;
-      text-align: justify;
-      text-align-last: center;
-      direction: rtl;
-      color: var(--green);
-      word-break: normal;
-      overflow-wrap: normal;
-      text-rendering: optimizeLegibility;
-    }
-
-    .ayah-item {
-      display: inline;
-      padding: 0;
-      border: 0;
-      scroll-margin-top: 18px;
-    }
-
-    .ayah {
-      display: inline;
-      white-space: normal;
-      overflow-wrap: normal;
-      word-break: normal;
-    }
-
-    .ayah-number {
-      display: inline-flex;
-      vertical-align: middle;
-      align-items: center;
-      justify-content: center;
-      width: 38px;
-      height: 38px;
-      margin: 0 3px;
-      border: 2px solid #c9a227;
-      border-radius: 50%;
-      background: #fffaf0;
-      color: #173f35;
-      font-family: "Amiri", serif;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 1;
-      white-space: nowrap;
-    }
-
-    .translation-title {
-      margin: 10px 0;
-      padding-bottom: 8px;
-      border-bottom: 1px solid #e7d8a8;
-      font-family: "Noto Nastaliq Urdu", serif;
-      font-size: 25px;
-    }
-
-    input, button { font: inherit; }
-
-    input[type="text"] {
-      display: block;
-      width: 100%;
-      min-height: 48px;
-      margin-bottom: 12px;
-      padding: 12px 14px;
-      border: 1px solid #b9c7bb;
-      border-radius: 9px;
-      background: #fff;
-      color: var(--text);
-      font-size: 16px;
-    }
-
-    button, .button-link {
-      display: inline-block;
-      min-height: 44px;
-      margin: 4px 5px 4px 0;
-      padding: 10px 17px;
-      border: 0;
-      border-radius: 9px;
-      background: var(--green);
-      color: #fff;
-      cursor: pointer;
-      font-size: 15px;
-      font-weight: 600;
-      text-decoration: none;
-    }
-
-    audio {
-      display: block;
-      width: 100%;
-      margin: 18px 0;
-    }
-
-    .status {
-      padding: 12px 14px;
-      border-radius: 9px;
-      background: #f6f2e5;
-      color: #4a4a32;
-    }
-
-    .translation-text { margin: 8px 0 0; }
-
-    footer {
-      padding: 22px 15px;
-      background: var(--deep-green);
-      color: #fff;
-      text-align: center;
-      border-top: 3px solid var(--gold);
-    }
-
-    [hidden] { display: none !important; }
-
-    @media (max-width: 800px) {
-      .options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
-      .option { min-height: 105px; }
-      main { padding: 0 14px; }
-      header { padding: 20px 12px 24px; }
-      .arabic { font-size: clamp(32px, 6vw, 44px); line-height: 2.2; }
-      .bismillah { font-size: clamp(24px, 5.3vw, 36px); }
-      .ayah-number { width: 34px; height: 34px; font-size: 18px; }
-    }
-
-    @media (max-width: 380px) {
-      .options { grid-template-columns: 1fr; }
-      .option { min-height: auto; padding: 13px; }
-      .card { padding: 16px; }
-      .arabic { font-size: 32px; line-height: 2.25; }
-      .bismillah { font-size: 23px; }
-      .surah-meta { justify-content: center; }
-      .ayah-number { width: 31px; height: 31px; margin: 0 3px; font-size: 17px; }
-    }
-  </style>
+.translation-text {margin:8px 0 20px}
+input,button {font:inherit}
+input[type="text"] {
+  display:block;width:100%;min-height:48px;margin-bottom:12px;padding:12px 14px;
+  border:1px solid #b9c7bb;border-radius:9px;background:#fff;color:var(--text);font-size:16px;
+}
+button,.button-link {
+  display:inline-block;min-height:44px;margin:4px 5px 4px 0;padding:10px 17px;
+  border:0;border-radius:9px;background:var(--green);color:#fff;cursor:pointer;
+  font-size:15px;font-weight:600;text-decoration:none;
+}
+audio {display:block;width:100%;margin:18px 0}
+.status {padding:12px 14px;border-radius:9px;background:#f6f2e5;color:#4a4a32}
+footer {padding:22px 15px;background:var(--deep-green);color:#fff;text-align:center;border-top:3px solid var(--gold)}
+[hidden] {display:none!important}
+@media(max-width:800px) {
+  .options {grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+  .option {min-height:105px}
+  main {padding:0 14px}
+  header {padding:20px 12px 24px}
+  .arabic {font-size:clamp(32px,6vw,44px);line-height:2.2}
+  .ayah-number {width:34px;height:34px;font-size:18px}
+}
+@media(max-width:380px) {
+  .options {grid-template-columns:1fr}
+  .option {min-height:auto;padding:13px}
+  .card {padding:16px}
+  .arabic {font-size:32px;line-height:2.25}
+  .bismillah {padding:15px 30px;font-size:27px}
+  .bismillah::before,.bismillah::after {font-size:21px}
+  .surah-meta {justify-content:center}
+  .ayah-number {width:31px;height:31px;margin:0 3px;font-size:17px}
+}
+</style>
 </head>
 
 <body>
-  <div class="banner">
-    <img src="hame-banner.jpg" alt="Ilm Aura Quran banner">
-  </div>
+<div class="banner">
+  <img src="hame-banner.jpg" alt="Ilm Aura Quran banner">
+</div>
 
-  <header>
-    <div class="logo-area">
-      <img class="brand-logo" src="ilmauraquran%20LOGO.png" alt="Ilm Aura Quran logo">
+<header>
+  <div class="logo-area">
+    <img class="brand-logo" src="ilmauraquran%20LOGO.png" alt="Ilm Aura Quran logo">
+  </div>
+  <p class="tagline-urdu" lang="ur" dir="rtl">قرآن کو سمجھیں، پڑھیں اور سنیں</p>
+  <p class="tagline-english">Understand the Quran, read and listen</p>
+  <p class="slogan">Quran Se Noor — Ilm Se Shaoor</p>
+  <p class="intro-urdu" lang="ur" dir="rtl">قرآن پڑھیں، سمجھیں اور اپنی زندگی میں روشنی لائیں</p>
+
+  <nav class="options" aria-label="Quran website sections">
+    <a class="option" href="#quran"><h2>Quran Journey</h2><p lang="ur" dir="rtl">قرآنِ پاک پڑھیں</p></a>
+    <a class="option" href="#translation"><h2>Easy Translation</h2><p lang="ur" dir="rtl">آسان اردو ترجمہ</p></a>
+    <a class="option" href="#tafseer"><h2>Simple Tafseer</h2><p lang="ur" dir="rtl">قرآن کی تفسیر</p></a>
+    <a class="option" href="#audio"><h2>Noor-e-Tilawat</h2><p lang="ur" dir="rtl">نور بھری تلاوت سنیں</p></a>
+  </nav>
+</header>
+
+<main>
+  <section class="card" id="search">
+    <h2 class="section-heading">Quran Ayah Search</h2>
+    <p class="urdu" lang="ur" dir="rtl">سورۃ اور آیت تلاش کریں۔ مثال: F1 یا 2:255</p>
+    <input type="text" id="searchInput" placeholder="F1 ya 2:255 likhein" aria-label="Search Quran ayah">
+    <button type="button" id="searchButton">Search Ayah</button>
+    <p id="searchMessage" class="muted" aria-live="polite"></p>
+  </section>
+
+  <!-- QURAN ARABIC -->
+  <section class="card" id="quran">
+    <h2 class="section-heading">Quran Journey | قرآنِ پاک</h2>
+
+    <div class="surah-block" id="fatihaBlock">
+      <div class="surah-meta" dir="rtl">
+        <span>مکی</span>
+        <span>سورۃ الفاتحہ</span>
+        <span>۷ آیات · ۱ رکوع</span>
+      </div>
+      <h3 class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h3>
+      <p class="muted">Surah Al-Fatiha — Arabic</p>
+      <div id="fatihaStatus" class="status" role="status">Surah Al-Fatiha load ho rahi hai...</div>
+      <div class="arabic" id="fatihaArabic" lang="ar" dir="rtl"></div>
     </div>
 
-    <p class="tagline-urdu" lang="ur" dir="rtl">قرآن کو سمجھیں، پڑھیں اور سنیں</p>
-    <p class="tagline-english">Understand the Quran, read and listen</p>
-    <p class="slogan">Quran Se Noor — Ilm Se Shaoor</p>
-    <p class="intro-urdu" lang="ur" dir="rtl">قرآن پڑھیں، سمجھیں اور اپنی زندگی میں روشنی لائیں</p>
-
-    <nav class="options" aria-label="Quran website sections">
-      <a class="option" href="#quran">
-        <h2>Quran Journey</h2>
-        <p lang="ur" dir="rtl">قرآنِ پاک پڑھیں</p>
-      </a>
-      <a class="option" href="#translation">
-        <h2>Easy Translation</h2>
-        <p lang="ur" dir="rtl">قرآن کا آسان اردو ترجمہ</p>
-      </a>
-      <a class="option" href="#tafseer">
-        <h2>Simple Tafseer</h2>
-        <p lang="ur" dir="rtl">قرآن کی آسان اردو تفسیر</p>
-      </a>
-      <a class="option" href="#audio">
-        <h2>Noor-e-Tilawat</h2>
-        <p lang="ur" dir="rtl">نور بھری تلاوت سنیں</p>
-      </a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="card" id="search">
-      <h2 class="section-heading">Quran Tafseer Search</h2>
-      <p class="urdu" lang="ur" dir="rtl">سورت یا آیت تلاش کریں اور قرآن کو سمجھنے کا سفر شروع کریں۔</p>
-      <input type="text" id="searchInput" placeholder="Ayat number likhein, e.g. 255" aria-label="Search ayah number">
-      <button type="button" id="searchButton">Search Ayah</button>
-      <p id="searchMessage" class="muted" aria-live="polite"></p>
-    </section>
-
-    <section class="card" id="quran">
-      <h2 class="section-heading">Quran Journey | قرآنِ پاک</h2>
-
-      <div class="surah-block" id="fatihaBlock">
-        <div class="surah-meta" dir="rtl">
-          <span>مکی</span>
-          <span>سورۃ الفاتحہ</span>
-          <span>۷ آیات · ۱ رکوع</span>
-        </div>
-
-        <h3 class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h3>
-        <div id="fatihaStatus" class="status" role="status">Surah Al-Fatiha load ho rahi hai...</div>
-        <div class="arabic" id="fatihaArabic" lang="ar" dir="rtl" aria-live="polite"></div>
+    <div class="surah-block" id="baqarahBlock">
+      <div class="surah-meta" dir="rtl">
+        <span>مدنی</span>
+        <span>سورۃ البقرۃ</span>
+        <span>۲۸۶ آیات · ۴۰ رکوع</span>
       </div>
+      <h3 class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h3>
+      <p class="muted">Surah Al-Baqarah — Arabic</p>
+      <div id="baqarahStatus" class="status" role="status">Surah Al-Baqarah load ho rahi hai...</div>
+      <div class="arabic" id="baqarahArabic" lang="ar" dir="rtl"></div>
+    </div>
+  </section>
 
-      <div class="surah-block" id="baqarahBlock">
-        <div class="surah-meta" dir="rtl">
-          <span>مدنی</span>
-          <span>سورۃ البقرۃ</span>
-          <span>۲۸۶ آیات · ۴۰ رکوع</span>
-        </div>
+  <!-- SURAH-WISE URDU TRANSLATION -->
+  <section class="card" id="translation">
+    <h2 class="section-heading">Easy Translation | آسان اردو ترجمہ</h2>
+    <p class="muted">Urdu Translation — Maulana Fateh Muhammad Jalandhari</p>
 
-        <h3 class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h3>
-        <div id="arabicStatus" class="status" role="status">Surah Al-Baqarah load ho rahi hai...</div>
-        <div class="arabic" id="arabicText" lang="ar" dir="rtl" aria-live="polite"></div>
-      </div>
-    </section>
+    <div class="surah-block">
+      <h3 class="translation-title" lang="ur" dir="rtl">سورۃ الفاتحہ — اردو ترجمہ</h3>
+      <div id="fatihaTranslationStatus" class="status" role="status">Tarjuma load ho raha hai...</div>
+      <div class="urdu" lang="ur" dir="rtl" id="fatihaTranslation"></div>
+    </div>
 
-    <section class="card" id="translation">
-      <h2 class="section-heading">Easy Translation | آسان اردو ترجمہ</h2>
-      <p class="muted">Urdu Translation — Maulana Fateh Muhammad Jalandhari</p>
+    <div class="surah-block">
+      <h3 class="translation-title" lang="ur" dir="rtl">سورۃ البقرۃ — اردو ترجمہ</h3>
+      <div id="baqarahTranslationStatus" class="status" role="status">Tarjuma load ho raha hai...</div>
+      <div class="urdu" lang="ur" dir="rtl" id="baqarahTranslation"></div>
+    </div>
+  </section>
 
-      <div class="surah-block">
-        <h3 class="translation-title" lang="ur" dir="rtl">سورۃ الفاتحہ — ترجمہ</h3>
-        <div id="fatihaTranslationStatus" class="status" role="status">Tarjuma load ho raha hai...</div>
-        <div class="urdu" lang="ur" dir="rtl" id="fatihaTranslation"></div>
-      </div>
+  <!-- SURAH-WISE TAFSEER LINKS -->
+  <section class="card" id="tafseer">
+    <h2 class="section-heading">Simple Tafseer | بیان القرآن</h2>
+    <p class="muted">Tafseer Bayan-ul-Quran — Dr. Israr Ahmed</p>
 
-      <div class="surah-block">
-        <h3 class="translation-title" lang="ur" dir="rtl">سورۃ البقرۃ — ترجمہ</h3>
-        <div id="translationStatus" class="status" role="status">Tarjuma load ho raha hai...</div>
-        <div class="urdu" lang="ur" dir="rtl" id="urduTranslation"></div>
-      </div>
-    </section>
-
-    <section class="card" id="tafseer">
-      <h2 class="section-heading">Simple Tafseer | بیان القرآن</h2>
-      <p class="muted">Tafseer Bayan-ul-Quran — Dr. Israr Ahmed (Sayyedna)</p>
-
+    <div class="surah-block">
+      <h3 class="translation-title" lang="ur" dir="rtl">سورۃ الفاتحہ — تفسیر</h3>
       <div class="urdu" lang="ur" dir="rtl">
         <p><strong>بیان القرآن — ڈاکٹر اسرار احمد</strong></p>
-        <p>سورۃ البقرۃ کی تفسیر اور دروس کے لیے تنظیمِ اسلامی کے متعلقہ وسائل ملاحظہ کریں۔</p>
-        <p>اصل تفسیر کے متن اور آڈیو کو درست نسبت کے ساتھ شامل کرنے کے لیے مستند ماخذ استعمال کریں۔</p>
+        <p>سورۃ الفاتحہ کے درس اور تفسیر کے لیے مستند ماخذ ملاحظہ کریں۔</p>
       </div>
-
-      <a class="button-link" href="https://www.tanzeem.org/categories/bayan-ul-quran-series-translation-brief-commentary/" target="_blank" rel="noopener noreferrer">Official Bayan-ul-Quran Audio</a>
+      <a class="button-link" href="https://www.tanzeem.org/categories/bayan-ul-quran-series-translation-brief-commentary/" target="_blank" rel="noopener noreferrer">Official Tafseer & Audio</a>
       <a class="button-link" href="https://www.tanzeem.org/book_categories/bayan-ul-quran/" target="_blank" rel="noopener noreferrer">Bayan-ul-Quran Books</a>
-    </section>
+    </div>
 
-    <section class="card" id="audio">
-      <h2 class="section-heading">Noor-e-Tilawat | نورِ تلاوت</h2>
+    <div class="surah-block">
+      <h3 class="translation-title" lang="ur" dir="rtl">سورۃ البقرۃ — تفسیر</h3>
+      <div class="urdu" lang="ur" dir="rtl">
+        <p><strong>بیان القرآن — ڈاکٹر اسرار احمد</strong></p>
+        <p>سورۃ البقرۃ کی مکمل تفسیر اور دروس کے لیے تنظیمِ اسلامی کے مستند وسائل ملاحظہ کریں۔</p>
+      </div>
+      <a class="button-link" href="https://www.tanzeem.org/categories/bayan-ul-quran-series-translation-brief-commentary/" target="_blank" rel="noopener noreferrer">Official Tafseer & Audio</a>
+      <a class="button-link" href="https://www.tanzeem.org/book_categories/bayan-ul-quran/" target="_blank" rel="noopener noreferrer">Bayan-ul-Quran Books</a>
+    </div>
+  </section>
+
+  <!-- SURAH-WISE AUDIO -->
+  <section class="card" id="audio">
+    <h2 class="section-heading">Noor-e-Tilawat | نورِ تلاوت</h2>
+
+    <div class="surah-block">
+      <h3 class="translation-title" lang="ur" dir="rtl">سورۃ الفاتحہ — تلاوت</h3>
+      <p class="urdu" lang="ur" dir="rtl">سورۃ الفاتحہ کی تلاوت سنیں۔</p>
+      <p class="muted">Recitation: Mishary Rashid Alafasy</p>
+      <audio controls preload="metadata">
+        <source src="https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/1.mp3" type="audio/mpeg">
+        Aapka browser audio play nahi kar sakta.
+      </audio>
+    </div>
+
+    <div class="surah-block">
+      <h3 class="translation-title" lang="ur" dir="rtl">سورۃ البقرۃ — تلاوت</h3>
       <p class="urdu" lang="ur" dir="rtl">سورۃ البقرۃ کی مکمل تلاوت سنیں۔</p>
       <p class="muted">Recitation: Mishary Rashid Alafasy</p>
-
-      <audio id="quranAudio" controls preload="metadata">
+      <audio controls preload="metadata">
         <source src="https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/2.mp3" type="audio/mpeg">
         Aapka browser audio play nahi kar sakta.
       </audio>
+    </div>
+  </section>
+</main>
 
-      <p class="muted">Yeh Arabic tilawat hai. Dr. Israr Ahmed ke Bayan-ul-Quran dars ke liye upar official source ka link diya gaya hai.</p>
-    </section>
-  </main>
+<footer>Ilm Aura Quran · Learn with understanding</footer>
 
-  <footer>Ilm Aura Quran · Learn with understanding</footer>
+<script>
+const API_BASE = "https://api.alquran.cloud/v1";
 
-  <script>
-    const API_BASE = "https://api.alquran.cloud/v1";
+function arabicDigits(number) {
+  return String(number).replace(/[0-9]/g, d => "٠١٢٣٤٥٦٧٨٩"[Number(d)]);
+}
 
-    const arabicTargets = {
-      fatiha: {
-        container: document.getElementById("fatihaArabic"),
-        status: document.getElementById("fatihaStatus"),
-        number: 1,
-        count: 7
-      },
-      baqarah: {
-        container: document.getElementById("arabicText"),
-        status: document.getElementById("arabicStatus"),
-        number: 2,
-        count: 286
-      }
-    };
+function setError(element, message) {
+  element.textContent = message + " Internet check karein aur page refresh karein.";
+}
 
-    const translationTargets = {
-      fatiha: {
-        container: document.getElementById("fatihaTranslation"),
-        status: document.getElementById("fatihaTranslationStatus"),
-        number: 1,
-        count: 7
-      },
-      baqarah: {
-        container: document.getElementById("urduTranslation"),
-        status: document.getElementById("translationStatus"),
-        number: 2,
-        count: 286
-      }
-    };
+async function loadArabic(surahNumber, containerId, statusId) {
+  const container = document.getElementById(containerId);
+  const status = document.getElementById(statusId);
 
-    function toArabicDigits(number) {
-      return String(number).replace(/[0-9]/g, digit => "٠١٢٣٤٥٦٧٨٩"[Number(digit)]);
+  try {
+    const response = await fetch(`${API_BASE}/surah/${surahNumber}/quran-uthmani`);
+    if (!response.ok) throw new Error("Arabic request failed");
+
+    const json = await response.json();
+    if (json.code !== 200 || !json.data || !Array.isArray(json.data.ayahs)) {
+      throw new Error("Arabic data unavailable");
     }
 
-    function setError(statusElement, message) {
-      statusElement.textContent = message + " Internet connection check karein aur page refresh karein.";
-    }
+    const fragment = document.createDocumentFragment();
+    let displayNumber = 0;
 
-    async function loadArabic(target) {
-      try {
-        const response = await fetch(`${API_BASE}/surah/${target.number}/quran-uthmani`);
-        if (!response.ok) throw new Error("Arabic API request failed");
+    json.data.ayahs.forEach(ayah => {
+      // Al-Fatiha: Bismillah is shown separately as a heading.
+      // The remaining verses use the requested custom display numbering.
+      if (surahNumber === 1 && ayah.numberInSurah === 1) return;
 
-        const json = await response.json();
+      displayNumber++;
 
-        if (
-          json.code !== 200 ||
-          !json.data ||
-          !Array.isArray(json.data.ayahs) ||
-          json.data.ayahs.length !== target.count
-        ) {
-          throw new Error("Arabic data/count did not match");
-        }
+      const wrapper = document.createElement("span");
+      wrapper.className = "ayah-item";
+      wrapper.id = surahNumber === 1
+        ? `fatiha-${displayNumber}`
+        : `baqarah-${displayNumber}`;
 
-        const fragment = document.createDocumentFragment();
+      const text = document.createElement("span");
+      text.className = "ayah";
+      text.textContent = ayah.text + " ";
 
-        json.data.ayahs.forEach(ayah => {
-          const wrapper = document.createElement("span");
-          wrapper.className = "ayah-item";
-          wrapper.id = `${target.number === 1 ? "fatiha" : "ayah"}-${ayah.numberInSurah}`;
+      const number = document.createElement("span");
+      number.className = "ayah-number";
+      number.textContent = arabicDigits(displayNumber);
+      number.setAttribute("aria-label", `Displayed ayah ${displayNumber}`);
 
-          const text = document.createElement("span");
-          text.className = "ayah";
-          text.textContent = ayah.text + " ";
-
-          const number = document.createElement("span");
-          number.className = "ayah-number";
-          number.textContent = toArabicDigits(ayah.numberInSurah);
-          number.setAttribute("aria-label", `Ayah ${ayah.numberInSurah}`);
-
-          wrapper.append(text, number);
-          fragment.appendChild(wrapper);
-        });
-
-        target.container.replaceChildren(fragment);
-        target.status.textContent = `Alhamdulillah! Tamam ${target.count} ayaat load ho gayi hain.`;
-      } catch (error) {
-        setError(target.status, "Arabic matn load nahi ho saka.");
-        console.error(error);
-      }
-    }
-
-    async function loadTranslation(target) {
-      try {
-        const response = await fetch(`${API_BASE}/surah/${target.number}/ur.jalandhry`);
-        if (!response.ok) throw new Error("Translation API request failed");
-
-        const json = await response.json();
-
-        if (
-          json.code !== 200 ||
-          !json.data ||
-          !Array.isArray(json.data.ayahs) ||
-          json.data.ayahs.length !== target.count
-        ) {
-          throw new Error("Translation data/count did not match");
-        }
-
-        const fragment = document.createDocumentFragment();
-
-        json.data.ayahs.forEach(ayah => {
-          const paragraph = document.createElement("p");
-          paragraph.className = "translation-text";
-          paragraph.id = `translation-${target.number}-${ayah.numberInSurah}`;
-          paragraph.textContent = `${toArabicDigits(ayah.numberInSurah)}۔ ${ayah.text}`;
-          fragment.appendChild(paragraph);
-        });
-
-        target.container.replaceChildren(fragment);
-        target.status.textContent =
-          `Urdu tarjuma load ho gaya (${target.count} ayaat). Tarjuma: Maulana Fateh Muhammad Jalandhari.`;
-      } catch (error) {
-        setError(target.status, "Urdu tarjuma automatic load nahi ho saka.");
-        console.error(error);
-      }
-    }
-
-    function findAyah() {
-      const raw = document.getElementById("searchInput").value.trim();
-      const message = document.getElementById("searchMessage");
-      const number = Number(raw);
-
-      if (!raw || !Number.isInteger(number) || number < 1 || number > 286) {
-        message.textContent = "Surah Al-Baqarah ki ayat ka number 1 se 286 ke darmiyan likhein.";
-        return;
-      }
-
-      const target = document.getElementById(`ayah-${number}`);
-
-      if (!target) {
-        message.textContent = "Ayat abhi load nahi hui. Pehle page ko load hone dein.";
-        return;
-      }
-
-      message.textContent = `Surah Al-Baqarah, Ayat ${number} mil gayi.`;
-      target.scrollIntoView({ behavior: "smooth", block: "center" });
-      target.style.backgroundColor = "#fff7df";
-
-      setTimeout(() => {
-        target.style.backgroundColor = "";
-      }, 1800);
-    }
-
-    document.getElementById("searchButton").addEventListener("click", findAyah);
-
-    document.getElementById("searchInput").addEventListener("keydown", event => {
-      if (event.key === "Enter") findAyah();
+      wrapper.append(text, number);
+      fragment.appendChild(wrapper);
     });
 
-    Promise.all([
-      loadArabic(arabicTargets.fatiha),
-      loadArabic(arabicTargets.baqarah),
-      loadTranslation(translationTargets.fatiha),
-      loadTranslation(translationTargets.baqarah)
-    ]);
-  </script>
+    container.replaceChildren(fragment);
+
+    if (surahNumber === 1) {
+      status.textContent = "Alhamdulillah! Arabic matn load ho gaya. Bismillah alag heading hai.";
+    } else {
+      status.textContent = "Alhamdulillah! Surah Al-Baqarah ka Arabic matn load ho gaya.";
+    }
+  } catch (error) {
+    setError(status, "Arabic matn load nahi ho saka.");
+    console.error(error);
+  }
+}
+
+async function loadTranslation(surahNumber, containerId, statusId) {
+  const container = document.getElementById(containerId);
+  const status = document.getElementById(statusId);
+
+  try {
+    const response = await fetch(`${API_BASE}/surah/${surahNumber}/ur.jalandhry`);
+    if (!response.ok) throw new Error("Translation request failed");
+
+    const json = await response.json();
+    if (json.code !== 200 || !json.data || !Array.isArray(json.data.ayahs)) {
+      throw new Error("Translation data unavailable");
+    }
+
+    const fragment = document.createDocumentFragment();
+
+    json.data.ayahs.forEach(ayah => {
+      // Keep Fatiha's Bismillah separate, matching the Arabic display.
+      if (surahNumber === 1 && ayah.numberInSurah === 1) return;
+
+      const paragraph = document.createElement("p");
+      paragraph.className = "translation-text";
+
+      const displayNumber = surahNumber === 1
+        ? ayah.numberInSurah - 1
+        : ayah.numberInSurah;
+
+      paragraph.id = `translation-${surahNumber}-${displayNumber}`;
+      paragraph.textContent = `${arabicDigits(displayNumber)}۔ ${ayah.text}`;
+      fragment.appendChild(paragraph);
+    });
+
+    container.replaceChildren(fragment);
+    status.textContent = "Urdu tarjuma load ho gaya — Maulana Fateh Muhammad Jalandhari.";
+  } catch (error) {
+    setError(status, "Urdu tarjuma load nahi ho saka.");
+    console.error(error);
+  }
+}
+
+function findAyah() {
+  const raw = document.getElementById("searchInput").value.trim().toLowerCase();
+  const message = document.getElementById("searchMessage");
+
+  let targetId = "";
+  let description = "";
+
+  // F1-F6 = displayed Al-Fatiha ayat; 2:1-286 = Al-Baqarah.
+  const fatihaMatch = raw.match(/^f\s*(\d+)$/);
+  const baqarahMatch = raw.match(/^(?:2\s*:\s*)?(\d+)$/);
+
+  if (fatihaMatch) {
+    const number = Number(fatihaMatch[1]);
+    if (!Number.isInteger(number) || number < 1 || number > 6) {
+      message.textContent = "Fatiha ke liye F1 se F6 tak likhein.";
+      return;
+    }
+    targetId = `fatiha-${number}`;
+    description = `Surah Al-Fatiha, displayed ayah ${number}`;
+  } else if (baqarahMatch) {
+    const number = Number(baqarahMatch[1]);
+    if (!Number.isInteger(number) || number < 1 || number > 286) {
+      message.textContent = "Baqarah ke liye 1 se 286 tak ayat number likhein.";
+      return;
+    }
+    targetId = `baqarah-${number}`;
+    description = `Surah Al-Baqarah, ayah ${number}`;
+  } else {
+    message.textContent = "Fatiha ke liye F1 likhein; Baqarah ke liye 2:255 ya 255 likhein.";
+    return;
+  }
+
+  const target = document.getElementById(targetId);
+  if (!target) {
+    message.textContent = "Ayat abhi load nahi hui. Thori dair baad dobara koshish karein.";
+    return;
+  }
+
+  message.textContent = `${description} mil gayi.`;
+  target.scrollIntoView({behavior:"smooth", block:"center"});
+  target.style.backgroundColor = "#fff0bd";
+
+  setTimeout(() => {
+    target.style.backgroundColor = "";
+  }, 1800);
+}
+
+document.getElementById("searchButton").addEventListener("click", findAyah);
+document.getElementById("searchInput").addEventListener("keydown", event => {
+  if (event.key === "Enter") findAyah();
+});
+
+Promise.all([
+  loadArabic(1, "fatihaArabic", "fatihaStatus"),
+  loadArabic(2, "baqarahArabic", "baqarahStatus"),
+  loadTranslation(1, "fatihaTranslation", "fatihaTranslationStatus"),
+  loadTranslation(2, "baqarahTranslation", "baqarahTranslationStatus")
+]);
+</script>
 </body>
 </html>
