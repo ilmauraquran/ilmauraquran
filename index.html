@@ -143,11 +143,18 @@ footer {padding:22px 15px;background:var(--deep-green);color:#fff;text-align:cen
   .bismillah::before,.bismillah::after {font-size:21px}
   .surah-meta {justify-content:center}
   .ayah-number {width:31px;height:31px;margin:0 3px;font-size:17px}
+}  
+.surah-page {
+  display: none;
 }
+
+.surah-page.active {
+  display: block;
+}  
 </style>
 </head>
 
-<body>
+<body> id="top">
 <div class="banner">
   <img src="hame-banner.jpg" alt="Ilm Aura Quran banner">
 </div>
@@ -161,120 +168,86 @@ footer {padding:22px 15px;background:var(--deep-green);color:#fff;text-align:cen
   <p class="slogan">Quran Se Noor — Ilm Se Shaoor</p>
   <p class="intro-urdu" lang="ur" dir="rtl">قرآن پڑھیں، سمجھیں اور اپنی زندگی میں روشنی لائیں</p>
 
-  <nav class="options" aria-label="Quran website sections">
-    <a class="option" href="#quran"><h2>Quran Journey</h2><p lang="ur" dir="rtl">قرآنِ پاک پڑھیں</p></a>
-    <a class="option" href="#translation"><h2>Easy Translation</h2><p lang="ur" dir="rtl">آسان اردو ترجمہ</p></a>
-    <a class="option" href="#tafseer"><h2>Simple Tafseer</h2><p lang="ur" dir="rtl">قرآن کی تفسیر</p></a>
-    <a class="option" href="#audio"><h2>Noor-e-Tilawat</h2><p lang="ur" dir="rtl">نور بھری تلاوت سنیں</p></a>
-  </nav>
+  <nav class="options" aria-label="Select Surah">
+  <a class="option" href="#surah-fatiha-page">
+    <h2 lang="ur" dir="rtl">سورۃ الفاتحہ</h2>
+    <p>Surah Al-Fatiha</p>
+  </a>
+
+  <a class="option" href="#surah-baqarah-page">
+    <h2 lang="ur" dir="rtl">سورۃ البقرۃ</h2>
+    <p>Surah Al-Baqarah</p>
+  </a>
+</nav>
 </header>
 
 <main>
-  <section class="card" id="search">
-    <h2 class="section-heading">Quran Ayah Search</h2>
-    <p class="urdu" lang="ur" dir="rtl">سورۃ اور آیت تلاش کریں۔ مثال: F1 یا 2:255</p>
-    <input type="text" id="searchInput" placeholder="F1 ya 2:255 likhein" aria-label="Search Quran ayah">
-    <button type="button" id="searchButton">Search Ayah</button>
-    <p id="searchMessage" class="muted" aria-live="polite"></p>
+
+  <!-- SURAH AL-FATIHA -->
+  <section class="card surah-page" id="surah-fatiha-page">
+    <h2 lang="ur" dir="rtl">سورۃ الفاتحہ</h2>
+
+    <h3 class="bismillah" lang="ar" dir="rtl">
+      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+    </h3>
+
+    <h3>Quran — Arabic</h3>
+    <div id="fatihaStatus" class="status"></div>
+    <div class="arabic" id="fatihaArabic" lang="ar" dir="rtl"></div>
+
+    <h3>اردو ترجمہ — سورۃ الفاتحہ</h3>
+    <div id="fatihaTranslationStatus" class="status"></div>
+    <div class="urdu" id="fatihaTranslation" lang="ur" dir="rtl"></div>
+
+    <h3>تفسیر — سورۃ الفاتحہ</h3>
+    <p>بیان القرآن — ڈاکٹر اسرار احمد</p>
+    <a class="button-link"
+       href="https://www.tanzeem.org/categories/bayan-ul-quran-series-translation-brief-commentary/"
+       target="_blank" rel="noopener noreferrer">
+      Official Bayan-ul-Quran
+    </a>
+
+    <h3>تلاوت — سورۃ الفاتحہ</h3>
+    <audio controls preload="metadata">
+      <source src="https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/1.mp3" type="audio/mpeg">
+    </audio>
+
+    <a class="button-link" href="#top">Back</a>
   </section>
 
-  <!-- QURAN ARABIC -->
-  <section class="card" id="quran">
-    <h2 class="section-heading">Quran Journey | قرآنِ پاک</h2>
 
-    <div class="surah-block" id="fatihaBlock">
-      <div class="surah-meta" dir="rtl">
-        <span>مکی</span>
-        <span>سورۃ الفاتحہ</span>
-        <span>۷ آیات · ۱ رکوع</span>
-      </div>
-      <h3 class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h3>
-      <p class="muted">Surah Al-Fatiha — Arabic</p>
-      <div id="fatihaStatus" class="status" role="status">Surah Al-Fatiha load ho rahi hai...</div>
-      <div class="arabic" id="fatihaArabic" lang="ar" dir="rtl"></div>
-    </div>
+  <!-- SURAH AL-BAQARAH -->
+  <section class="card surah-page" id="surah-baqarah-page">
+    <h2 lang="ur" dir="rtl">سورۃ البقرۃ</h2>
 
-    <div class="surah-block" id="baqarahBlock">
-      <div class="surah-meta" dir="rtl">
-        <span>مدنی</span>
-        <span>سورۃ البقرۃ</span>
-        <span>۲۸۶ آیات · ۴۰ رکوع</span>
-      </div>
-      <h3 class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h3>
-      <p class="muted">Surah Al-Baqarah — Arabic</p>
-      <div id="baqarahStatus" class="status" role="status">Surah Al-Baqarah load ho rahi hai...</div>
-      <div class="arabic" id="baqarahArabic" lang="ar" dir="rtl"></div>
-    </div>
+    <h3 class="bismillah" lang="ar" dir="rtl">
+      بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+    </h3>
+
+    <h3>Quran — Arabic</h3>
+    <div id="baqarahStatus" class="status"></div>
+    <div class="arabic" id="baqarahArabic" lang="ar" dir="rtl"></div>
+
+    <h3>اردو ترجمہ — سورۃ البقرۃ</h3>
+    <div id="baqarahTranslationStatus" class="status"></div>
+    <div class="urdu" id="baqarahTranslation" lang="ur" dir="rtl"></div>
+
+    <h3>تفسیر — سورۃ البقرۃ</h3>
+    <p>بیان القرآن — ڈاکٹر اسرار احمد</p>
+    <a class="button-link"
+       href="https://www.tanzeem.org/categories/bayan-ul-quran-series-translation-brief-commentary/"
+       target="_blank" rel="noopener noreferrer">
+      Official Bayan-ul-Quran
+    </a>
+
+    <h3>تلاوت — سورۃ البقرۃ</h3>
+    <audio controls preload="metadata">
+      <source src="https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/2.mp3" type="audio/mpeg">
+    </audio>
+
+    <a class="button-link" href="#top">Back</a>
   </section>
 
-  <!-- SURAH-WISE URDU TRANSLATION -->
-  <section class="card" id="translation">
-    <h2 class="section-heading">Easy Translation | آسان اردو ترجمہ</h2>
-    <p class="muted">Urdu Translation — Maulana Fateh Muhammad Jalandhari</p>
-
-    <div class="surah-block">
-      <h3 class="translation-title" lang="ur" dir="rtl">سورۃ الفاتحہ — اردو ترجمہ</h3>
-      <div id="fatihaTranslationStatus" class="status" role="status">Tarjuma load ho raha hai...</div>
-      <div class="urdu" lang="ur" dir="rtl" id="fatihaTranslation"></div>
-    </div>
-
-    <div class="surah-block">
-      <h3 class="translation-title" lang="ur" dir="rtl">سورۃ البقرۃ — اردو ترجمہ</h3>
-      <div id="baqarahTranslationStatus" class="status" role="status">Tarjuma load ho raha hai...</div>
-      <div class="urdu" lang="ur" dir="rtl" id="baqarahTranslation"></div>
-    </div>
-  </section>
-
-  <!-- SURAH-WISE TAFSEER LINKS -->
-  <section class="card" id="tafseer">
-    <h2 class="section-heading">Simple Tafseer | بیان القرآن</h2>
-    <p class="muted">Tafseer Bayan-ul-Quran — Dr. Israr Ahmed</p>
-
-    <div class="surah-block">
-      <h3 class="translation-title" lang="ur" dir="rtl">سورۃ الفاتحہ — تفسیر</h3>
-      <div class="urdu" lang="ur" dir="rtl">
-        <p><strong>بیان القرآن — ڈاکٹر اسرار احمد</strong></p>
-        <p>سورۃ الفاتحہ کے درس اور تفسیر کے لیے مستند ماخذ ملاحظہ کریں۔</p>
-      </div>
-      <a class="button-link" href="https://www.tanzeem.org/categories/bayan-ul-quran-series-translation-brief-commentary/" target="_blank" rel="noopener noreferrer">Official Tafseer & Audio</a>
-      <a class="button-link" href="https://www.tanzeem.org/book_categories/bayan-ul-quran/" target="_blank" rel="noopener noreferrer">Bayan-ul-Quran Books</a>
-    </div>
-
-    <div class="surah-block">
-      <h3 class="translation-title" lang="ur" dir="rtl">سورۃ البقرۃ — تفسیر</h3>
-      <div class="urdu" lang="ur" dir="rtl">
-        <p><strong>بیان القرآن — ڈاکٹر اسرار احمد</strong></p>
-        <p>سورۃ البقرۃ کی مکمل تفسیر اور دروس کے لیے تنظیمِ اسلامی کے مستند وسائل ملاحظہ کریں۔</p>
-      </div>
-      <a class="button-link" href="https://www.tanzeem.org/categories/bayan-ul-quran-series-translation-brief-commentary/" target="_blank" rel="noopener noreferrer">Official Tafseer & Audio</a>
-      <a class="button-link" href="https://www.tanzeem.org/book_categories/bayan-ul-quran/" target="_blank" rel="noopener noreferrer">Bayan-ul-Quran Books</a>
-    </div>
-  </section>
-
-  <!-- SURAH-WISE AUDIO -->
-  <section class="card" id="audio">
-    <h2 class="section-heading">Noor-e-Tilawat | نورِ تلاوت</h2>
-
-    <div class="surah-block">
-      <h3 class="translation-title" lang="ur" dir="rtl">سورۃ الفاتحہ — تلاوت</h3>
-      <p class="urdu" lang="ur" dir="rtl">سورۃ الفاتحہ کی تلاوت سنیں۔</p>
-      <p class="muted">Recitation: Mishary Rashid Alafasy</p>
-      <audio controls preload="metadata">
-        <source src="https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/1.mp3" type="audio/mpeg">
-        Aapka browser audio play nahi kar sakta.
-      </audio>
-    </div>
-
-    <div class="surah-block">
-      <h3 class="translation-title" lang="ur" dir="rtl">سورۃ البقرۃ — تلاوت</h3>
-      <p class="urdu" lang="ur" dir="rtl">سورۃ البقرۃ کی مکمل تلاوت سنیں۔</p>
-      <p class="muted">Recitation: Mishary Rashid Alafasy</p>
-      <audio controls preload="metadata">
-        <source src="https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/2.mp3" type="audio/mpeg">
-        Aapka browser audio play nahi kar sakta.
-      </audio>
-    </div>
-  </section>
 </main>
 
 <footer>Ilm Aura Quran · Learn with understanding</footer>
