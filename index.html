@@ -209,37 +209,76 @@
     }
 
     .surah-meta {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: wrap;
-      padding: 10px 14px;
-      margin: 0 0 14px;
-      border: 1px solid var(--gold);
-      border-radius: 8px;
-      background: #fffaf0;
-      color: var(--green);
-      font-family: "Noto Naskh Arabic", serif;
-      font-weight: 700;
-      font-size: clamp(15px, 2vw, 19px);
-    }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 13px 16px;
+  margin: 0 0 14px;
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  background: linear-gradient(135deg, #fffaf0, #f5e7bd);
+  color: var(--green);
+  font-family: "Noto Naskh Arabic", serif;
+  font-weight: 700;
+  font-size: clamp(17px, 2.5vw, 22px);
+}
 
+.surah-meta span:nth-child(2) {
+  font-size: clamp(22px, 3.5vw, 29px);
+  color: #102d25;
+  font-weight: 700;
+}
     .bismillah {
-      margin: 12px 0 20px;
-      padding: 14px 6px;
-      color: var(--green);
-      text-align: center;
-      direction: rtl;
-      white-space: nowrap;
-      font-family: "Amiri", "Noto Naskh Arabic", serif;
-      font-size: clamp(27px, 4.8vw, 42px);
-      line-height: 1.8;
-      font-weight: 700;
-      border-bottom: 1px solid #e7d8a8;
-      overflow-x: auto;
-    }
+  position: relative;
+  margin: 16px 0 22px;
+  padding: 20px 42px;
+  color: #183d32;
+  text-align: center;
+  direction: rtl;
+  white-space: nowrap;
+  font-family: "Amiri", "Noto Naskh Arabic", serif;
+  font-size: clamp(32px, 5.5vw, 46px);
+  line-height: 1.9;
+  font-weight: 700;
+  border-top: 2px solid #d7b65e;
+  border-bottom: 2px solid #d7b65e;
+  background: linear-gradient(90deg, #fffaf0, #ffffff, #fffaf0);
+  overflow-x: auto;
+}
 
+.bismillah::before,
+.bismillah::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #b8942e;
+  font-size: 29px;
+  line-height: 1;
+}
+
+.bismillah::before {
+  content: "❧";
+  left: 8px;
+}
+
+.bismillah::after {
+  content: "❧";
+  right: 8px;
+}
+
+@media (max-width: 380px) {
+  .bismillah {
+    padding: 16px 30px;
+    font-size: 27px;
+  }
+
+  .bismillah::before,
+  .bismillah::after {
+    font-size: 21px;
+  }
+}
     .arabic {
       width: 100%;
       padding: 18px 6px;
