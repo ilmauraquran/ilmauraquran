@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#183d32">
-
-  <title>Ilm Aura Quran</title>
-  <meta name="description" content="Quran parhein, samjhein aur sunein. Urdu tarjuma, asaan tafseer aur tilawat.">
+  <title>Ilm Aura Quran | Surah Al-Fatiha & Al-Baqarah</title>
+  <meta name="description" content="Quran parhein, Urdu tarjuma aur Bayan-ul-Quran ke dars se samajhne ka safar shuru karein.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,9 +22,7 @@
       --border: #e2e7df;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html {
       scroll-behavior: smooth;
@@ -41,7 +38,6 @@
       font-family: Arial, sans-serif;
       font-size: 16px;
       line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
@@ -81,18 +77,13 @@
       max-height: 220px;
       height: auto;
       object-fit: contain;
-      image-rendering: auto;
     }
 
-    .tagline-urdu,
-    .intro-urdu,
-    .urdu,
-    .option p {
+    .tagline-urdu, .intro-urdu, .urdu, .option p {
       font-family: "Noto Nastaliq Urdu", "Noto Naskh Arabic", serif;
       font-weight: 500;
       direction: rtl;
       text-align: right;
-      font-synthesis: none;
       text-rendering: optimizeLegibility;
     }
 
@@ -109,7 +100,6 @@
       margin: 5px 0 14px;
       color: #f5f5f5;
       font-size: clamp(14px, 2vw, 17px);
-      line-height: 1.7;
     }
 
     .slogan {
@@ -117,7 +107,6 @@
       color: var(--light-gold);
       font-size: clamp(17px, 2.5vw, 23px);
       font-weight: 700;
-      line-height: 1.6;
     }
 
     .intro-urdu {
@@ -151,27 +140,13 @@
       background: #fff;
       color: var(--green);
       text-decoration: none;
-      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
-      transition: background-color 0.2s, transform 0.2s;
-    }
-
-    .option:hover {
-      background: #fff7df;
-      transform: translateY(-2px);
-    }
-
-    .option:focus-visible,
-    button:focus-visible,
-    input:focus-visible {
-      outline: 3px solid #d7b65e;
-      outline-offset: 3px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.10);
     }
 
     .option h2 {
       margin: 0 0 7px;
       font-size: clamp(14px, 1.7vw, 19px);
       line-height: 1.45;
-      overflow-wrap: anywhere;
     }
 
     .option p {
@@ -180,7 +155,6 @@
       text-align: center;
       font-size: clamp(14px, 1.5vw, 17px);
       line-height: 2.4;
-      font-weight: 500;
     }
 
     main {
@@ -196,7 +170,7 @@
       background: #fff;
       border: 1px solid var(--border);
       border-radius: 16px;
-      box-shadow: 0 5px 20px rgba(18, 47, 34, 0.06);
+      box-shadow: 0 5px 20px rgba(18,47,34,.06);
       scroll-margin-top: 18px;
     }
 
@@ -212,9 +186,7 @@
       border-bottom: 2px solid #e7d8a8;
     }
 
-    .card h3 {
-      color: var(--green);
-    }
+    .card h3 { color: var(--green); }
 
     .urdu {
       font-size: clamp(19px, 2.4vw, 25px);
@@ -222,9 +194,7 @@
       overflow-wrap: break-word;
     }
 
-    .urdu p {
-      margin: 0 0 20px;
-    }
+    .urdu p { margin: 0 0 20px; }
 
     .muted {
       color: #53645a;
@@ -232,39 +202,82 @@
       line-height: 1.8;
     }
 
-    /* Surah Al-Fatiha: bara, bold aur markazi Arabic matn */
+    .surah-block {
+      margin: 0 0 30px;
+      padding: 14px 0 20px;
+      border-bottom: 1px solid #e8dfc5;
+    }
+
+    .surah-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 10px 14px;
+      margin: 0 0 14px;
+      border: 1px solid var(--gold);
+      border-radius: 8px;
+      background: #fffaf0;
+      color: var(--green);
+      font-family: "Noto Naskh Arabic", serif;
+      font-weight: 700;
+      font-size: clamp(15px, 2vw, 19px);
+    }
+
+    .bismillah {
+      margin: 12px 0 20px;
+      padding: 14px 6px;
+      color: var(--green);
+      text-align: center;
+      direction: rtl;
+      white-space: nowrap;
+      font-family: "Amiri", "Noto Naskh Arabic", serif;
+      font-size: clamp(27px, 4.8vw, 42px);
+      line-height: 1.8;
+      font-weight: 700;
+      border-bottom: 1px solid #e7d8a8;
+      overflow-x: auto;
+    }
+
     .arabic {
       width: 100%;
       padding: 18px 6px;
       font-family: "Amiri", "Noto Naskh Arabic", serif;
       font-size: clamp(34px, 5.8vw, 50px);
       font-weight: 700;
-      line-height: 2.15;
-      text-align: center;
+      line-height: 2.25;
+      text-align: justify;
+      text-align-last: center;
       direction: rtl;
       color: var(--green);
-      overflow-wrap: break-word;
-      font-synthesis: none;
+      word-break: normal;
+      overflow-wrap: normal;
       text-rendering: optimizeLegibility;
     }
 
-    /* Ayat ek hi paragraph mein flow karengi */
-    .ayah-line {
+    .ayah-item {
       display: inline;
-      margin: 0;
-      text-align: center;
+      padding: 0;
+      border: 0;
+      scroll-margin-top: 18px;
     }
 
-    /* Golden border wala gol ayat number */
+    .ayah {
+      display: inline;
+      white-space: normal;
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+
     .ayah-number {
       display: inline-flex;
       vertical-align: middle;
       align-items: center;
       justify-content: center;
-      flex-shrink: 0;
       width: 38px;
       height: 38px;
-      margin: 0 5px;
+      margin: 0 3px;
       border: 2px solid #c9a227;
       border-radius: 50%;
       background: #fffaf0;
@@ -276,10 +289,15 @@
       white-space: nowrap;
     }
 
-    input,
-    button {
-      font: inherit;
+    .translation-title {
+      margin: 10px 0;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #e7d8a8;
+      font-family: "Noto Nastaliq Urdu", serif;
+      font-size: 25px;
     }
+
+    input, button { font: inherit; }
 
     input[type="text"] {
       display: block;
@@ -294,7 +312,8 @@
       font-size: 16px;
     }
 
-    button {
+    button, .button-link {
+      display: inline-block;
       min-height: 44px;
       margin: 4px 5px 4px 0;
       padding: 10px 17px;
@@ -305,10 +324,7 @@
       cursor: pointer;
       font-size: 15px;
       font-weight: 600;
-    }
-
-    button:hover {
-      background: #285b49;
+      text-decoration: none;
     }
 
     audio {
@@ -316,6 +332,15 @@
       width: 100%;
       margin: 18px 0;
     }
+
+    .status {
+      padding: 12px 14px;
+      border-radius: 9px;
+      background: #f6f2e5;
+      color: #4a4a32;
+    }
+
+    .translation-text { margin: 8px 0 0; }
 
     footer {
       padding: 22px 15px;
@@ -325,126 +350,58 @@
       border-top: 3px solid var(--gold);
     }
 
-    [hidden] {
-      display: none !important;
-    }
+    [hidden] { display: none !important; }
 
     @media (max-width: 800px) {
-      .options {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 11px;
-      }
-
-      .option {
-        min-height: 105px;
-      }
-
-      main {
-        padding: 0 14px;
-      }
-
-      header {
-        padding: 20px 12px 24px;
-      }
-
-      .arabic {
-        font-size: clamp(32px, 6vw, 44px);
-        line-height: 2.2;
-      }
-
-      .ayah-number {
-        width: 34px;
-        height: 34px;
-        font-size: 18px;
-      }
+      .options { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+      .option { min-height: 105px; }
+      main { padding: 0 14px; }
+      header { padding: 20px 12px 24px; }
+      .arabic { font-size: clamp(32px, 6vw, 44px); line-height: 2.2; }
+      .bismillah { font-size: clamp(24px, 5.3vw, 36px); }
+      .ayah-number { width: 34px; height: 34px; font-size: 18px; }
     }
 
     @media (max-width: 380px) {
-      .options {
-        grid-template-columns: 1fr;
-      }
-
-      .option {
-        min-height: auto;
-        padding: 13px;
-      }
-
-      .card {
-        padding: 16px;
-      }
-
-      .arabic {
-        font-size: 32px;
-        line-height: 2.25;
-      }
-
-      .ayah-number {
-        width: 31px;
-        height: 31px;
-        margin: 0 3px;
-        font-size: 17px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .option {
-        transition: none;
-      }
+      .options { grid-template-columns: 1fr; }
+      .option { min-height: auto; padding: 13px; }
+      .card { padding: 16px; }
+      .arabic { font-size: 32px; line-height: 2.25; }
+      .bismillah { font-size: 23px; }
+      .surah-meta { justify-content: center; }
+      .ayah-number { width: 31px; height: 31px; margin: 0 3px; font-size: 17px; }
     }
   </style>
 </head>
 
 <body>
-
   <div class="banner">
     <img src="hame-banner.jpg" alt="Ilm Aura Quran banner">
   </div>
 
   <header>
     <div class="logo-area">
-      <img
-        class="brand-logo"
-        src="ilmauraquran%20LOGO.png"
-        alt="Ilm Aura Quran logo"
-      >
+      <img class="brand-logo" src="ilmauraquran%20LOGO.png" alt="Ilm Aura Quran logo">
     </div>
 
-    <p class="tagline-urdu" lang="ur" dir="rtl">
-      قرآن کو سمجھیں، پڑھیں اور سنیں
-    </p>
-
-    <p class="tagline-english">
-      Understand the Quran, read and listen
-    </p>
-
-    <p class="slogan">
-      Quran Se Noor — Ilm Se Shaoor
-    </p>
-
-    <p class="intro-urdu" lang="ur" dir="rtl">
-      قرآن پڑھیں، سمجھیں اور اپنی زندگی میں روشنی لائیں
-    </p>
+    <p class="tagline-urdu" lang="ur" dir="rtl">قرآن کو سمجھیں، پڑھیں اور سنیں</p>
+    <p class="tagline-english">Understand the Quran, read and listen</p>
+    <p class="slogan">Quran Se Noor — Ilm Se Shaoor</p>
+    <p class="intro-urdu" lang="ur" dir="rtl">قرآن پڑھیں، سمجھیں اور اپنی زندگی میں روشنی لائیں</p>
 
     <nav class="options" aria-label="Quran website sections">
       <a class="option" href="#quran">
         <h2>Quran Journey</h2>
         <p lang="ur" dir="rtl">قرآنِ پاک پڑھیں</p>
       </a>
-
       <a class="option" href="#translation">
         <h2>Easy Translation</h2>
         <p lang="ur" dir="rtl">قرآن کا آسان اردو ترجمہ</p>
       </a>
-
       <a class="option" href="#tafseer">
         <h2>Simple Tafseer</h2>
         <p lang="ur" dir="rtl">قرآن کی آسان اردو تفسیر</p>
       </a>
-
       <a class="option" href="#audio">
         <h2>Noor-e-Tilawat</h2>
         <p lang="ur" dir="rtl">نور بھری تلاوت سنیں</p>
@@ -453,199 +410,247 @@
   </header>
 
   <main>
-
     <section class="card" id="search">
       <h2 class="section-heading">Quran Tafseer Search</h2>
-
-      <p class="urdu" lang="ur" dir="rtl">
-        سورت یا آیت تلاش کریں اور قرآن کو سمجھنے کا سفر شروع کریں۔
-      </p>
-
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Surah ka naam likhein, e.g. Al-Fatiha"
-        aria-label="Search Surah"
-      >
-
-      <button type="button" onclick="findTafseer()">Search</button>
-
+      <p class="urdu" lang="ur" dir="rtl">سورت یا آیت تلاش کریں اور قرآن کو سمجھنے کا سفر شروع کریں۔</p>
+      <input type="text" id="searchInput" placeholder="Ayat number likhein, e.g. 255" aria-label="Search ayah number">
+      <button type="button" id="searchButton">Search Ayah</button>
       <p id="searchMessage" class="muted" aria-live="polite"></p>
     </section>
 
     <section class="card" id="quran">
-      <h2 class="section-heading">Surah Al-Fatiha</h2>
+      <h2 class="section-heading">Quran Journey | قرآنِ پاک</h2>
 
-      <p class="muted">The Opening Chapter of the Quran</p>
+      <div class="surah-block" id="fatihaBlock">
+        <div class="surah-meta" dir="rtl">
+          <span>مکی</span>
+          <span>سورۃ الفاتحہ</span>
+          <span>۷ آیات · ۱ رکوع</span>
+        </div>
 
-      <div class="arabic" lang="ar" dir="rtl">
-        <span class="ayah-line">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span><span class="ayah-number">١</span>
-        <span class="ayah-line">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ الرَّحْمَٰنِ الرَّحِيمِ</span><span class="ayah-number">٢</span>
-        <span class="ayah-line">مَالِكِ يَوْمِ الدِّينِ</span><span class="ayah-number">٣</span>
-        <span class="ayah-line">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</span><span class="ayah-number">٤</span>
-        <span class="ayah-line">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</span><span class="ayah-number">٥</span>
-        <span class="ayah-line">صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ</span><span class="ayah-number">٦</span>
-        <span class="ayah-line">غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</span><span class="ayah-number">٧</span>
+        <h3 class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h3>
+        <div id="fatihaStatus" class="status" role="status">Surah Al-Fatiha load ho rahi hai...</div>
+        <div class="arabic" id="fatihaArabic" lang="ar" dir="rtl" aria-live="polite"></div>
+      </div>
+
+      <div class="surah-block" id="baqarahBlock">
+        <div class="surah-meta" dir="rtl">
+          <span>مدنی</span>
+          <span>سورۃ البقرۃ</span>
+          <span>۲۸۶ آیات · ۴۰ رکوع</span>
+        </div>
+
+        <h3 class="bismillah" lang="ar" dir="rtl">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</h3>
+        <div id="arabicStatus" class="status" role="status">Surah Al-Baqarah load ho rahi hai...</div>
+        <div class="arabic" id="arabicText" lang="ar" dir="rtl" aria-live="polite"></div>
       </div>
     </section>
 
     <section class="card" id="translation">
-      <h2 class="section-heading">Easy Translation</h2>
+      <h2 class="section-heading">Easy Translation | آسان اردو ترجمہ</h2>
+      <p class="muted">Urdu Translation — Maulana Fateh Muhammad Jalandhari</p>
 
-      <p class="muted">
-        Urdu Translation — Maulana Fateh Muhammad Jalandhari
-      </p>
+      <div class="surah-block">
+        <h3 class="translation-title" lang="ur" dir="rtl">سورۃ الفاتحہ — ترجمہ</h3>
+        <div id="fatihaTranslationStatus" class="status" role="status">Tarjuma load ho raha hai...</div>
+        <div class="urdu" lang="ur" dir="rtl" id="fatihaTranslation"></div>
+      </div>
 
-      <div class="urdu" lang="ur" dir="rtl" id="urduTranslation">
-        سب طرح کی تعریف خدا ہی کو (سزاوار) ہے جو تمام مخلوقات کا پروردگار ہے۔
-        بڑا مہربان نہایت رحم والا۔ انصاف کے دن کا حاکم۔
-        (اے پروردگار) ہم تیری ہی عبادت کرتے ہیں اور تجھ ہی سے مدد مانگتے ہیں۔
-        ہم کو سیدھے راستے چلا۔ ان لوگوں کے راستے جن پر تو اپنا فضل و کرم کرتا رہا،
-        نہ ان کے جن پر غصے ہوتا رہا اور نہ گمراہوں کے۔
+      <div class="surah-block">
+        <h3 class="translation-title" lang="ur" dir="rtl">سورۃ البقرۃ — ترجمہ</h3>
+        <div id="translationStatus" class="status" role="status">Tarjuma load ho raha hai...</div>
+        <div class="urdu" lang="ur" dir="rtl" id="urduTranslation"></div>
       </div>
     </section>
 
     <section class="card" id="tafseer">
-      <h2 class="section-heading">Simple Tafseer</h2>
+      <h2 class="section-heading">Simple Tafseer | بیان القرآن</h2>
+      <p class="muted">Tafseer Bayan-ul-Quran — Dr. Israr Ahmed (Sayyedna)</p>
 
-      <div id="urduContent" class="urdu" lang="ur" dir="rtl">
-        <p><strong>سورۃ الفاتحہ کا آسان مفہوم</strong></p>
-
-        <p>
-          سورۃ الفاتحہ قرآنِ مجید کی پہلی سورت ہے۔ اس میں ہم اللہ تعالیٰ کی
-          حمد و ثنا بیان کرتے ہیں، اس کی رحمت کو یاد کرتے ہیں اور مانتے ہیں
-          کہ روزِ جزا کا اختیار اسی کے پاس ہے۔
-        </p>
-
-        <p>
-          اس سورت میں ہم اقرار کرتے ہیں کہ عبادت صرف اللہ تعالیٰ کی کرتے ہیں
-          اور مدد بھی اسی سے مانگتے ہیں۔ پھر دعا کرتے ہیں کہ اللہ ہمیں سیدھے
-          راستے پر چلائے، یعنی ان لوگوں کے راستے پر جن پر اس کا فضل ہوا۔
-        </p>
+      <div class="urdu" lang="ur" dir="rtl">
+        <p><strong>بیان القرآن — ڈاکٹر اسرار احمد</strong></p>
+        <p>سورۃ البقرۃ کی تفسیر اور دروس کے لیے تنظیمِ اسلامی کے متعلقہ وسائل ملاحظہ کریں۔</p>
+        <p>اصل تفسیر کے متن اور آڈیو کو درست نسبت کے ساتھ شامل کرنے کے لیے مستند ماخذ استعمال کریں۔</p>
       </div>
 
-      <div id="englishContent" hidden>
-        <h3>Simple English Explanation</h3>
-
-        <p>
-          Surah Al-Fatiha praises Allah, the Lord of all worlds, and reminds
-          us of His mercy and authority on the Day of Judgment.
-        </p>
-
-        <p>
-          It teaches us to worship Allah alone, seek help from Him, and ask
-          for guidance to the straight path.
-        </p>
-      </div>
-
-      <div>
-        <button type="button" onclick="showLanguage('ur')">
-          اردو تفسیر
-        </button>
-
-        <button type="button" onclick="showLanguage('en')">
-          English Tafseer
-        </button>
-
-        <button type="button" onclick="speakTafseer()">
-          Read Tafseer Aloud
-        </button>
-
-        <button type="button" onclick="stopSpeech()">
-          Stop
-        </button>
-      </div>
+      <a class="button-link" href="https://www.tanzeem.org/categories/bayan-ul-quran-series-translation-brief-commentary/" target="_blank" rel="noopener noreferrer">Official Bayan-ul-Quran Audio</a>
+      <a class="button-link" href="https://www.tanzeem.org/book_categories/bayan-ul-quran/" target="_blank" rel="noopener noreferrer">Bayan-ul-Quran Books</a>
     </section>
 
     <section class="card" id="audio">
-      <h2 class="section-heading">Noor-e-Tilawat</h2>
-
-      <p class="urdu" lang="ur" dir="rtl">
-        سورۃ الفاتحہ کی تلاوت سنیں۔
-      </p>
+      <h2 class="section-heading">Noor-e-Tilawat | نورِ تلاوت</h2>
+      <p class="urdu" lang="ur" dir="rtl">سورۃ البقرۃ کی مکمل تلاوت سنیں۔</p>
+      <p class="muted">Recitation: Mishary Rashid Alafasy</p>
 
       <audio id="quranAudio" controls preload="metadata">
-        <source
-          src="https://ilmauraquran.github.io/ilmauraquran/Surah-Fatiha.mp3"
-          type="audio/mpeg"
-        >
+        <source src="https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/2.mp3" type="audio/mpeg">
         Aapka browser audio play nahi kar sakta.
       </audio>
 
-      <p class="muted">
-        Agar audio play na ho to internet connection aur audio link check karein.
-      </p>
+      <p class="muted">Yeh Arabic tilawat hai. Dr. Israr Ahmed ke Bayan-ul-Quran dars ke liye upar official source ka link diya gaya hai.</p>
     </section>
-
   </main>
 
-  <footer>
-    Ilm Aura Quran · Learn with understanding
-  </footer>
+  <footer>Ilm Aura Quran · Learn with understanding</footer>
 
   <script>
-    let currentLanguage = "ur";
+    const API_BASE = "https://api.alquran.cloud/v1";
 
-    function showLanguage(language) {
-      currentLanguage = language;
+    const arabicTargets = {
+      fatiha: {
+        container: document.getElementById("fatihaArabic"),
+        status: document.getElementById("fatihaStatus"),
+        number: 1,
+        count: 7
+      },
+      baqarah: {
+        container: document.getElementById("arabicText"),
+        status: document.getElementById("arabicStatus"),
+        number: 2,
+        count: 286
+      }
+    };
 
-      document.getElementById("urduContent").hidden = language !== "ur";
-      document.getElementById("englishContent").hidden = language !== "en";
+    const translationTargets = {
+      fatiha: {
+        container: document.getElementById("fatihaTranslation"),
+        status: document.getElementById("fatihaTranslationStatus"),
+        number: 1,
+        count: 7
+      },
+      baqarah: {
+        container: document.getElementById("urduTranslation"),
+        status: document.getElementById("translationStatus"),
+        number: 2,
+        count: 286
+      }
+    };
+
+    function toArabicDigits(number) {
+      return String(number).replace(/[0-9]/g, digit => "٠١٢٣٤٥٦٧٨٩"[Number(digit)]);
     }
 
-    function findTafseer() {
-      const input = document
-        .getElementById("searchInput")
-        .value
-        .trim()
-        .toLowerCase();
+    function setError(statusElement, message) {
+      statusElement.textContent = message + " Internet connection check karein aur page refresh karein.";
+    }
 
-      const message = document.getElementById("searchMessage");
+    async function loadArabic(target) {
+      try {
+        const response = await fetch(`${API_BASE}/surah/${target.number}/quran-uthmani`);
+        if (!response.ok) throw new Error("Arabic API request failed");
 
-      if (
-        input === "" ||
-        input.includes("fatiha") ||
-        input.includes("fatihah") ||
-        input.includes("فاتحہ") ||
-        input.includes("al-fatiha")
-      ) {
-        message.textContent = "Surah Al-Fatiha found.";
-        document.getElementById("quran").scrollIntoView({
-          behavior: "smooth"
+        const json = await response.json();
+
+        if (
+          json.code !== 200 ||
+          !json.data ||
+          !Array.isArray(json.data.ayahs) ||
+          json.data.ayahs.length !== target.count
+        ) {
+          throw new Error("Arabic data/count did not match");
+        }
+
+        const fragment = document.createDocumentFragment();
+
+        json.data.ayahs.forEach(ayah => {
+          const wrapper = document.createElement("span");
+          wrapper.className = "ayah-item";
+          wrapper.id = `${target.number === 1 ? "fatiha" : "ayah"}-${ayah.numberInSurah}`;
+
+          const text = document.createElement("span");
+          text.className = "ayah";
+          text.textContent = ayah.text + " ";
+
+          const number = document.createElement("span");
+          number.className = "ayah-number";
+          number.textContent = toArabicDigits(ayah.numberInSurah);
+          number.setAttribute("aria-label", `Ayah ${ayah.numberInSurah}`);
+
+          wrapper.append(text, number);
+          fragment.appendChild(wrapper);
         });
-      } else {
-        message.textContent =
-          "Abhi is website par Surah Al-Fatiha ka content available hai.";
+
+        target.container.replaceChildren(fragment);
+        target.status.textContent = `Alhamdulillah! Tamam ${target.count} ayaat load ho gayi hain.`;
+      } catch (error) {
+        setError(target.status, "Arabic matn load nahi ho saka.");
+        console.error(error);
       }
     }
 
-    function speakTafseer() {
-      if (!("speechSynthesis" in window)) {
-        alert("Your browser does not support speech playback.");
+    async function loadTranslation(target) {
+      try {
+        const response = await fetch(`${API_BASE}/surah/${target.number}/ur.jalandhry`);
+        if (!response.ok) throw new Error("Translation API request failed");
+
+        const json = await response.json();
+
+        if (
+          json.code !== 200 ||
+          !json.data ||
+          !Array.isArray(json.data.ayahs) ||
+          json.data.ayahs.length !== target.count
+        ) {
+          throw new Error("Translation data/count did not match");
+        }
+
+        const fragment = document.createDocumentFragment();
+
+        json.data.ayahs.forEach(ayah => {
+          const paragraph = document.createElement("p");
+          paragraph.className = "translation-text";
+          paragraph.id = `translation-${target.number}-${ayah.numberInSurah}`;
+          paragraph.textContent = `${toArabicDigits(ayah.numberInSurah)}۔ ${ayah.text}`;
+          fragment.appendChild(paragraph);
+        });
+
+        target.container.replaceChildren(fragment);
+        target.status.textContent =
+          `Urdu tarjuma load ho gaya (${target.count} ayaat). Tarjuma: Maulana Fateh Muhammad Jalandhari.`;
+      } catch (error) {
+        setError(target.status, "Urdu tarjuma automatic load nahi ho saka.");
+        console.error(error);
+      }
+    }
+
+    function findAyah() {
+      const raw = document.getElementById("searchInput").value.trim();
+      const message = document.getElementById("searchMessage");
+      const number = Number(raw);
+
+      if (!raw || !Number.isInteger(number) || number < 1 || number > 286) {
+        message.textContent = "Surah Al-Baqarah ki ayat ka number 1 se 286 ke darmiyan likhein.";
         return;
       }
 
-      window.speechSynthesis.cancel();
+      const target = document.getElementById(`ayah-${number}`);
 
-      const textToRead =
-        currentLanguage === "ur"
-          ? document.getElementById("urduContent").innerText
-          : document.getElementById("englishContent").innerText;
-
-      const speech = new SpeechSynthesisUtterance(textToRead);
-
-      speech.lang = currentLanguage === "ur" ? "ur-PK" : "en-US";
-      speech.rate = 0.85;
-
-      window.speechSynthesis.speak(speech);
-    }
-
-    function stopSpeech() {
-      if ("speechSynthesis" in window) {
-        window.speechSynthesis.cancel();
+      if (!target) {
+        message.textContent = "Ayat abhi load nahi hui. Pehle page ko load hone dein.";
+        return;
       }
-    }
-  </script>
 
+      message.textContent = `Surah Al-Baqarah, Ayat ${number} mil gayi.`;
+      target.scrollIntoView({ behavior: "smooth", block: "center" });
+      target.style.backgroundColor = "#fff7df";
+
+      setTimeout(() => {
+        target.style.backgroundColor = "";
+      }, 1800);
+    }
+
+    document.getElementById("searchButton").addEventListener("click", findAyah);
+
+    document.getElementById("searchInput").addEventListener("keydown", event => {
+      if (event.key === "Enter") findAyah();
+    });
+
+    Promise.all([
+      loadArabic(arabicTargets.fatiha),
+      loadArabic(arabicTargets.baqarah),
+      loadTranslation(translationTargets.fatiha),
+      loadTranslation(translationTargets.baqarah)
+    ]);
+  </script>
 </body>
 </html>
