@@ -22,7 +22,7 @@ header{padding:22px 15px 28px;background:linear-gradient(145deg,var(--green),var
 .tagline{font-size:25px;line-height:2.2;margin:8px 0}
 .slogan{color:#f5e4ac;font-size:21px;font-weight:bold}
 .intro{font-family:"Noto Nastaliq Urdu",serif;font-size:20px;line-height:2.3}
-.options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;max-width:650px;margin:20px auto}
+.options{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:950px;margin:20px auto}
 .option{padding:12px;background:white;border:1px solid #e5d39a;border-radius:12px;color:var(--green);text-decoration:none}
 .option h2,.option p{margin:0}
 main{max-width:1000px;margin:25px auto;padding:0 15px}
@@ -55,7 +55,7 @@ audio{width:100%;margin:10px 0}
 footer{padding:22px;background:var(--deep);color:white;text-align:center;border-top:3px solid var(--gold)}
 .build-version{font-size:11px;color:#d9c995;margin-top:8px}
 [hidden]{display:none!important}
-@media(max-width:500px){.options,.surah-list{grid-template-columns:1fr}.card{padding:14px}.arabic{font-size:33px}.surah-heading h2{font-size:32px}}
+@media(max-width:500px){.options{grid-template-columns:1fr}.surah-list{grid-template-columns:1fr}.card{padding:14px}.arabic{font-size:33px}.surah-heading h2{font-size:32px}}
 </style>
 </head>
 
@@ -69,9 +69,21 @@ footer{padding:22px;background:var(--deep);color:white;text-align:center;border-
   <div class="slogan">Quran Se Noor — Ilm Se Shaoor</div>
   <p class="intro">قرآن پڑھیں، سمجھیں اور اپنی زندگی میں روشنی لائیں</p>
   <div class="options">
-    <a class="option" href="#surah-list"><h2>تمام سورتیں</h2><p>All 114 Surahs</p></a>
-    <a class="option" href="#surah-list"><h2>قرآن فہمی</h2><p>Read, Understand & Listen</p></a>
-  </div>
+  <a class="option" href="#surah-list">
+    <h2>تمام سورتیں</h2>
+    <p>All 114 Surahs</p>
+  </a>
+
+  <a class="option" href="#surah-list">
+    <h2>قرآن سمجھیں</h2>
+    <p>Read, Understand & Listen</p>
+  </a>
+
+  <a class="option" href="#bayan">
+    <h2>قرآن بیان و تفسیر</h2>
+    <p>ڈاکٹر اسرار احمد</p>
+  </a>
+</div>
 </header>
 
 <main>
