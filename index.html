@@ -4,15 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#183d32">
+
 <title>Ilm Aura Quran | قرآن فہمی</title>
 <meta name="description" content="Complete Quran with Arabic text, Urdu translation and recitation.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root {
+:root{
   --green:#183d32;
   --deep:#102d25;
   --gold:#d7b65e;
@@ -20,157 +22,506 @@
   --page:#f5f7f4;
   --border:#e2e7df;
 }
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; scroll-padding-top:15px; }
-body {
-  margin:0;background:var(--page);color:#202b25;
-  font-family:Arial,sans-serif;line-height:1.8;
+
+*{
+  box-sizing:border-box;
 }
-.banner { width:100%;background:#07152e;text-align:center;overflow:hidden; }
-.banner img { display:block;width:100%;max-width:1920px;height:auto;margin:auto; }
-header {
+
+html{
+  scroll-behavior:smooth;
+  scroll-padding-top:15px;
+}
+
+body{
+  margin:0;
+  background:var(--page);
+  color:#202b25;
+  font-family:Arial,sans-serif;
+  line-height:1.8;
+}
+
+/* =========================
+   BANNER
+========================= */
+
+.banner{
+  width:100%;
+  background:#07152e;
+  text-align:center;
+  overflow:hidden;
+}
+
+.banner img{
+  display:block;
+  width:100%;
+  max-width:1920px;
+  height:auto;
+  margin:auto;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
   padding:24px 15px 28px;
   background:linear-gradient(145deg,var(--green),var(--deep));
-  color:white;text-align:center;border-bottom:4px solid var(--gold);
+  color:white;
+  text-align:center;
+  border-bottom:4px solid var(--gold);
 }
-.logo-area { display:flex;justify-content:center; }
-.brand-logo { width:min(220px,45vw);max-height:220px;object-fit:contain; }
-.tagline-urdu,.intro-urdu,.urdu,.option p {
+
+.logo-area{
+  display:flex;
+  justify-content:center;
+}
+
+.brand-logo{
+  width:min(220px,45vw);
+  max-height:220px;
+  object-fit:contain;
+}
+
+.tagline-urdu,
+.intro-urdu,
+.urdu,
+.option p,
+.surah-name,
+.section-title,
+.tafseer-text{
   font-family:"Noto Nastaliq Urdu","Noto Naskh Arabic",serif;
   direction:rtl;
 }
-.tagline-urdu {
-  margin:8px 0;font-size:clamp(21px,3vw,30px);
-  line-height:2.2;font-weight:600;
+
+.tagline-urdu{
+  margin:8px 0;
+  font-size:clamp(21px,3vw,30px);
+  line-height:2.2;
+  font-weight:600;
 }
-.slogan { color:var(--light);font-size:clamp(17px,2.5vw,23px);font-weight:bold; }
-.intro-urdu {
-  margin:8px auto 24px;font-size:clamp(18px,2.5vw,24px);line-height:2.3;
+
+.slogan{
+  color:var(--light);
+  font-size:clamp(17px,2.5vw,23px);
+  font-weight:bold;
 }
-.options {
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;max-width:700px;margin:auto;
+
+.intro-urdu{
+  margin:8px auto 24px;
+  font-size:clamp(18px,2.5vw,24px);
+  line-height:2.3;
 }
-.option {
-  display:flex;flex-direction:column;justify-content:center;
-  min-height:90px;padding:12px;background:white;
-  border:1px solid #e5d39a;border-radius:12px;
-  color:var(--green);text-decoration:none;
+
+.options{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px;
+  max-width:700px;
+  margin:auto;
 }
-.option h2 { margin:0 0 4px;font-size:19px; }
-.option p { margin:0;text-align:center; }
-main { width:100%;max-width:1000px;margin:25px auto;padding:0 16px; }
-.card {
-  margin-bottom:22px;padding:clamp(16px,3vw,30px);
-  background:white;border:1px solid var(--border);
-  border-radius:16px;box-shadow:0 5px 20px #122f220f;
+
+.option{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:90px;
+  padding:12px;
+  background:white;
+  border:1px solid #e5d39a;
+  border-radius:12px;
+  color:var(--green);
+  text-decoration:none;
 }
-button,.button-link {
-  display:inline-block;min-height:44px;margin:4px;padding:10px 16px;
-  border:0;border-radius:9px;background:var(--green);color:white;
-  cursor:pointer;font-size:15px;font-weight:600;text-decoration:none;
+
+.option h2{
+  margin:0 0 4px;
+  font-size:19px;
 }
-button:hover,.button-link:hover { background:var(--deep); }
-.surah-page { display:none; }
-.surah-page.active { display:block; }
-.surah-heading {
-  padding:15px 10px;text-align:center;
+
+.option p{
+  margin:0;
+  text-align:center;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main{
+  width:100%;
+  max-width:1000px;
+  margin:25px auto;
+  padding:0 16px;
+}
+
+.card{
+  margin-bottom:22px;
+  padding:clamp(16px,3vw,30px);
+  background:white;
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:0 5px 20px #122f220f;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button,
+.button-link{
+  display:inline-block;
+  min-height:44px;
+  margin:4px;
+  padding:10px 16px;
+  border:0;
+  border-radius:9px;
+  background:var(--green);
+  color:white;
+  cursor:pointer;
+  font-size:15px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+button:hover,
+.button-link:hover{
+  background:var(--deep);
+}
+
+/* =========================
+   SURAH PAGE
+========================= */
+
+.surah-page{
+  display:none;
+}
+
+.surah-page.active{
+  display:block;
+}
+
+.surah-heading{
+  padding:15px 10px;
+  text-align:center;
   background:linear-gradient(120deg,#fff9e9,#fff);
-  border:2px solid var(--gold);border-radius:12px;
+  border:2px solid var(--gold);
+  border-radius:12px;
 }
-.surah-heading h2 {
-  margin:0;color:var(--green);
-  font-family:"Noto Nastaliq Urdu",serif;
-  font-size:clamp(27px,5vw,37px);line-height:2;
+
+.surah-heading h2{
+  margin:0;
+  color:var(--green);
+  font-family:"Noto Naskh Arabic","Amiri",serif;
+  font-size:clamp(30px,5vw,42px);
+  line-height:2;
+  font-weight:700;
 }
-.surah-english { margin:5px 0;color:#59695e;font-weight:bold; }
-.surah-meta {
-  display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:12px;
+
+.surah-english{
+  margin:5px 0;
+  color:#59695e;
+  font-weight:bold;
 }
-.meta-item {
-  padding:5px 12px;background:var(--green);color:white;
-  border-radius:20px;font-size:13px;
+
+.surah-meta{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
 }
-.bismillah {
-  margin:22px 0;padding:17px 12px;color:var(--green);
-  text-align:center;direction:rtl;
+
+.meta-item{
+  padding:5px 12px;
+  background:var(--green);
+  color:white;
+  border-radius:20px;
+  font-size:13px;
+}
+
+/* =========================
+   BISMILLAH
+========================= */
+
+.bismillah{
+  margin:22px 0;
+  padding:17px 12px;
+  color:var(--green);
+  text-align:center;
+  direction:rtl;
   font-family:"Amiri","Noto Naskh Arabic",serif;
-  font-size:clamp(30px,5.5vw,45px);line-height:1.9;font-weight:700;
-  border-top:2px solid var(--gold);border-bottom:2px solid var(--gold);
+  font-size:clamp(30px,5.5vw,45px);
+  line-height:1.9;
+  font-weight:700;
+  border-top:2px solid var(--gold);
+  border-bottom:2px solid var(--gold);
   background:#fffaf0;
 }
-.section-title {
-  margin:25px 0 12px;padding-bottom:8px;color:var(--green);
-  font-family:"Noto Nastaliq Urdu",serif;font-size:24px;line-height:2;
+
+/* =========================
+   SECTION TITLES
+========================= */
+
+.section-title{
+  margin:25px 0 12px;
+  padding-bottom:8px;
+  color:var(--green);
+  font-size:24px;
+  line-height:2;
   border-bottom:1px solid #e7d8a8;
 }
-.arabic {
-  width:100%;padding:15px 4px;color:var(--green);
+
+/* =========================
+   ARABIC QURAN FONT
+========================= */
+
+.arabic{
+  width:100%;
+  padding:18px 4px;
+  color:var(--green);
+
+  /*
+    Main Quran font:
+    Amiri first, Noto Naskh Arabic second.
+  */
   font-family:"Amiri","Noto Naskh Arabic",serif;
-  font-size:clamp(34px,5.8vw,49px);font-weight:700;line-height:2.35;
-  text-align:justify;text-align-last:center;direction:rtl;
+
+  font-size:clamp(32px,5.5vw,49px);
+  font-weight:700;
+  line-height:2.45;
+
+  text-align:justify;
+  text-align-last:center;
+  direction:rtl;
+
+  font-feature-settings:"liga" 1,"calt" 1;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
 }
-.ayah-item { display:inline; }
-.ayah-number {
-  display:inline-flex;align-items:center;justify-content:center;
-  vertical-align:middle;width:37px;height:37px;margin:0 4px;
-  border:2px solid #c9a227;border-radius:50%;background:#fffaf0;
-  color:var(--green);font-family:"Amiri",serif;font-size:19px;line-height:1;
+
+.ayah-item{
+  display:inline;
 }
-.urdu {
-  font-size:clamp(19px,2.4vw,24px);line-height:2.7;overflow-wrap:break-word;
+
+.ayah{
+  font-family:"Amiri","Noto Naskh Arabic",serif;
 }
-.translation-text {
-  margin:10px 0 22px;padding-bottom:12px;border-bottom:1px solid #edf0eb;
+
+.ayah-number{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  vertical-align:middle;
+
+  width:37px;
+  height:37px;
+
+  margin:0 5px;
+
+  border:2px solid #c9a227;
+  border-radius:50%;
+
+  background:#fffaf0;
+  color:var(--green);
+
+  font-family:"Amiri",serif;
+  font-size:19px;
+  line-height:1;
 }
-.translation-number { color:#a27e20;font-weight:bold; }
-.muted { color:#65736a;font-size:14px; }
-.status {
-  margin:10px 0;padding:12px;border-radius:9px;
-  background:#f6f2e5;color:#4a4a32;overflow-wrap:anywhere;
+
+/* =========================
+   URDU
+========================= */
+
+.urdu{
+  font-size:clamp(19px,2.4vw,24px);
+  line-height:2.7;
+  overflow-wrap:break-word;
 }
-.search-area { max-width:650px;margin:20px auto; }
-.search-area input {
-  width:100%;padding:14px;border:1px solid var(--gold);
-  border-radius:10px;font-size:16px;outline-color:var(--green);
+
+.translation-text{
+  margin:10px 0 22px;
+  padding-bottom:12px;
+  border-bottom:1px solid #edf0eb;
 }
-.surah-list {
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:10px;margin:18px 0;
+
+.translation-number{
+  color:#a27e20;
+  font-weight:bold;
 }
-.surah-button {
-  display:flex;align-items:center;justify-content:space-between;
-  width:100%;min-height:65px;margin:0;padding:10px;
-  background:white;color:var(--green);border:1px solid #e5d39a;text-align:right;
+
+.muted{
+  color:#65736a;
+  font-size:14px;
 }
-.surah-button:hover { background:#fff8e5;color:var(--green); }
-.surah-num {
-  display:inline-flex;align-items:center;justify-content:center;
-  min-width:32px;height:32px;border-radius:50%;
-  background:var(--green);color:white;
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+  margin:10px 0;
+  padding:12px;
+  border-radius:9px;
+  background:#f6f2e5;
+  color:#4a4a32;
+  overflow-wrap:anywhere;
 }
-.surah-name { font-family:"Noto Nastaliq Urdu",serif;font-size:17px; }
-.tafseer-box {
-  padding:16px;background:#f9f7ef;
-  border-right:4px solid var(--gold);border-radius:8px;
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-area{
+  max-width:650px;
+  margin:20px auto;
 }
-.tafseer-text {
-  font-family:"Noto Nastaliq Urdu",serif;font-size:19px;
-  line-height:2.5;direction:rtl;white-space:pre-wrap;
+
+.search-area input{
+  width:100%;
+  padding:14px;
+
+  border:1px solid var(--gold);
+  border-radius:10px;
+
+  font-size:16px;
+  outline-color:var(--green);
 }
-audio { width:100%;margin:10px 0; }
-footer {
-  padding:22px 15px;background:var(--deep);color:white;
-  text-align:center;border-top:3px solid var(--gold);
+
+/* =========================
+   SURAH LIST
+========================= */
+
+.surah-list{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin:18px 0;
 }
-.build-version { margin-top:8px;color:#d9c995;font-size:11px;opacity:.8; }
-[hidden] { display:none!important; }
-@media(max-width:500px) {
-  .options,.surah-list { grid-template-columns:1fr; }
-  .card { padding:15px; }
-  .arabic { font-size:33px;line-height:2.25; }
-  .bismillah { font-size:28px; }
-  .ayah-number { width:32px;height:32px;font-size:17px; }
+
+.surah-button{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  width:100%;
+  min-height:65px;
+
+  margin:0;
+  padding:10px;
+
+  background:white;
+  color:var(--green);
+
+  border:1px solid #e5d39a;
+
+  text-align:right;
+}
+
+.surah-button:hover{
+  background:#fff8e5;
+  color:var(--green);
+}
+
+.surah-num{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  min-width:34px;
+  height:34px;
+
+  border-radius:50%;
+
+  background:var(--green);
+  color:white;
+}
+
+.surah-name{
+  font-size:17px;
+  font-weight:600;
+}
+
+/* =========================
+   TAFSEER
+========================= */
+
+.tafseer-box{
+  padding:16px;
+  background:#f9f7ef;
+  border-right:4px solid var(--gold);
+  border-radius:8px;
+}
+
+.tafseer-text{
+  font-size:19px;
+  line-height:2.5;
+  direction:rtl;
+  white-space:pre-wrap;
+}
+
+/* =========================
+   AUDIO
+========================= */
+
+audio{
+  width:100%;
+  margin:10px 0;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  padding:22px 15px;
+  background:var(--deep);
+  color:white;
+  text-align:center;
+  border-top:3px solid var(--gold);
+}
+
+.build-version{
+  margin-top:8px;
+  color:#d9c995;
+  font-size:11px;
+  opacity:.8;
+}
+
+[hidden]{
+  display:none!important;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px){
+
+  .options,
+  .surah-list{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:15px;
+  }
+
+  .arabic{
+    font-size:33px;
+    line-height:2.3;
+  }
+
+  .bismillah{
+    font-size:28px;
+  }
+
+  .ayah-number{
+    width:32px;
+    height:32px;
+    font-size:17px;
+  }
 }
 </style>
 </head>
@@ -182,477 +533,461 @@ footer {
 </div>
 
 <header>
+
   <div class="logo-area">
-    <img class="brand-logo" src="ilmauraquran%20LOGO.png" alt="Ilm Aura Quran Logo">
+    <img
+      class="brand-logo"
+      src="ilmauraquran%20LOGO.png"
+      alt="Ilm Aura Quran Logo">
   </div>
-  <p class="tagline-urdu">قرآن کو سمجھیں، پڑھیں اور سنیں</p>
-  <p>Understand the Quran, read and listen</p>
-  <p class="slogan">Quran Se Noor — Ilm Se Shaoor</p>
-  <p class="intro-urdu">قرآن پڑھیں، سمجھیں اور اپنی زندگی میں روشنی لائیں</p>
+
+  <p class="tagline-urdu">
+    قرآن کو سمجھیں، پڑھیں اور سنیں
+  </p>
+
+  <p>
+    Understand the Quran, read and listen
+  </p>
+
+  <p class="slogan">
+    Quran Se Noor — Ilm Se Shaoor
+  </p>
+
+  <p class="intro-urdu">
+    قرآن پڑھیں، سمجھیں اور اپنی زندگی میں روشنی لائیں
+  </p>
+
   <div class="options">
+
     <a class="option" href="#surah-list">
-      <h2>تمام سورتیں</h2><p>All 114 Surahs</p>
+      <h2>تمام سورتیں</h2>
+      <p>All 114 Surahs</p>
     </a>
+
     <a class="option" href="#surah-list">
-      <h2>قرآن فہمی</h2><p>Read, Understand & Listen</p>
+      <h2>قرآن فہمی</h2>
+      <p>Read, Understand & Listen</p>
     </a>
+
   </div>
+
 </header>
 
 <main>
+
 <section class="card" id="surah-list">
-  <h2 class="section-title" style="text-align:center">قرآن مجید — تمام 114 سورتیں</h2>
+
+  <h2 class="section-title" style="text-align:center">
+    قرآن مجید — تمام 114 سورتیں
+  </h2>
+
   <div class="search-area">
-    <input type="search" id="surahSearch"
-      placeholder="سورۃ کا نام یا نمبر تلاش کریں..." aria-label="Search Surah">
+
+    <input
+      type="search"
+      id="surahSearch"
+      placeholder="سورۃ کا نام یا نمبر تلاش کریں..."
+      aria-label="Search Surah">
+
   </div>
-  <div id="listStatus" class="status">تمام سورتیں لوڈ ہو رہی ہیں...</div>
+
+  <div id="listStatus" class="status">
+    تمام سورتیں تیار کی جا رہی ہیں...
+  </div>
+
   <div id="surahList" class="surah-list"></div>
+
 </section>
+
 
 <section class="card surah-page" id="surah-page">
-  <button id="backButton">← تمام سورتیں</button>
+
+  <button id="backButton">
+    ← تمام سورتیں
+  </button>
 
   <div class="surah-heading">
+
     <h2 id="surahName"></h2>
+
     <p class="surah-english" id="surahEnglish"></p>
+
     <div class="surah-meta" id="surahMeta"></div>
+
   </div>
 
-  <div id="bismillah" class="bismillah" lang="ar" dir="rtl">
+
+  <div
+    id="bismillah"
+    class="bismillah"
+    lang="ar"
+    dir="rtl">
+
     بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+
   </div>
 
-  <h3 class="section-title">قرآن مجید — عربی متن</h3>
-  <div id="arabicStatus" class="status">عربی متن لوڈ ہو رہا ہے...</div>
-  <div id="arabicText" class="arabic" lang="ar" dir="rtl"></div>
 
-  <h3 class="section-title">اردو ترجمہ</h3>
-  <p class="muted">ترجمہ: مولانا فتح محمد جالندھری</p>
-  <div id="translationStatus" class="status">اردو ترجمہ لوڈ ہو رہا ہے...</div>
-  <div id="translationText" class="urdu" lang="ur" dir="rtl"></div>
+  <h3 class="section-title">
+    قرآن مجید — عربی متن
+  </h3>
 
-  <h3 class="section-title">تفسیر — بیان القرآن</h3>
+  <div id="arabicStatus" class="status">
+    عربی متن لوڈ ہو رہا ہے...
+  </div>
+
+  <div
+    id="arabicText"
+    class="arabic"
+    lang="ar"
+    dir="rtl">
+  </div>
+
+
+  <h3 class="section-title">
+    اردو ترجمہ
+  </h3>
+
+  <p class="muted">
+    ترجمہ: مولانا فتح محمد جالندھری
+  </p>
+
+  <div id="translationStatus" class="status">
+    اردو ترجمہ لوڈ ہو رہا ہے...
+  </div>
+
+  <div
+    id="translationText"
+    class="urdu"
+    lang="ur"
+    dir="rtl">
+  </div>
+
+
+  <h3 class="section-title">
+    تفسیر — بیان القرآن
+  </h3>
+
   <div class="tafseer-box">
-    <p class="muted">ڈاکٹر اسرار احمد</p>
+
+    <p class="muted">
+      ڈاکٹر اسرار احمد
+    </p>
+
     <div id="tafseerText" class="tafseer-text">
-      اس سورۃ کی مستند اور مجاز بیان القرآن تفسیر یہاں شامل کی جائے گی۔
+      اس سورۃ کی مستند اور مجاز بیان القرآن تفسیر ابھی شامل نہیں کی گئی۔
     </div>
+
   </div>
 
-  <h3 class="section-title">تلاوت قرآن مجید</h3>
-  <p class="muted">تلاوت: شیخ یاسر الدوسری — Sheikh Yasser Al-Dosari</p>
-  <audio id="surahAudio" controls preload="none">
-    آپ کا براؤزر آڈیو سپورٹ نہیں کرتا۔
-  </audio>
-  <div id="audioStatus" class="muted">تلاوت منتخب کی جا رہی ہے...</div>
 
-  <button id="backButtonBottom">← واپس تمام سورتیں</button>
+  <h3 class="section-title">
+    تلاوت قرآن مجید
+  </h3>
+
+  <p class="muted">
+    تلاوت: شیخ یاسر الدوسری — Sheikh Yasser Al-Dosari
+  </p>
+
+  <audio
+    id="surahAudio"
+    controls
+    preload="none">
+
+    آپ کا براؤزر آڈیو سپورٹ نہیں کرتا۔
+
+  </audio>
+
+  <div id="audioStatus" class="muted">
+    تلاوت منتخب کی جا رہی ہے...
+  </div>
+
+
+  <button id="backButtonBottom">
+    ← واپس تمام سورتیں
+  </button>
+
 </section>
+
 </main>
 
+
 <footer>
+
   <div>Ilm Aura Quran</div>
-  <div>Quran Se Noor — Ilm Se Shaoor</div>
-  <div>Learn with understanding</div>
-  <div class="build-version" id="buildVersion"></div>
+
+  <div>
+    Quran Se Noor — Ilm Se Shaoor
+  </div>
+
+  <div>
+    Learn with understanding
+  </div>
+
+  <div
+    class="build-version"
+    id="buildVersion">
+  </div>
+
 </footer>
+
 
 <script>
 "use strict";
 
-const API = "https://api.alquran.cloud/v1";
-const AUDIO_API = "https://quranapi.pages.dev/api/audio/";
-const BUILD_VERSION = "2026-11-10-YASSER-03";
+/* =========================================================
+   API
+========================================================= */
 
-let allSurahs = [];
+const API = "https://api.alquran.cloud/v1";
+
+const AUDIO_API =
+  "https://quranapi.pages.dev/api/audio/";
+
+const BUILD_VERSION =
+  "2026-11-10-FINAL-114-YASSER-01";
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
 let currentSurah = null;
 let requestNumber = 0;
 
-const tafseerData = {};
+
+/* =========================================================
+   114 SURAH LIST
+   API par depend nahi karegi.
+========================================================= */
+
+const allSurahs = [
+
+  ["الفاتحة","Al-Faatiha","The Opening",7,"Meccan"],
+  ["البقرة","Al-Baqarah","The Cow",286,"Medinan"],
+  ["آل عمران","Aal-i-Imraan","The Family of Imraan",200,"Medinan"],
+  ["النساء","An-Nisaa","The Women",176,"Medinan"],
+  ["المائدة","Al-Maaida","The Table",120,"Medinan"],
+  ["الأنعام","Al-An'aam","The Cattle",165,"Meccan"],
+  ["الأعراف","Al-A'raaf","The Heights",206,"Meccan"],
+  ["الأنفال","Al-Anfaal","The Spoils of War",75,"Medinan"],
+  ["التوبة","At-Tawba","The Repentance",129,"Medinan"],
+  ["يونس","Yunus","Jonah",109,"Meccan"],
+  ["هود","Hud","Hud",123,"Meccan"],
+  ["يوسف","Yusuf","Joseph",111,"Meccan"],
+  ["الرعد","Ar-Ra'd","The Thunder",43,"Medinan"],
+  ["إبراهيم","Ibrahim","Abraham",52,"Meccan"],
+  ["الحجر","Al-Hijr","The Rocky Tract",99,"Meccan"],
+  ["النحل","An-Nahl","The Bee",128,"Meccan"],
+  ["الإسراء","Al-Israa","The Night Journey",111,"Meccan"],
+  ["الكهف","Al-Kahf","The Cave",110,"Meccan"],
+  ["مريم","Maryam","Mary",98,"Meccan"],
+  ["طه","Taa-Haa","Ta-Ha",135,"Meccan"],
+  ["الأنبياء","Al-Anbiyaa","The Prophets",112,"Meccan"],
+  ["الحج","Al-Hajj","The Pilgrimage",78,"Medinan"],
+  ["المؤمنون","Al-Mu'minoon","The Believers",118,"Meccan"],
+  ["النور","An-Noor","The Light",64,"Medinan"],
+  ["الفرقان","Al-Furqaan","The Criterion",77,"Meccan"],
+  ["الشعراء","Ash-Shu'araa","The Poets",227,"Meccan"],
+  ["النمل","An-Naml","The Ant",93,"Meccan"],
+  ["القصص","Al-Qasas","The Stories",88,"Meccan"],
+  ["العنكبوت","Al-Ankaboot","The Spider",69,"Meccan"],
+  ["الروم","Ar-Room","The Romans",60,"Meccan"],
+  ["لقمان","Luqman","Luqman",34,"Meccan"],
+  ["السجدة","As-Sajda","The Prostration",30,"Meccan"],
+  ["الأحزاب","Al-Ahzaab","The Clans",73,"Medinan"],
+  ["سبإ","Saba","Sheba",54,"Meccan"],
+  ["فاطر","Faatir","The Originator",45,"Meccan"],
+  ["يس","Yaseen","Yaseen",83,"Meccan"],
+  ["الصافات","As-Saaffaat","Those Ranges in Ranks",182,"Meccan"],
+  ["ص","Saad","Saad",88,"Meccan"],
+  ["الزمر","Az-Zumar","The Groups",75,"Meccan"],
+  ["غافر","Ghaafir","The Forgiver",85,"Meccan"],
+  ["فصلت","Fussilat","Explained in Detail",54,"Meccan"],
+  ["الشورى","Ash-Shura","Consultation",53,"Meccan"],
+  ["الزخرف","Az-Zukhruf","Ornaments of Gold",89,"Meccan"],
+  ["الدخان","Ad-Dukhaan","The Smoke",59,"Meccan"],
+  ["الجاثية","Al-Jaathiya","Crouching",37,"Meccan"],
+  ["الأحقاف","Al-Ahqaaf","The Dunes",35,"Meccan"],
+  ["محمد","Muhammad","Muhammad",38,"Medinan"],
+  ["الفتح","Al-Fath","The Victory",29,"Medinan"],
+  ["الحجرات","Al-Hujuraat","The Inner Apartments",18,"Medinan"],
+  ["ق","Qaaf","Qaaf",45,"Meccan"],
+  ["الذاريات","Adh-Dhaariyat","The Winnowing Winds",60,"Meccan"],
+  ["الطور","At-Toor","The Mount",49,"Meccan"],
+  ["النجم","An-Najm","The Star",62,"Meccan"],
+  ["القمر","Al-Qamar","The Moon",55,"Meccan"],
+  ["الرحمن","Ar-Rahmaan","The Beneficent",78,"Medinan"],
+  ["الواقعة","Al-Waaqia","The Inevitable",96,"Meccan"],
+  ["الحديد","Al-Hadid","The Iron",29,"Medinan"],
+  ["المجادلة","Al-Mujaadila","The Pleading Woman",22,"Medinan"],
+  ["الحشر","Al-Hashr","The Exile",24,"Medinan"],
+  ["الممتحنة","Al-Mumtahana","She that is to be examined",13,"Medinan"],
+  ["الصف","As-Saff","The Ranks",14,"Medinan"],
+  ["الجمعة","Al-Jumu'a","Friday",11,"Medinan"],
+  ["المنافقون","Al-Munaafiqoon","The Hypocrites",11,"Medinan"],
+  ["التغابن","At-Taghaabun","Mutual Disillusion",18,"Medinan"],
+  ["الطلاق","At-Talaaq","The Divorce",12,"Medinan"],
+  ["التحريم","At-Tahrim","The Prohibition",12,"Medinan"],
+  ["الملك","Al-Mulk","The Sovereignty",30,"Meccan"],
+  ["القلم","Al-Qalam","The Pen",52,"Meccan"],
+  ["الحاقة","Al-Haaqqa","The Reality",52,"Meccan"],
+  ["المعارج","Al-Ma'aarij","The Ascending Stairways",44,"Meccan"],
+  ["نوح","Nooh","Noah",28,"Meccan"],
+  ["الجن","Al-Jinn","The Jinn",28,"Meccan"],
+  ["المزمل","Al-Muzzammil","The Enshrouded One",20,"Meccan"],
+  ["المدثر","Al-Muddaththir","The Cloaked One",56,"Meccan"],
+  ["القيامة","Al-Qiyaama","The Resurrection",40,"Meccan"],
+  ["الإنسان","Al-Insaan","Man",31,"Medinan"],
+  ["المرسلات","Al-Mursalaat","The Emissary",50,"Meccan"],
+  ["النبأ","An-Naba","The Announcement",40,"Meccan"],
+  ["النازعات","An-Naazi'aat","Those Who Drag Forth",46,"Meccan"],
+  ["عبس","Abasa","He Frowned",42,"Meccan"],
+  ["التكوير","At-Takwir","The Overthrowing",29,"Meccan"],
+  ["الإنفطار","Al-Infitaar","The Cleaving",19,"Meccan"],
+  ["المطففين","Al-Mutaffifin","Defrauding",36,"Meccan"],
+  ["الإنشقاق","Al-Inshiqaaq","The Splitting Asunder",25,"Meccan"],
+  ["البروج","Al-Burooj","The Mansions of the Stars",22,"Meccan"],
+  ["الطارق","At-Taariq","The Night-Comer",17,"Meccan"],
+  ["الأعلى","Al-A'laa","The Most High",19,"Meccan"],
+  ["الغاشية","Al-Ghaashiya","The Overwhelming",26,"Meccan"],
+  ["الفجر","Al-Fajr","The Dawn",30,"Meccan"],
+  ["البلد","Al-Balad","The City",20,"Meccan"],
+  ["الشمس","Ash-Shams","The Sun",15,"Meccan"],
+  ["الليل","Al-Lail","The Night",21,"Meccan"],
+  ["الضحى","Ad-Dhuhaa","The Morning Hours",11,"Meccan"],
+  ["الشرح","Ash-Sharh","The Opening Forth",8,"Meccan"],
+  ["التين","At-Tin","The Fig",8,"Meccan"],
+  ["العلق","Al-Alaq","The Clot",19,"Meccan"],
+  ["القدر","Al-Qadr","The Power",5,"Meccan"],
+  ["البينة","Al-Bayyina","The Clear Evidence",8,"Medinan"],
+  ["الزلزلة","Az-Zalzala","The Earthquake",8,"Medinan"],
+  ["العاديات","Al-Aadiyaat","The Courser",11,"Meccan"],
+  ["القارعة","Al-Qaari'a","The Striking Hour",11,"Meccan"],
+  ["التكاثر","At-Takaathur","The Piling Up",8,"Meccan"],
+  ["العصر","Al-Asr","The Declining Day",3,"Meccan"],
+  ["الهمزة","Al-Humaza","The Traducer",9,"Meccan"],
+  ["الفيل","Al-Fil","The Elephant",5,"Meccan"],
+  ["قريش","Quraish","Quraish",4,"Meccan"],
+  ["الماعون","Al-Maa'un","The Small Kindnesses",7,"Meccan"],
+  ["الكوثر","Al-Kawthar","Abundance",3,"Meccan"],
+  ["الكافرون","Al-Kaafiroon","The Disbelievers",6,"Meccan"],
+  ["النصر","An-Nasr","The Help",3,"Medinan"],
+  ["المسد","Al-Masad","The Palm Fibre",5,"Meccan"],
+  ["الإخلاص","Al-Ikhlaas","Sincerity",4,"Meccan"],
+  ["الفلق","Al-Falaq","The Daybreak",5,"Meccan"],
+  ["الناس","An-Naas","Mankind",6,"Meccan"]
+
+].map((item,index)=>({
+
+  number:index + 1,
+  name:item[0],
+  englishName:item[1],
+  englishNameTranslation:item[2],
+  numberOfAyahs:item[3],
+  revelationType:item[4]
+
+}));
+
+
+/* =========================================================
+   FOOTER VERSION
+========================================================= */
 
 document.getElementById("buildVersion").textContent =
   "Website build: " + BUILD_VERSION;
 
-function arabicDigits(number) {
-  return String(number).replace(/[0-9]/g, digit =>
-    "٠١٢٣٤٥٦٧٨٩"[Number(digit)]
+
+/* =========================================================
+   HELPERS
+========================================================= */
+
+function arabicDigits(number){
+
+  return String(number).replace(
+    /[0-9]/g,
+    digit => "٠١٢٣٤٥٦٧٨٩"[Number(digit)]
   );
+
 }
 
-function setStatus(id, message) {
-  document.getElementById(id).textContent = message;
+
+function setStatus(id,message){
+
+  const element = document.getElementById(id);
+
+  if(element){
+    element.textContent = message;
+  }
+
 }
 
-function addMeta(container, text) {
+
+function addMeta(container,text){
+
   const span = document.createElement("span");
+
   span.className = "meta-item";
+
   span.textContent = text;
+
   container.appendChild(span);
+
 }
 
-async function fetchJSON(url) {
-  const response = await fetch(url, {cache:"no-store"});
-  if (!response.ok) throw new Error("Server response: " + response.status);
+
+/* =========================================================
+   FETCH JSON
+========================================================= */
+
+async function fetchJSON(url){
+
+  const response = await fetch(
+    url,
+    {
+      method:"GET",
+      cache:"no-store"
+    }
+  );
+
+  if(!response.ok){
+
+    throw new Error(
+      "HTTP " + response.status
+    );
+
+  }
 
   const json = await response.json();
 
-  if (json.code !== undefined && json.code !== 200) {
-    throw new Error("Quran API error");
+  if(
+    json &&
+    json.code !== undefined &&
+    json.code !== 200
+  ){
+
+    throw new Error(
+      "API returned code " + json.code
+    );
+
   }
 
-  return json.data !== undefined ? json.data : json;
+  return json.data !== undefined
+    ? json.data
+    : json;
+
 }
 
-async function initializeQuran() {
-  try {
-    setStatus("listStatus","تمام سورتیں لوڈ ہو رہی ہیں...");
-    allSurahs = await fetchJSON(API + "/surah");
 
-    if (!Array.isArray(allSurahs) || allSurahs.length !== 114) {
-      throw new Error("Complete Surah list unavailable");
-    }
+/* =========================================================
+   RENDER 114 SURAH LIST
+========================================================= */
 
-    renderSurahList(allSurahs);
-    setStatus("listStatus","الحمدللہ! تمام 114 سورتیں دستیاب ہیں۔");
-    handleRoute();
+function renderSurahList(surahs){
 
-  } catch(error) {
-    setStatus("listStatus","سورتیں لوڈ نہیں ہو سکیں۔ انٹرنیٹ چیک کرکے دوبارہ کوشش کریں۔");
-    console.error(error);
-  }
-}
+  const list =
+    document.getElementById("surahList");
 
-function renderSurahList(surahs) {
-  const list = document.getElementById("surahList");
   list.replaceChildren();
 
-  surahs.forEach(surah => {
-    const button = document.createElement("button");
-    button.className = "surah-button";
-    button.type = "button";
-
-    const number = document.createElement("span");
-    number.className = "surah-num";
-    number.textContent = surah.number;
-
-    const name = document.createElement("span");
-    name.className = "surah-name";
-    name.textContent = surah.name;
-
-    const english = document.createElement("span");
-    english.textContent = surah.englishName;
-    english.style.fontSize = "12px";
-
-    button.append(number,name,english);
-    button.addEventListener("click",() => {
-      location.hash = "surah-" + surah.number;
-    });
-
-    list.appendChild(button);
-  });
-}
-
-document.getElementById("surahSearch").addEventListener("input",function() {
-  const query = this.value.trim().toLowerCase();
-
-  const filtered = allSurahs.filter(surah =>
-    surah.name.includes(query) ||
-    surah.englishName.toLowerCase().includes(query) ||
-    String(surah.number).includes(query)
-  );
-
-  renderSurahList(filtered);
-});
-
-function handleRoute() {
-  const match = location.hash.match(/^#surah-(\d+)$/);
-
-  if (match) {
-    const number = Number(match[1]);
-
-    if (number >= 1 && number <= 114 && allSurahs.length) {
-      loadSurah(number);
-      return;
-    }
-  }
-
-  showSurahList(false);
-}
-
-window.addEventListener("hashchange",handleRoute);
-
-document.getElementById("backButton").addEventListener("click",() => {
-  location.hash = "surah-list";
-});
-
-document.getElementById("backButtonBottom").addEventListener("click",() => {
-  location.hash = "surah-list";
-});
-
-function showSurahList(scroll = true) {
-  document.querySelector(".surah-page").classList.remove("active");
-  document.getElementById("surah-list").style.display = "block";
-
-  if (scroll) window.scrollTo({top:0,behavior:"smooth"});
-}
-
-/*
-  Bismillah ko sirf ayat ke bilkul shuru se remove karta hai.
-  Surah An-Naml ki ayat 30 is function se affect nahi hoti,
-  kyun ke sirf har Surah ki pehli ayat par ye function chalega.
-*/
-function removeStartingBismillah(text) {
-  const target = "بسم الله الرحمن الرحيم";
-  let accumulated = "";
-  let originalIndex = 0;
-
-  for (const char of text) {
-    originalIndex += char.length;
-
-    let part = char.normalize("NFD")
-      .replace(/\p{M}/gu,"")
-      .replace(/ـ/g,"")
-      .replace(/[ٱأإآ]/g,"ا");
-
-    accumulated += part;
-
-    const normalized = accumulated
-      .replace(/\s+/g," ")
-      .trim();
-
-    if (normalized === target) {
-      return text.slice(originalIndex).trim();
-    }
-
-    if (!target.startsWith(normalized)) {
-      return text;
-    }
-  }
-
-  return text;
-}
-
-async function loadSurah(number) {
-  const surah = allSurahs.find(item => item.number === number);
-  if (!surah) return;
-
-  const thisRequest = ++requestNumber;
-  currentSurah = number;
-
-  document.getElementById("surah-list").style.display = "none";
-  document.querySelector(".surah-page").classList.add("active");
-
-  document.getElementById("surahName").textContent = surah.name;
-  document.getElementById("surahEnglish").textContent =
-    surah.englishName + " — " + surah.englishNameTranslation;
-
-  const meta = document.getElementById("surahMeta");
-  meta.replaceChildren();
-
-  addMeta(meta,surah.revelationType === "Meccan" ? "مکی" : "مدنی");
-  addMeta(meta,"آیات: " + arabicDigits(surah.numberOfAyahs));
-  addMeta(meta,"سورۃ نمبر: " + arabicDigits(number));
-
-  // Ruku count API mein available nahi, is liye guess nahi kiya gaya.
-  document.getElementById("bismillah").hidden = number === 9;
-
-  document.getElementById("arabicText").replaceChildren();
-  document.getElementById("translationText").replaceChildren();
-
-  setStatus("arabicStatus","عربی متن لوڈ ہو رہا ہے...");
-  setStatus("translationStatus","اردو ترجمہ لوڈ ہو رہا ہے...");
-  setStatus("audioStatus","شیخ یاسر الدوسری کی تلاوت لوڈ ہو رہی ہے...");
-
-  document.getElementById("tafseerText").textContent =
-    tafseerData[number] ||
-    "اس سورۃ کی مستند اور مجاز بیان القرآن تفسیر ابھی شامل نہیں کی گئی۔";
-
-  const audio = document.getElementById("surahAudio");
-  audio.pause();
-  audio.removeAttribute("src");
-  audio.load();
-
-  window.scrollTo({top:0,behavior:"smooth"});
-
-  await Promise.all([
-    loadArabic(number,thisRequest),
-    loadTranslation(number,thisRequest),
-    loadYasserAudio(number,thisRequest)
-  ]);
-}
-
-/* Sheikh Yasser Al-Dosari full Surah audio: reciter ID 4 */
-async function loadYasserAudio(number,requestId) {
-  const audio = document.getElementById("surahAudio");
-
-  try {
-    const data = await fetchJSON(AUDIO_API + number + ".json");
-
-    if (requestId !== requestNumber) return;
-
-    const recitation = data["4"];
-
-    if (!recitation || !recitation.url) {
-      throw new Error("Yasser Al-Dosari audio not found");
-    }
-
-    audio.dataset.fallbackUrl = recitation.originalUrl || "";
-    audio.dataset.fallbackUsed = "false";
-
-    audio.onerror = function() {
-      if (requestId !== requestNumber) return;
-
-      const fallback = audio.dataset.fallbackUrl;
-
-      if (fallback && audio.dataset.fallbackUsed !== "true") {
-        audio.dataset.fallbackUsed = "true";
-        audio.src = fallback;
-        audio.load();
-      } else {
-        setStatus("audioStatus","اس سورۃ کی آڈیو فی الحال دستیاب نہیں۔");
-      }
-    };
-
-    audio.src = recitation.url;
-    audio.load();
-
-    setStatus("audioStatus","شیخ یاسر الدوسری کی تلاوت تیار ہے۔ Play دبائیں۔");
-
-  } catch(error) {
-    if (requestId !== requestNumber) return;
-
-    audio.removeAttribute("src");
-    audio.load();
-
-    setStatus("audioStatus","یاسر الدوسری کی آڈیو لوڈ نہیں ہو سکی۔ دوبارہ کوشش کریں۔");
-    console.error("Yasser audio error:",error);
-  }
-}
-
-/* Fatiha: Bismillah heading hai; uske baad 7 ayat display hongi. */
-function splitFatihaArabic(verses) {
-  const result = verses.slice(1);
-
-  if (result.length !== 6) {
-    throw new Error("Unexpected Fatiha Arabic verse count");
-  }
-
-  const last = result.pop();
-  const splitIndex = last.text.indexOf("غَيْرِ");
-
-  if (splitIndex < 0) {
-    throw new Error("Fatiha Arabic verse boundary not found");
-  }
-
-  result.push({text:last.text.slice(0,splitIndex).trim()});
-  result.push({text:last.text.slice(splitIndex).trim()});
-
-  return result;
-}
-
-function splitFatihaTranslation(verses) {
-  const result = verses.slice(1);
-
-  if (result.length !== 6) {
-    throw new Error("Unexpected Fatiha translation count");
-  }
-
-  const last = result.pop();
-  const patterns = ["نہ ان کے","نہ ان کا","نہ ان لوگوں"];
-  let splitIndex = -1;
-
-  for (const pattern of patterns) {
-    splitIndex = last.text.indexOf(pattern);
-    if (splitIndex >= 0) break;
-  }
-
-  if (splitIndex < 0) {
-    throw new Error("Fatiha translation boundary not found");
-  }
-
-  result.push({text:last.text.slice(0,splitIndex).trim()});
-  result.push({text:last.text.slice(splitIndex).trim()});
-
-  return result;
-}
-
-async function loadArabic(number,requestId) {
-  try {
-    const data = await fetchJSON(
-      API + "/surah/" + number + "/quran-uthmani"
-    );
-
-    if (requestId !== requestNumber) return;
-
-    let verses = data.ayahs;
-
-    if (number === 1) {
-      verses = splitFatihaArabic(verses);
-    } else if (verses.length > 0) {
-      verses = verses.map((ayah,index) => ({
-        ...ayah,
-        text:index === 0
-          ? removeStartingBismillah(ayah.text)
-          : ayah.text
-      }));
-    }
-
-    const fragment = document.createDocumentFragment();
-
-    verses.forEach((ayah,index) => {
-      const wrapper = document.createElement("span");
-      wrapper.className = "ayah-item";
-
-      const text = document.createElement("span");
-      text.className = "ayah";
-      text.textContent = ayah.text + " ";
-
-      const circle = document.createElement("span");
-      circle.className = "ayah-number";
-      circle.textContent = arabicDigits(index + 1);
-
-      wrapper.append(text,circle);
-      fragment.appendChild(wrapper);
-    });
-
-    document.getElementById("arabicText").replaceChildren(fragment);
-    setStatus("arabicStatus","مکمل عربی متن لوڈ ہوگیا۔");
-
-  } catch(error) {
-    if (requestId !== requestNumber) return;
-
-    setStatus("arabicStatus","عربی متن لوڈ یا آیات کی ترتیب درست نہیں ہو سکی۔");
-    console.error(error);
-  }
-}
-
-async function loadTranslation(number,requestId) {
-  try {
-    const data = await fetchJSON(
-      API + "/surah/" + number + "/ur.jalandhry"
-    );
-
-    if (requestId !== requestNumber) return;
-
-    let verses = data.ayahs;
-
-    if (number === 1) {
-      verses = splitFatihaTranslation(verses);
-    }
-
-    const fragment = document.createDocumentFragment();
-
-    verses.forEach((ayah,index) => {
-      const paragraph = document.createElement("p");
-      paragraph.className = "translation-text";
-
-      const numberSpan = document.createElement("span");
-      numberSpan.className = "translation-number";
-      numberSpan.textContent = arabicDigits(index + 1) + "۔ ";
-
-      paragraph.append(numberSpan,document.createTextNode(ayah.text));
-      fragment.appendChild(paragraph);
-    });
-
-    document.getElementById("translat
+  if(!sur
