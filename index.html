@@ -2,15 +2,14 @@
 <html lang="ur">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#183d32">
 
 <title>Ilm Aura Quran | قرآن فہمی</title>
-<meta name="description" content="Read the complete Holy Quran with Urdu translation, Tafseer and audio recitation.">
+<meta name="description" content="Complete Quran with Arabic text, Urdu translation and recitation.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -18,9 +17,8 @@
   --green:#183d32;
   --deep:#102d25;
   --gold:#d7b65e;
-  --light-gold:#f5e4ac;
+  --light:#f5e4ac;
   --page:#f5f7f4;
-  --text:#202b25;
   --border:#e2e7df;
 }
 
@@ -34,9 +32,8 @@ html {
 body {
   margin:0;
   background:var(--page);
-  color:var(--text);
+  color:#202b25;
   font-family:Arial,sans-serif;
-  font-size:16px;
   line-height:1.8;
 }
 
@@ -66,7 +63,6 @@ header {
 .logo-area {
   display:flex;
   justify-content:center;
-  align-items:center;
 }
 
 .brand-logo {
@@ -83,22 +79,18 @@ header {
 .tagline-urdu {
   margin:8px 0;
   font-size:clamp(21px,3vw,30px);
-  text-align:center;
   line-height:2.2;
   font-weight:600;
 }
 
-.tagline-english { margin:5px 0 14px; }
-
 .slogan {
-  color:var(--light-gold);
+  color:var(--light);
   font-size:clamp(17px,2.5vw,23px);
-  font-weight:700;
+  font-weight:bold;
 }
 
 .intro-urdu {
   margin:8px auto 24px;
-  text-align:center;
   font-size:clamp(18px,2.5vw,24px);
   line-height:2.3;
 }
@@ -124,8 +116,6 @@ header {
   text-decoration:none;
 }
 
-.option:hover { background:#fff8e5; }
-
 .option h2 {
   margin:0 0 4px;
   font-size:19px;
@@ -134,7 +124,6 @@ header {
 .option p {
   margin:0;
   text-align:center;
-  font-size:15px;
 }
 
 main {
@@ -152,9 +141,6 @@ main {
   border-radius:16px;
   box-shadow:0 5px 20px #122f220f;
 }
-
-.surah-page { display:none; }
-.surah-page.active { display:block; }
 
 button,.button-link {
   display:inline-block;
@@ -174,6 +160,9 @@ button,.button-link {
 button:hover,.button-link:hover {
   background:var(--deep);
 }
+
+.surah-page { display:none; }
+.surah-page.active { display:block; }
 
 .surah-heading {
   padding:15px 10px;
@@ -207,16 +196,15 @@ button:hover,.button-link:hover {
 
 .meta-item {
   padding:5px 12px;
-  background:#183d32;
-  color:#fff;
+  background:var(--green);
+  color:white;
   border-radius:20px;
   font-size:13px;
 }
 
 .bismillah {
-  position:relative;
   margin:22px 0;
-  padding:17px 35px;
+  padding:17px 12px;
   color:var(--green);
   text-align:center;
   direction:rtl;
@@ -302,12 +290,6 @@ button:hover,.button-link:hover {
   overflow-wrap:anywhere;
 }
 
-audio {
-  display:block;
-  width:100%;
-  margin:18px 0;
-}
-
 .search-area {
   max-width:650px;
   margin:20px auto;
@@ -348,7 +330,7 @@ audio {
   color:var(--green);
 }
 
-.surah-button .surah-num {
+.surah-num {
   display:inline-flex;
   align-items:center;
   justify-content:center;
@@ -359,7 +341,7 @@ audio {
   color:white;
 }
 
-.surah-button .surah-name {
+.surah-name {
   font-family:"Noto Nastaliq Urdu",serif;
   font-size:17px;
 }
@@ -387,6 +369,15 @@ footer {
   border-top:3px solid var(--gold);
 }
 
+.build-version {
+  margin-top:8px;
+  color:#d9c995;
+  font-size:11px;
+  opacity:.8;
+}
+
+[hidden] { display:none!important; }
+
 @media(max-width:500px) {
   .options,.surah-list { grid-template-columns:1fr; }
   .card { padding:15px; }
@@ -400,7 +391,7 @@ footer {
 <body id="top">
 
 <div class="banner">
-  <img src="hame-banner.jpg" alt="Ilm Aura Quran">
+  <img src="hame-banner.jpg" alt="Ilm Aura Quran Banner">
 </div>
 
 <header>
@@ -411,9 +402,7 @@ footer {
   </div>
 
   <p class="tagline-urdu">قرآن کو سمجھیں، پڑھیں اور سنیں</p>
-
   <p>Understand the Quran, read and listen</p>
-
   <p class="slogan">Quran Se Noor — Ilm Se Shaoor</p>
 
   <p class="intro-urdu">
@@ -440,9 +429,7 @@ footer {
   </h2>
 
   <div class="search-area">
-    <input
-      type="search"
-      id="surahSearch"
+    <input type="search" id="surahSearch"
       placeholder="سورۃ کا نام یا نمبر تلاش کریں..."
       aria-label="Search Surah">
   </div>
@@ -455,9 +442,10 @@ footer {
 </section>
 
 <section class="card surah-page" id="surah-page">
-  <button onclick="showSurahList()">← تمام سورتیں</button>
 
-  <div id="surahHeading" class="surah-heading">
+  <button id="backButton">← تمام سورتیں</button>
+
+  <div class="surah-heading">
     <h2 id="surahName"></h2>
     <p class="surah-english" id="surahEnglish"></p>
     <div class="surah-meta" id="surahMeta"></div>
@@ -468,24 +456,19 @@ footer {
   </div>
 
   <h3 class="section-title">قرآن مجید — عربی متن</h3>
-  <div id="arabicStatus" class="status">
-    عربی متن لوڈ ہو رہا ہے...
-  </div>
+  <div id="arabicStatus" class="status">عربی متن لوڈ ہو رہا ہے...</div>
   <div id="arabicText" class="arabic" lang="ar" dir="rtl"></div>
 
   <h3 class="section-title">اردو ترجمہ</h3>
   <p class="muted">ترجمہ: مولانا فتح محمد جالندھری</p>
-  <div id="translationStatus" class="status">
-    اردو ترجمہ لوڈ ہو رہا ہے...
-  </div>
+  <div id="translationStatus" class="status">اردو ترجمہ لوڈ ہو رہا ہے...</div>
   <div id="translationText" class="urdu" lang="ur" dir="rtl"></div>
 
   <h3 class="section-title">تفسیر — بیان القرآن</h3>
-
   <div class="tafseer-box">
     <p class="muted">ڈاکٹر اسرار احمد</p>
     <div id="tafseerText" class="tafseer-text">
-      بیان القرآن کی مستند اور مجاز تفسیر کا متن یہاں شامل کیا جائے گا۔
+      اس سورۃ کی مستند اور مجاز بیان القرآن تفسیر یہاں شامل کی جائے گی۔
     </div>
   </div>
 
@@ -496,7 +479,7 @@ footer {
     آپ کا براؤزر آڈیو سپورٹ نہیں کرتا۔
   </audio>
 
-  <button onclick="showSurahList()">← واپس تمام سورتیں</button>
+  <button id="backButtonBottom">← واپس تمام سورتیں</button>
 </section>
 
 </main>
@@ -505,25 +488,32 @@ footer {
   <div>Ilm Aura Quran</div>
   <div>Quran Se Noor — Ilm Se Shaoor</div>
   <div>Learn with understanding</div>
+  <div class="build-version" id="buildVersion"></div>
 </footer>
 
 <script>
+"use strict";
+
 const API = "https://api.alquran.cloud/v1";
+const BUILD_VERSION = "2026-11-10-FINAL-02";
 
 let allSurahs = [];
 let currentSurah = null;
+let requestNumber = 0;
 
 /*
-  Bayan-ul-Quran:
-  Only verified and authorized text should be added here.
-  Format:
-  tafseerData[3] = "Authorized Surah Aal-e-Imran tafseer text";
+  Add only verified, authorized Bayan-ul-Quran text here.
+  Example:
+  tafseerData[3] = "Authorized text...";
 */
 const tafseerData = {};
 
+document.getElementById("buildVersion").textContent =
+  "Website build: " + BUILD_VERSION;
+
 function arabicDigits(number) {
-  return String(number).replace(/[0-9]/g, d =>
-    "٠١٢٣٤٥٦٧٨٩"[Number(d)]
+  return String(number).replace(/[0-9]/g, digit =>
+    "٠١٢٣٤٥٦٧٨٩"[Number(digit)]
   );
 }
 
@@ -531,23 +521,45 @@ function setStatus(id, message) {
   document.getElementById(id).textContent = message;
 }
 
+function addMeta(container, text) {
+  const span = document.createElement("span");
+  span.className = "meta-item";
+  span.textContent = text;
+  container.appendChild(span);
+}
+
+async function fetchJSON(url) {
+  const response = await fetch(url, {cache:"no-store"});
+
+  if (!response.ok) {
+    throw new Error("Server response: " + response.status);
+  }
+
+  const json = await response.json();
+
+  if (json.code !== 200) {
+    throw new Error("Quran API error");
+  }
+
+  return json.data;
+}
+
 async function initializeQuran() {
   try {
-    const response = await fetch(API + "/surah");
+    setStatus("listStatus","تمام سورتیں لوڈ ہو رہی ہیں...");
 
-    if (!response.ok) throw new Error("Surah list error");
+    allSurahs = await fetchJSON(API + "/surah");
 
-    const json = await response.json();
-
-    if (json.code !== 200 || !Array.isArray(json.data)) {
-      throw new Error("Invalid Surah data");
+    if (!Array.isArray(allSurahs) || allSurahs.length !== 114) {
+      throw new Error("Complete Surah list unavailable");
     }
 
-    allSurahs = json.data;
     renderSurahList(allSurahs);
 
     setStatus("listStatus",
       "الحمدللہ! تمام 114 سورتیں دستیاب ہیں۔");
+
+    handleRoute();
 
   } catch(error) {
     setStatus("listStatus",
@@ -563,6 +575,7 @@ function renderSurahList(surahs) {
   surahs.forEach(surah => {
     const button = document.createElement("button");
     button.className = "surah-button";
+    button.type = "button";
 
     const number = document.createElement("span");
     number.className = "surah-num";
@@ -576,14 +589,16 @@ function renderSurahList(surahs) {
     english.textContent = surah.englishName;
     english.style.fontSize = "12px";
 
-    button.append(number, name, english);
-    button.addEventListener("click", () => loadSurah(surah.number));
+    button.append(number,name,english);
+    button.addEventListener("click",() => {
+      location.hash = "surah-" + surah.number;
+    });
 
     list.appendChild(button);
   });
 }
 
-document.getElementById("surahSearch").addEventListener("input", function() {
+document.getElementById("surahSearch").addEventListener("input",function() {
   const query = this.value.trim().toLowerCase();
 
   const filtered = allSurahs.filter(surah =>
@@ -595,55 +610,81 @@ document.getElementById("surahSearch").addEventListener("input", function() {
   renderSurahList(filtered);
 });
 
-function showSurahList() {
+function handleRoute() {
+  const hash = location.hash;
+
+  const match = hash.match(/^#surah-(\d+)$/);
+
+  if (match) {
+    const number = Number(match[1]);
+
+    if (number >= 1 && number <= 114 && allSurahs.length) {
+      loadSurah(number);
+      return;
+    }
+  }
+
+  showSurahList(false);
+}
+
+window.addEventListener("hashchange",handleRoute);
+
+document.getElementById("backButton").addEventListener("click",() => {
+  location.hash = "surah-list";
+});
+
+document.getElementById("backButtonBottom").addEventListener("click",() => {
+  location.hash = "surah-list";
+});
+
+function showSurahList(scroll = true) {
   document.querySelector(".surah-page").classList.remove("active");
   document.getElementById("surah-list").style.display = "block";
 
-  history.replaceState(null, "", "#surah-list");
-  window.scrollTo({top:0,behavior:"smooth"});
+  if (scroll) {
+    window.scrollTo({top:0,behavior:"smooth"});
+  }
 }
 
 async function loadSurah(number) {
-  const surah = allSurahs.find(s => s.number === number);
+  const surah = allSurahs.find(item => item.number === number);
   if (!surah) return;
 
+  const thisRequest = ++requestNumber;
   currentSurah = number;
 
   document.getElementById("surah-list").style.display = "none";
   document.querySelector(".surah-page").classList.add("active");
 
-  history.replaceState(null, "", "#surah-" + number);
-
   document.getElementById("surahName").textContent = surah.name;
+
   document.getElementById("surahEnglish").textContent =
     surah.englishName + " — " + surah.englishNameTranslation;
 
   const meta = document.getElementById("surahMeta");
   meta.replaceChildren();
 
-  addMeta(meta, surah.revelationType === "Meccan" ? "مکی" : "مدنی");
-  addMeta(meta, "آیات: " + arabicDigits(surah.numberOfAyahs));
+  addMeta(meta,surah.revelationType === "Meccan" ? "مکی" : "مدنی");
+  addMeta(meta,"آیات: " + arabicDigits(surah.numberOfAyahs));
+  addMeta(meta,"سورۃ نمبر: " + arabicDigits(number));
 
-  if (surah.numberOfRukus) {
-    addMeta(meta, "رکوع: " + arabicDigits(surah.numberOfRukus));
-  }
+  // Ruku count is not supplied by this API, so it is not guessed.
 
-  addMeta(meta, "سورۃ نمبر: " + arabicDigits(number));
-
-  document.getElementById("bismillah").hidden = (number === 9);
-
-  setStatus("arabicStatus", "عربی متن لوڈ ہو رہا ہے...");
-  setStatus("translationStatus", "اردو ترجمہ لوڈ ہو رہا ہے...");
+  document.getElementById("bismillah").hidden = number === 9;
 
   document.getElementById("arabicText").replaceChildren();
   document.getElementById("translationText").replaceChildren();
 
+  setStatus("arabicStatus","عربی متن لوڈ ہو رہا ہے...");
+  setStatus("translationStatus","اردو ترجمہ لوڈ ہو رہا ہے...");
+
   document.getElementById("tafseerText").textContent =
     tafseerData[number] ||
-    "اس سورۃ کی مستند بیان القرآن تفسیر ابھی شامل نہیں کی گئی۔ مستند اور مجاز متن دستیاب ہونے پر یہاں مکمل تفسیر دکھائی جائے گی۔";
+    "اس سورۃ کی مستند اور مجاز بیان القرآن تفسیر ابھی شامل نہیں کی گئی۔";
 
   const audio = document.getElementById("surahAudio");
   audio.pause();
+  audio.removeAttribute("src");
   audio.src =
     "https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/" +
     number + ".mp3";
@@ -652,106 +693,157 @@ async function loadSurah(number) {
   window.scrollTo({top:0,behavior:"smooth"});
 
   await Promise.all([
-    loadArabic(number),
-    loadTranslation(number)
+    loadArabic(number,thisRequest),
+    loadTranslation(number,thisRequest)
   ]);
 }
 
-function addMeta(container, text) {
-  const span = document.createElement("span");
-  span.className = "meta-item";
-  span.textContent = text;
-  container.appendChild(span);
+/* Split Fatiha's combined final ayah into verses 6 and 7. */
+function splitFatihaArabic(verses) {
+  const result = verses.slice(1);
+
+  if (result.length !== 6) {
+    throw new Error("Unexpected Fatiha Arabic verse count");
+  }
+
+  const last = result.pop();
+  const splitIndex = last.text.indexOf("غَيْرِ");
+
+  if (splitIndex < 0) {
+    throw new Error("Fatiha Arabic verse boundary not found");
+  }
+
+  result.push({
+    text:last.text.slice(0,splitIndex).trim()
+  });
+
+  result.push({
+    text:last.text.slice(splitIndex).trim()
+  });
+
+  return result;
 }
 
-async function loadArabic(number) {
+/* Split Jalandhry translation at its final verse boundary. */
+function splitFatihaTranslation(verses) {
+  const result = verses.slice(1);
+
+  if (result.length !== 6) {
+    throw new Error("Unexpected Fatiha translation count");
+  }
+
+  const last = result.pop();
+
+  const patterns = ["نہ ان کے","نہ ان کا","نہ ان لوگوں"];
+
+  let splitIndex = -1;
+
+  for (const pattern of patterns) {
+    splitIndex = last.text.indexOf(pattern);
+    if (splitIndex >= 0) break;
+  }
+
+  if (splitIndex < 0) {
+    throw new Error("Fatiha translation boundary not found");
+  }
+
+  result.push({
+    text:last.text.slice(0,splitIndex).trim()
+  });
+
+  result.push({
+    text:last.text.slice(splitIndex).trim()
+  });
+
+  return result;
+}
+
+async function loadArabic(number,requestId) {
   try {
-    const response = await fetch(
-      `${API}/surah/${number}/quran-uthmani`
+    const data = await fetchJSON(
+      API + "/surah/" + number + "/quran-uthmani"
     );
 
-    if (!response.ok) throw new Error("Arabic error");
+    if (requestId !== requestNumber) return;
 
-    const json = await response.json();
+    let verses = data.ayahs;
 
-    if (json.code !== 200 || !json.data?.ayahs) {
-      throw new Error("Arabic unavailable");
+    if (number === 1) {
+      verses = splitFatihaArabic(verses);
     }
 
     const fragment = document.createDocumentFragment();
 
-    json.data.ayahs.forEach(ayah => {
+    verses.forEach((ayah,index) => {
       const wrapper = document.createElement("span");
       wrapper.className = "ayah-item";
 
       const text = document.createElement("span");
       text.className = "ayah";
-
-      /*
-        Fatiha's Bismillah is already displayed above.
-        Keep its first ayah number visible here.
-      */
-      if (number === 1 && ayah.numberInSurah === 1) {
-        text.textContent = "";
-      } else {
-        text.textContent = ayah.text + " ";
-      }
+      text.textContent = ayah.text + " ";
 
       const circle = document.createElement("span");
       circle.className = "ayah-number";
-      circle.textContent = arabicDigits(ayah.numberInSurah);
+      circle.textContent = arabicDigits(index + 1);
 
-      wrapper.append(text, circle);
+      wrapper.append(text,circle);
       fragment.appendChild(wrapper);
     });
 
     document.getElementById("arabicText").replaceChildren(fragment);
 
-    setStatus("arabicStatus", "مکمل عربی متن لوڈ ہوگیا۔");
+    setStatus("arabicStatus","مکمل عربی متن لوڈ ہوگیا۔");
 
   } catch(error) {
+    if (requestId !== requestNumber) return;
+
     setStatus("arabicStatus",
-      "عربی متن لوڈ نہیں ہوسکا۔ دوبارہ کوشش کریں۔");
+      "عربی متن لوڈ یا آیات کی ترتیب درست نہیں ہو سکی۔ دوبارہ کوشش کریں۔");
     console.error(error);
   }
 }
 
-async function loadTranslation(number) {
+async function loadTranslation(number,requestId) {
   try {
-    const response = await fetch(
-      `${API}/surah/${number}/ur.jalandhry`
+    const data = await fetchJSON(
+      API + "/surah/" + number + "/ur.jalandhry"
     );
 
-    if (!response.ok) throw new Error("Translation error");
+    if (requestId !== requestNumber) return;
 
-    const json = await response.json();
+    let verses = data.ayahs;
 
-    if (json.code !== 200 || !json.data?.ayahs) {
-      throw new Error("Translation unavailable");
+    if (number === 1) {
+      verses = splitFatihaTranslation(verses);
     }
 
     const fragment = document.createDocumentFragment();
 
-    json.data.ayahs.forEach(ayah => {
+    verses.forEach((ayah,index) => {
       const paragraph = document.createElement("p");
       paragraph.className = "translation-text";
 
       const numberSpan = document.createElement("span");
       numberSpan.className = "translation-number";
-      numberSpan.textContent =
-        arabicDigits(ayah.numberInSurah) + "۔ ";
+      numberSpan.textContent = arabicDigits(index + 1) + "۔ ";
 
-      paragraph.append(numberSpan, document.createTextNode(ayah.text));
+      paragraph.append(
+        numberSpan,
+        document.createTextNode(ayah.text)
+      );
+
       fragment.appendChild(paragraph);
     });
 
     document.getElementById("translationText").replaceChildren(fragment);
 
-    setStatus("translationStatus", "مکمل اردو ترجمہ لوڈ ہوگیا۔");
+    setStatus("translationStatus","مکمل اردو ترجمہ لوڈ ہوگیا۔");
 
   } catch(error) {
+    if (requestId !== requestNumber) return;
+
     setStatus("translationStatus",
-      "اردو ترجمہ لوڈ نہیں ہوسکا۔ دوبارہ کوشش کریں۔");
+      "اردو ترجمہ یا آیات کی ترتیب درست نہیں ہو سکی۔");
     console.error(error);
   }
 }
